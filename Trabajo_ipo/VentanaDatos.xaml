@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="VentanaDatos" Height="450" Width="800">
+        Title="VentanaDatos" Height="768" Width="1366" WindowState="Maximized">
     <Grid>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="28"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="144*"/>
+                <RowDefinition Height="17*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="42*"/>
+                <ColumnDefinition Width="457*"/>
+                <ColumnDefinition Width="42*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="654,142,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Mr." VerticalAlignment="Top" Width="252" Height="26" TextAlignment="Center"/>
+            <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="654,250,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Worldwide" VerticalAlignment="Top" Width="252" Height="26" TextAlignment="Center"/>
+            <Label x:Name="lblNombre" Grid.Column="1" Content="Nombre:" HorizontalAlignment="Center" Margin="0,137,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="81" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" FontWeight="Bold"/>
+            <Label x:Name="lblApellidos" Grid.Column="1" Content="Apellidos:" HorizontalAlignment="Center" Margin="0,245,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="81" FontWeight="Bold" FontFamily="Verdana" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Menu Grid.ColumnSpan="3">
+                <MenuItem Header="Ayuda" Height="28"></MenuItem>
+                <MenuItem Header="Acerca de" Height="28"></MenuItem>
+                <MenuItem Header="Salir" Height="28" Click="MenuItem_Click"></MenuItem>
+            </Menu>
+            <Image x:Name="fotoUsuario" Grid.Column="1" HorizontalAlignment="Left" Height="158" Margin="211,130,0,0" Grid.Row="2" VerticalAlignment="Top" Width="209" Source="/Imagenes/usuario.PNG"/>
+            <Label x:Name="lblApellidos_Copy" Grid.Column="1" Content="Foto del usuario" HorizontalAlignment="Left" Margin="256,311,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="117" FontFamily="Verdana" FontWeight="Bold" RenderTransformOrigin="0.244,1.155"/>
+        </Grid>
     </Grid>
 </Window>

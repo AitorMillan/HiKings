@@ -23,6 +23,7 @@ namespace Trabajo_ipo
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowState = WindowState.Maximized;
         }
     
 
