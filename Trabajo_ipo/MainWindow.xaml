@@ -37,6 +37,7 @@
             <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="178" Width="324" Source="/Captura de pantalla 2022-12-12 122451.png" RenderTransformOrigin="1.119,0.421" VerticalAlignment="Center"/>
             <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="162" FontSize="36" Width="839" Background="#FFCCCBCB" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,20,10,20"/>
         </WrapPanel>
+        <Button Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="722,320,0,0" Grid.Row="2" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
