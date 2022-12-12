@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-            Title="MainWindow" Height="1080" Width="1920" WindowStartupLocation="Manual" WindowState="Normal">
+            Title="MainWindow" Height="1080" Width="1920" WindowState="Normal">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -18,7 +18,7 @@
             <RowDefinition Height="36*"/>
             <RowDefinition Height="167*"/>
         </Grid.RowDefinitions>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="104,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="20" Width="40" Grid.Row="2" Grid.ColumnSpan="2">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="104,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="20" Width="40" Grid.Row="2" Grid.ColumnSpan="2" Click="Button_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

@@ -10,27 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Trabajo_ipo
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para VentanaDatos.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class VentanaDatos : Window
     {
-        public MainWindow()
+        public VentanaDatos()
         {
             InitializeComponent();
-        }
-    
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            VentanaDatos datos = new VentanaDatos();
-            datos.Show();
-            this.Close();
         }
     }
 }
