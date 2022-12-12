@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-            Title="MainWindow" Height="1080" Width="1920" WindowState="Normal">
+            Title="Login" Height="859" Width="1526" WindowState="Normal">
 
-    <Grid>
+    <Grid Margin="0,0,0,-6">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="71*"/>
             <ColumnDefinition Width="800*"/>
@@ -15,15 +15,17 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="28"/>
-            <RowDefinition Height="36*"/>
-            <RowDefinition Height="167*"/>
+            <RowDefinition Height="169*"/>
+            <RowDefinition Height="104*"/>
+            <RowDefinition Height="389*"/>
+            <RowDefinition Height="159*"/>
         </Grid.RowDefinitions>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="104,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="20" Width="40" Grid.Row="2" Grid.ColumnSpan="2" Click="Button_Click">
+        <Button x:Name="btnLogin" Content="Iniciar sesión" ToolTip="Pulsar para iniciar sesión" Margin="593,52,607,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="38" Grid.Row="4" Grid.Column="1" Click="btnLogin_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-64.771"/>
+                    <RotateTransform Angle="-0.285"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
@@ -34,10 +36,15 @@
             <MenuItem Header="Salir" Height="25"></MenuItem>
         </Menu>
         <WrapPanel Height="164" Grid.Row="1" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" Margin="28,0,54,0">
-            <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="178" Width="324" Source="/Captura de pantalla 2022-12-12 122451.png" RenderTransformOrigin="1.119,0.421" VerticalAlignment="Center"/>
-            <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="162" FontSize="36" Width="839" Background="#FFCCCBCB" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,20,10,20"/>
+            <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="178" Width="324" Source="Imagenes/Captura de pantalla 2022-12-12 122451.png" RenderTransformOrigin="1.119,0.421" VerticalAlignment="Center"/>
+            <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="162" FontSize="36" Width="839" Background="#FFCCCBCB" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,20,10,20" 
+                   />
         </WrapPanel>
-        <Button Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="722,320,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Label x:Name="lblInicioSesion" Grid.Column="1" Content="Iniciar sesión" Margin="529,0,529,0" Grid.Row="2" VerticalAlignment="Center" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="3" Margin="303,42,303,42" CornerRadius="20,20,20,20" Background="#FF66AACB">
+            <Label x:Name="lblUsuario" Content="Usuario:" HorizontalContentAlignment="Center" FontSize="18" Margin="-1,-1,-1,275"/>
+        </Border>
+        <Label Grid.Column="1" Content="Label" HorizontalAlignment="Left" Margin="148,236,0,0" Grid.Row="3" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

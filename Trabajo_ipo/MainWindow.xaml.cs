@@ -23,10 +23,10 @@ namespace Trabajo_ipo
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowState = WindowState.Maximized;
         }
-    
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             VentanaDatos datos = new VentanaDatos();
             datos.Show();
