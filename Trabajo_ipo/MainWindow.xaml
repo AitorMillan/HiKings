@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-            Title="Login" Height="859" Width="1526" WindowState="Normal">
+            Title="Login" Height="859" Width="1526" WindowState="Maximized">
 
     <Grid Margin="0,0,0,-6">
         <Grid.ColumnDefinitions>
@@ -35,15 +35,15 @@
             <MenuItem Header="Acerca de" Height="25"></MenuItem>
             <MenuItem Header="Salir" Height="25"></MenuItem>
         </Menu>
-        <WrapPanel Height="164" Grid.Row="1" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" Margin="237,0,118,0">
+        <WrapPanel Height="Auto" Width="Auto" Grid.Row="1" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" Margin="0,0,0,0" HorizontalAlignment="Center">
             <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="auto" Width="auto" Source="Imagenes/Captura de pantalla 2022-12-12 122451.png" RenderTransformOrigin="1.119,0.421" VerticalAlignment="Center"/>
-            <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="162" FontSize="36" Width="auto" Background="#FFCCCBCB" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,20,10,20" 
+            <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="162" FontSize="36" Width="Auto" Background="#FFCCCBCB" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,20,10,20" 
                    />
         </WrapPanel>
-        <Label x:Name="lblInicioSesion" Grid.Column="1" Width="auto" Content="Iniciar sesión" Margin="529,0,529,0" Grid.Row="2" VerticalAlignment="Center" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblInicioSesion" Grid.Column="1" Width="Auto" Content="Iniciar sesión" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Center" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="54" RenderTransformOrigin="0.5,0.5"/>
         <Rectangle Grid.Column="1" HorizontalAlignment="Left" Height="311" Margin="289,0,0,0" Grid.Row="3" Stroke="Black" VerticalAlignment="Center" Width="722" Fill="#FF66AACB" RadiusX="50" RadiusY="50"/>
         <Label x:Name="lblUsuario" Grid.Column="1" Content="Usuario:" Margin="577,50,620,0" Grid.Row="3" VerticalAlignment="Top" FontSize="18" Height="31"/>
-        <TextBox x:Name="txtboxUsuario" ToolTip="Nombre de usuario" Grid.Column="1" Margin="577,98,578,0" Grid.Row="3" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" FontSize="18"/>
+        <TextBox x:Name="txtboxUsuario" Width="Auto" ToolTip="Nombre de usuario" Grid.Column="1" Margin="0,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" FontSize="18"/>
         <Label x:Name="lblContra" Grid.Column="1" Content="Contraseña:" Margin="576,5,578,0" Grid.Row="3" VerticalAlignment="Center" FontSize="18" Height="31" RenderTransformOrigin="1.174,0.684"/>
         <PasswordBox x:Name="passBox" Grid.Column="1" ToolTip="Contraseña" HorizontalAlignment="Left" Margin="577,220,0,0" Grid.Row="3" VerticalAlignment="Top" Width="166" FontSize="18" KeyDown="passBox_KeyDown"/>
         <Label x:Name="lblEstado" Grid.Column="1" Content="Label" HorizontalAlignment="Left" Margin="427,296,0,0" Grid.Row="3" VerticalAlignment="Top" Width="auto" Visibility="Hidden" Foreground="#FFD92B2B" FontSize="18"/>
