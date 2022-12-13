@@ -14,7 +14,7 @@
             <ColumnDefinition Width="89*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="28"/>
+            <RowDefinition Height="28*"/>
             <RowDefinition Height="169*"/>
             <RowDefinition Height="104*"/>
             <RowDefinition Height="389*"/>
@@ -35,9 +35,9 @@
             <MenuItem Header="Acerca de" Height="25"></MenuItem>
             <MenuItem Header="Salir" Height="25"></MenuItem>
         </Menu>
-        <WrapPanel Height="164" Grid.Row="1" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" Margin="28,0,54,0">
-            <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="178" Width="324" Source="Imagenes/Captura de pantalla 2022-12-12 122451.png" RenderTransformOrigin="1.119,0.421" VerticalAlignment="Center"/>
-            <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="162" FontSize="36" Width="839" Background="#FFCCCBCB" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,20,10,20" 
+        <WrapPanel Height="164" Grid.Row="1" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" Margin="237,0,118,0">
+            <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="auto" Width="auto" Source="Imagenes/Captura de pantalla 2022-12-12 122451.png" RenderTransformOrigin="1.119,0.421" VerticalAlignment="Center"/>
+            <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="162" FontSize="36" Width="auto" Background="#FFCCCBCB" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,20,10,20" 
                    />
         </WrapPanel>
         <Label x:Name="lblInicioSesion" Grid.Column="1" Content="Iniciar sesión" Margin="529,0,529,0" Grid.Row="2" VerticalAlignment="Center" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>

@@ -24,6 +24,7 @@ namespace Trabajo_ipo
         {
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
+            //this.lblLogin.Width = Double.NaN;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
