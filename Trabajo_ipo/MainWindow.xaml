@@ -9,9 +9,9 @@
 
     <Grid Margin="0,0,0,-6">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="71*"/>
-            <ColumnDefinition Width="800*"/>
-            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition Width="139*"/>
+            <ColumnDefinition Width="1043*"/>
+            <ColumnDefinition Width="139*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="28*"/>
@@ -20,7 +20,7 @@
             <RowDefinition Height="389*"/>
             <RowDefinition Height="159*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="btnLogin" Content="Iniciar sesión" ToolTip="Pulsar para iniciar sesión" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="38" Grid.Row="4" Grid.Column="1" Click="btnLogin_Click" HorizontalAlignment="Center">
+        <Button x:Name="btnLogin" Content="Iniciar sesión" ToolTip="Pulsar para iniciar sesión" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="38" Grid.Row="4" Grid.Column="1" Click="btnLogin_Click" HorizontalAlignment="Center" Width="74">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -35,18 +35,18 @@
             <MenuItem Header="Acerca de" Height="25"></MenuItem>
             <MenuItem Header="Salir" Height="25"></MenuItem>
         </Menu>
-        <WrapPanel Height="Auto" Width="Auto" Grid.Row="1" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" Margin="0,0,0,0" HorizontalAlignment="Center">
+        <WrapPanel Height="169" Width="902" Grid.Row="1" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Center">
             <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="auto" Width="auto" Source="Imagenes/Captura de pantalla 2022-12-12 122451.png" RenderTransformOrigin="1.119,0.421" VerticalAlignment="Center"/>
             <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="162" FontSize="36" Width="Auto" Background="#FFCCCBCB" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,20,10,20" 
                    />
         </WrapPanel>
-        <Label x:Name="lblInicioSesion" Grid.Column="1" Width="Auto" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Center" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="54" RenderTransformOrigin="0.5,0.5"/>
-        <Rectangle Stroke="Black" Fill="#FF66AACB" RadiusX="50" RadiusY="50" Margin="232,10,209,10" Grid.Column="1" Grid.Row="3"/>
-        <StackPanel Grid.Column="1" Margin="232,10,209,10" Grid.Row="3">
+        <Label x:Name="lblInicioSesion" Grid.Column="1" Width="Auto" Grid.Row="2" VerticalAlignment="Center" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="54" RenderTransformOrigin="0.5,0.5" Content="Inicio sesión"/>
+        <Rectangle Stroke="Black" Fill="#FF66AACB" RadiusX="50" RadiusY="50" Margin="232,10,232,10" Grid.Column="1" Grid.Row="3"/>
+        <StackPanel Grid.Column="1" Margin="232,10,232,10" Grid.Row="3">
             <Label x:Name="lblEstado" Content="Label" Width="auto" Visibility="Hidden" Foreground="#FFD92B2B" FontSize="18"/>
-            <Label x:Name="lblContra" Content="Contraseña:" FontSize="18" Height="31" RenderTransformOrigin="1.174,0.684" Width="118"/>
-            <TextBox x:Name="txtboxUsuario" Width="168" ToolTip="Nombre de usuario" TextWrapping="Wrap" Text="Usuario" FontSize="18"/>
             <Label x:Name="lblUsuario" Content="Usuario:" FontSize="18" Height="31" Width="75"/>
+            <TextBox x:Name="txtboxUsuario" Width="168" ToolTip="Nombre de usuario" TextWrapping="Wrap" Text="Usuario" FontSize="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+            <Label x:Name="lblContra" Content="Contraseña:" FontSize="18" Height="31" RenderTransformOrigin="1.174,0.684" Width="118"/>
             <PasswordBox x:Name="passBox" ToolTip="Contraseña" Width="166" FontSize="18" KeyDown="passBox_KeyDown"/>
         </StackPanel>
 

@@ -48,5 +48,10 @@ namespace Trabajo_ipo
                 btnLogin_Click(sender, e);
             }
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
