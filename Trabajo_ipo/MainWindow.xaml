@@ -41,10 +41,11 @@
                    />
         </WrapPanel>
         <Label x:Name="lblInicioSesion" Grid.Column="1" Content="Iniciar sesión" Margin="529,0,529,0" Grid.Row="2" VerticalAlignment="Center" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="3" Margin="303,42,303,42" CornerRadius="20,20,20,20" Background="#FF66AACB">
-            <Label x:Name="lblUsuario" Content="Usuario:" HorizontalContentAlignment="Center" FontSize="18" Margin="-1,-1,-1,275"/>
-        </Border>
-        <Label Grid.Column="1" Content="Label" HorizontalAlignment="Left" Margin="148,236,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+        <Rectangle Grid.Column="1" HorizontalAlignment="Left" Height="311" Margin="289,0,0,0" Grid.Row="3" Stroke="Black" VerticalAlignment="Center" Width="722" Fill="#FF66AACB" RadiusX="50" RadiusY="50"/>
+        <Label x:Name="lblUsuario" Grid.Column="1" Content="Usuario:" Margin="577,50,620,0" Grid.Row="3" VerticalAlignment="Top" FontSize="18" Height="31"/>
+        <TextBox x:Name="txtboxUsuario" ToolTip="Nombre de usuario" Grid.Column="1" Margin="577,98,578,0" Grid.Row="3" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" FontSize="18"/>
+        <Label x:Name="lblContra" Grid.Column="1" Content="Contraseña:" Margin="576,5,578,0" Grid.Row="3" VerticalAlignment="Center" FontSize="18" Height="31" RenderTransformOrigin="1.174,0.684"/>
+        <PasswordBox x:Name="passBox" Grid.Column="1" ToolTip="Contraseña" HorizontalAlignment="Left" Margin="577,220,0,0" Grid.Row="3" VerticalAlignment="Top" Width="166" FontSize="18"/>
 
     </Grid>
 </Window>
