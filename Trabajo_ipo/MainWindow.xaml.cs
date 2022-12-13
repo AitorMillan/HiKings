@@ -29,9 +29,24 @@ namespace Trabajo_ipo
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            if (txtboxUsuario.Text == "Miguel" && passBox.Password == "HiKings2022") { 
             VentanaDatos datos = new VentanaDatos();
             datos.Show();
             this.Close();
+            }
+            else
+            {
+                lblEstado.Content = "La contraseña o usuario introducidos son incorrectos";
+                lblEstado.Visibility = Visibility.Visible;
+                //lblEstado.Foreground = 
+            }
+        }
+
+        private void passBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return){
+                btnLogin_Click(sender, e);
+            }
         }
     }
 }

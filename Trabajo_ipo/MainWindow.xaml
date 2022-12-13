@@ -45,7 +45,9 @@
         <Label x:Name="lblUsuario" Grid.Column="1" Content="Usuario:" Margin="577,50,620,0" Grid.Row="3" VerticalAlignment="Top" FontSize="18" Height="31"/>
         <TextBox x:Name="txtboxUsuario" ToolTip="Nombre de usuario" Grid.Column="1" Margin="577,98,578,0" Grid.Row="3" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" FontSize="18"/>
         <Label x:Name="lblContra" Grid.Column="1" Content="Contraseña:" Margin="576,5,578,0" Grid.Row="3" VerticalAlignment="Center" FontSize="18" Height="31" RenderTransformOrigin="1.174,0.684"/>
-        <PasswordBox x:Name="passBox" Grid.Column="1" ToolTip="Contraseña" HorizontalAlignment="Left" Margin="577,220,0,0" Grid.Row="3" VerticalAlignment="Top" Width="166" FontSize="18"/>
+        <PasswordBox x:Name="passBox" Grid.Column="1" ToolTip="Contraseña" HorizontalAlignment="Left" Margin="577,220,0,0" Grid.Row="3" VerticalAlignment="Top" Width="166" FontSize="18" KeyDown="passBox_KeyDown"/>
+        <Label x:Name="lblEstado" Grid.Column="1" Content="Label" HorizontalAlignment="Left" Margin="427,296,0,0" Grid.Row="3" VerticalAlignment="Top" Width="auto" Visibility="Hidden" Foreground="#FFD92B2B" FontSize="18"/>
+        <WrapPanel Grid.Row="3"/>
 
     </Grid>
 </Window>
