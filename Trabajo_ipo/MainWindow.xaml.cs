@@ -20,11 +20,11 @@ namespace Trabajo_ipo
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool click = false;
         public MainWindow()
         {
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
-            //this.lblLogin.Width = Double.NaN;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -52,6 +52,15 @@ namespace Trabajo_ipo
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void txtboxUsuario_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!click)
+            {
+                click = true;
+                txtboxUsuario.Text = "";
+            }
         }
     }
 }
