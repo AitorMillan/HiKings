@@ -107,5 +107,11 @@
   <ItemGroup>
     <Resource Include="Imagenes\Captura de pantalla 2022-12-12 122451.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\logo1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
