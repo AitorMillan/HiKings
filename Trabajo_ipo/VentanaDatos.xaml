@@ -8,8 +8,8 @@
         Title="VentanaDatos" Height="768" Width="1366" WindowState="Maximized" Background="#FFD4E8EE">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="33*"/>
-            <RowDefinition Height="113*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="118*"/>
             <RowDefinition Height="45*"/>
             <RowDefinition Height="339*"/>
             <RowDefinition Height="222*"/>
@@ -68,7 +68,7 @@
             </StackPanel>
         </WrapPanel>
         <Label x:Name="lblTitulo" Grid.Column="2" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="24" FontFamily="Bernard MT Condensed" Height="39" Width="170"/>
-        <Menu Margin="0,33,0,0" Grid.RowSpan="2">
+        <Menu Margin="0,2,0,0" Grid.Row="1">
             <MenuItem Header="Rutas" Height="28" Width="Auto"/>
             <MenuItem Header="Excursionistas" Height="28"/>
             <MenuItem Header="Guias" Height="28" Click="MenuItem_Click"/>
