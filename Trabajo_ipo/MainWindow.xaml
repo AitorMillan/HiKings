@@ -23,11 +23,11 @@
         <Menu Grid.Row="0" x:Name="Menu" FontSize="16" FontWeight="Bold" Margin="0,0,0,1" Grid.ColumnSpan="3">
             <MenuItem Header="Ayuda" Height="25"></MenuItem>
             <MenuItem Header="Acerca de" Height="25"></MenuItem>
-            <MenuItem Header="Salir" Height="25"></MenuItem>
+            <MenuItem Header="Salir" Height="25" Click="MenuItem_Click"></MenuItem>
         </Menu>
         <WrapPanel Height="169" Width="902" Grid.Row="1" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Center">
             <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="auto" Width="auto" Source="/Captura_de_pantalla_2022-12-12_122451-removebg-preview.png" RenderTransformOrigin="1.119,0.421" VerticalAlignment="Center"/>
-            <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="162" FontSize="36" Width="Auto" Background="#FFD4E8EE" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,20,10,20" 
+            <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="113" FontSize="36" Width="Auto" Background="#FFD4E8EE" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,1" BorderBrush="Black" Padding="5,5,5,12" 
                    />
         </WrapPanel>
         <Label x:Name="lblInicioSesion" Grid.Column="1" Width="Auto" Grid.Row="2" VerticalAlignment="Center" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="54" RenderTransformOrigin="0.5,0.5" Content="Inicio sesión" FontFamily="Bernard MT Condensed"/>
