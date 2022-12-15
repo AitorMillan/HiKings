@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="VentanaDatos" Height="768" Width="1366" WindowState="Maximized" Background="#FFD4E8EE">
+        Title="VentanaDatos" Height="859" Width="1526" WindowState="Maximized" Background="#FFD4E8EE">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="28*"/>
@@ -15,16 +15,12 @@
             <RowDefinition Height="222*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="43*"/>
-            <ColumnDefinition Width="114*"/>
-            <ColumnDefinition Width="369*"/>
-            <ColumnDefinition Width="157*"/>
+            <ColumnDefinition Width="257*"/>
+            <ColumnDefinition Width="94*"/>
+            <ColumnDefinition Width="824*"/>
+            <ColumnDefinition Width="351*"/>
         </Grid.ColumnDefinitions>
-        <Menu Margin="0,0,0,1" Grid.ColumnSpan="4">
-            <MenuItem Header="Ayuda" Height="28"/>
-            <MenuItem Header="Acerca de" Height="28"/>
-            <MenuItem Header="Salir" Height="28" Click="MenuItem_Click"/>
-        </Menu>
+
         <WrapPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="222" Width="618">
             <WrapPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -68,11 +64,59 @@
             </StackPanel>
         </WrapPanel>
         <Label x:Name="lblTitulo" Grid.Column="2" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="24" FontFamily="Bernard MT Condensed" Height="39" Width="170"/>
-        <Menu Margin="0,2,0,0" Grid.Row="1">
-            <MenuItem Header="Rutas" Height="28" Width="Auto"/>
-            <MenuItem Header="Excursionistas" Height="28"/>
-            <MenuItem Header="Guias" Height="28" Click="MenuItem_Click"/>
-            <MenuItem Header="Mis datos" Height="28" />
-        </Menu>
+
+
+        <StackPanel Background="#2E333A" 
+                    Width="258"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center" Grid.RowSpan="5">
+
+            <Menu Background="Transparent"
+                  Height="751"
+                  Width="auto">
+
+                <Menu.ItemsPanel>
+
+                    <ItemsPanelTemplate>
+
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+
+
+                    </ItemsPanelTemplate>
+
+                </Menu.ItemsPanel>
+
+            </Menu>
+
+
+        </StackPanel>
+
+        <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
+
+        <Grid Height="29"
+              VerticalAlignment="Top" Grid.Row="1"
+              >
+            <Border Background="#D61734"
+                    Height="25"
+                    CornerRadius="3,0,0,3"
+                    Width="6"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"/>
+
+            <TextBlock Text="HiKings"
+                       Foreground="#FFFFFF"
+                       FontFamily="Fuentes/#Orbitron Medium"
+                       FontSize="15"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" 
+                       Width="auto"
+                       />
+
+        </Grid>
+
+
+
+
+
     </Grid>
 </Window>

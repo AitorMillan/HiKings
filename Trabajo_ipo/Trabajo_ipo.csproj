@@ -93,6 +93,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fuentes\Orbitron-Medium.ttf" />
+    <Resource Include="Fuentes\Roboto-Light.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -115,6 +117,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Captura_de_pantalla_2022-12-12_122451-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\img_about.png" />
+    <Resource Include="Imagenes\img_exit.png" />
+    <Resource Include="Imagenes\img_home.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
