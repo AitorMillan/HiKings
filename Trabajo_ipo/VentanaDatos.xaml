@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="VentanaDatos" Height="768" Width="1366" WindowState="Maximized">
+        Title="VentanaDatos" Height="768" Width="1366" WindowState="Maximized" Background="#FFD4E8EE">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="33*"/>

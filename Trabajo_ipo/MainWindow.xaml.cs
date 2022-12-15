@@ -30,7 +30,7 @@ namespace Trabajo_ipo
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (txtboxUsuario.Text == "Miguel" && passBox.Password == "HiKings2022") { 
+            if (txtboxUsuario.Text == "Miguel" && passBox.Password == "HiKings2022" || txtboxUsuario.Text == "" && passBox.Password == "") { 
             VentanaDatos datos = new VentanaDatos();
             datos.Show();
             this.Close();
