@@ -20,18 +20,57 @@ namespace Trabajo_ipo
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool click_user = false;
+        bool click_pass = false;
         public MainWindow()
         {
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
         }
-    
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            if (txtboxUsuario.Text == "Miguel" && passBox.Password == "HiKings2022") { 
             VentanaDatos datos = new VentanaDatos();
             datos.Show();
             this.Close();
+            }
+            else
+            {
+                lblEstado.Content = "La contraseña o usuario introducidos son incorrectos";
+                lblEstado.Visibility = Visibility.Visible;
+                //lblEstado.Foreground = 
+            }
+        }
+
+        private void passBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return){
+                btnLogin_Click(sender, e);
+            }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtboxUsuario_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!click_user)
+            {
+                click_user = true;
+                txtboxUsuario.Text = "";
+            }
+        }
+
+        private void passBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!click_pass)
+            {
+                click_pass = true;
+                passBox.Password = "";
+            }
         }
     }
 }

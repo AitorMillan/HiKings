@@ -5,38 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-            Title="MainWindow" Height="1080" Width="1920" WindowState="Normal">
+            Title="Login" Height="859" Width="1526" WindowState="Maximized" Background="#FFD4E8EE">
 
     <Grid HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="71*"/>
-            <ColumnDefinition Width="800*"/>
-            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="1043*"/>
+            <ColumnDefinition Width="250*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="28"/>
-            <RowDefinition Height="36*"/>
-            <RowDefinition Height="167*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="169*"/>
+            <RowDefinition Height="104*"/>
+            <RowDefinition Height="389*"/>
+            <RowDefinition Height="159*"/>
         </Grid.RowDefinitions>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="104,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="20" Width="40" Grid.Row="2" Grid.ColumnSpan="2" Click="Button_Click">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-64.771"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
         <Menu Grid.Row="0" x:Name="Menu" FontSize="16" FontWeight="Bold" Margin="0,0,0,1" Grid.ColumnSpan="3">
             <MenuItem Header="Ayuda" Height="25"></MenuItem>
             <MenuItem Header="Acerca de" Height="25"></MenuItem>
-            <MenuItem Header="Salir" Height="25"></MenuItem>
+            <MenuItem Header="Salir" Height="25" Click="MenuItem_Click"></MenuItem>
         </Menu>
-        <WrapPanel Height="164" Grid.Row="1" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" Margin="28,0,54,0">
-            <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="178" Width="324" Source="/Captura de pantalla 2022-12-12 122451.png" RenderTransformOrigin="1.119,0.421" VerticalAlignment="Center"/>
-            <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="162" FontSize="36" Width="839" Background="#FFCCCBCB" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,20,10,20"/>
+        <WrapPanel Height="169" Width="902" Grid.Row="1" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Center">
+            <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="auto" Width="auto" Source="/Captura_de_pantalla_2022-12-12_122451-removebg-preview.png" RenderTransformOrigin="1.119,0.421" VerticalAlignment="Center"/>
+            <Label x:Name="lblLogin" Content="La empresa de senderismo más grande de España" Height="113" FontSize="36" Width="Auto" Background="#FFD4E8EE" FontFamily="Bernard MT Condensed" RenderTransformOrigin="0.499,0.685" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,1" BorderBrush="Black" Padding="5,5,5,12" 
+                   />
         </WrapPanel>
+        <Label x:Name="lblInicioSesion" Grid.Column="1" Width="Auto" Grid.Row="2" VerticalAlignment="Center" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="54" RenderTransformOrigin="0.5,0.5" Content="Inicio sesión" FontFamily="Bernard MT Condensed"/>
+        <Rectangle Stroke="Black" Fill="#FF66AACB" RadiusX="50" RadiusY="50" Margin="232,10,232,10" Grid.Column="1" Grid.Row="3"/>
+        <StackPanel Grid.Column="1" Margin="232,82,232,10" Grid.Row="3">
+            <Label x:Name="lblUsuario" Content="Usuario:" FontSize="18" Height="31" Width="75" VerticalAlignment="Top" Margin="0,10,0,0"/>
+            <TextBox x:Name="txtboxUsuario" Width="168" ToolTip="Nombre de usuario" TextWrapping="Wrap" Text="Usuario" FontSize="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,10,0,0" GotFocus="txtboxUsuario_GotFocus" BorderThickness="0,0,0,1" Background="#FF66AACB" BorderBrush="Black" SelectionBrush="{x:Null}"/>
+            <Label x:Name="lblContra" Content="Contraseña:" FontSize="18" Height="31" RenderTransformOrigin="1.174,0.684" Width="118" Margin="0,10,0,0"/>
+            <PasswordBox x:Name="passBox" ToolTip="Contraseña" Width="166" FontSize="18" KeyDown="passBox_KeyDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0" Password="*****" BorderBrush="Black" Background="#FF66AACB" BorderThickness="0,0,0,1" GotFocus="passBox_GotFocus" SelectionBrush="Black" CaretBrush="Black"/>
+            <Label x:Name="lblEstado" Content="Label" Width="auto" Visibility="Hidden" Foreground="#FFD92B2B" FontSize="18" VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <Button x:Name="btnLogin" Content="Iniciar sesión" ToolTip="Pulsar para iniciar sesión" RenderTransformOrigin="0.5,0.5" Height="30" Click="btnLogin_Click" Width="74" Margin="0,0,0,0">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.285"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+        </StackPanel>
+        <Image x:Name="imgLogo1" Margin="0,0,0,0" Grid.Row="3" HorizontalAlignment="Left" Width="244" Source="/Imagenes/logo1.png" Visibility="Hidden"/>
+        <Image x:Name="imgLogo2" Grid.Column="2" HorizontalAlignment="Right" Height="372" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="237" Source="/Imagenes/logo2.png" Visibility="Hidden"/>
 
     </Grid>
 </Window>
