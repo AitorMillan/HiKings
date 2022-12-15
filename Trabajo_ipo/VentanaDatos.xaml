@@ -5,8 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="VentanaDatos" Height="450" Width="800">
+        Title="VentanaDatos" Height="768" Width="1366" WindowState="Maximized">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="113*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="339*"/>
+            <RowDefinition Height="222*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="369*"/>
+            <ColumnDefinition Width="157*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Margin="0,0,0,1" Grid.ColumnSpan="4">
+            <MenuItem Header="Ayuda" Height="28"/>
+            <MenuItem Header="Acerca de" Height="28"/>
+            <MenuItem Header="Salir" Height="28" Click="MenuItem_Click"/>
+        </Menu>
+        <WrapPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="222" Width="618">
+            <WrapPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF434842"/>
+                    <GradientStop Color="#FF4EDC1D" Offset="1"/>
+                </LinearGradientBrush>
+            </WrapPanel.Background>
+            <StackPanel HorizontalAlignment="Center" Height="189" VerticalAlignment="Center" Width="270" Orientation="Vertical" Margin="0,25,0,0">
+                <Image x:Name="fotoUsuario" Height="162" Width="Auto" Source="/Imagenes/usuario.PNG"/>
+                <Label x:Name="lblUsuario" Content="Foto del usuario" Height="26" Width="Auto" FontFamily="Verdana" FontWeight="Bold" RenderTransformOrigin="0.244,1.155" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Height="189" VerticalAlignment="Center" Width="347" AllowDrop="True" Margin="0,25,0,0">
+                <WrapPanel x:Name="WrapPanelNombre" Height="26" Width="334">
+                    <Label x:Name="lblNombre" Content="Nombre:" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="81" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" FontWeight="Bold"/>
+                    <TextBox x:Name="txtBoxNombre" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Mr." VerticalAlignment="Center" Width="252" Height="26" TextAlignment="Center" IsEnabled="False" />
+                </WrapPanel>
+                <WrapPanel x:Name="WrapPanelApellidos" Height="27" Width="334">
+                    <Label x:Name="lblApellidos" Content="Apellidos:" HorizontalAlignment="Center" VerticalAlignment="Top" Height="26" Width="81" FontWeight="Bold" FontFamily="Verdana" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="txtBoxApellidos" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Worldwide" VerticalAlignment="Center" Width="252" Height="26" TextAlignment="Center" IsEnabled="False"/>
+                </WrapPanel>
+                <WrapPanel x:Name="WrapPanelEmail" Height="26" Width="334">
+                    <Label x:Name="lblEmail" Content="Email:" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="81" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" FontWeight="Bold"/>
+                    <TextBox x:Name="txtBoxEmail" HorizontalAlignment="Left" TextWrapping="Wrap" Text="pitbull@hotmail.com" VerticalAlignment="Center" Width="252" Height="26" TextAlignment="Center" IsEnabled="False" />
+                </WrapPanel>
+                <WrapPanel x:Name="WrapPanelTelefono" Height="26" Width="334">
+                    <Label x:Name="lblTelefono" Content="Teléfono:" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="81" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" FontWeight="Bold"/>
+                    <TextBox x:Name="txtBoxTelefono" HorizontalAlignment="Left" TextWrapping="Wrap" Text="+66 789 654 231" VerticalAlignment="Center" Width="252" Height="26" TextAlignment="Center" IsEnabled="False" />
+                </WrapPanel>
+                <WrapPanel x:Name="WrapPanelUbicacion" Height="26" Width="334">
+                    <Label x:Name="lblUbicacion" Content="Ubicación:" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="81" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" FontWeight="Bold"/>
+                    <TextBox x:Name="txtUbicación" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ciudad Real" VerticalAlignment="Center" Width="252" Height="26" TextAlignment="Center" IsEnabled="False" />
+                </WrapPanel>
+                <WrapPanel x:Name="WrapPanelTipo" Height="26" Width="334">
+                    <Label x:Name="lblTipo" Content="Tipo:" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="81" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" FontWeight="Bold"/>
+                    <TextBox x:Name="txtBoxTipo" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Administrador" VerticalAlignment="Center" Width="252" Height="26" TextAlignment="Center" IsEnabled="False" />
+                </WrapPanel>
+                <WrapPanel x:Name="WrapPanelUltimoAcceso" Height="26" Width="334">
+                    <Label x:Name="lblUltimoAcceso" Content="Ult. Acceso:" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="93" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" FontWeight="Bold"/>
+                    <TextBox x:Name="txtBoxUltimoAcceso" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hace 2 horas" VerticalAlignment="Center" Width="240" Height="26" TextAlignment="Center" IsEnabled="False" />
+                </WrapPanel>
+            </StackPanel>
+        </WrapPanel>
+        <Label x:Name="lblTitulo" Grid.Column="2" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="24" FontFamily="Bernard MT Condensed" Height="39" Width="170"/>
+        <Menu Margin="0,33,0,0" Grid.RowSpan="2">
+            <MenuItem Header="Rutas" Height="28" Width="Auto"/>
+            <MenuItem Header="Excursionistas" Height="28"/>
+            <MenuItem Header="Guias" Height="28" Click="MenuItem_Click"/>
+            <MenuItem Header="Mis datos" Height="28" />
+        </Menu>
     </Grid>
 </Window>
