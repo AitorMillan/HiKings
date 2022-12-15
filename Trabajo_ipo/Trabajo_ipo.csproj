@@ -113,5 +113,8 @@
   <ItemGroup>
     <Resource Include="Imagenes\logo1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Captura_de_pantalla_2022-12-12_122451-removebg-preview.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
