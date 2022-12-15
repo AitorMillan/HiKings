@@ -20,7 +20,8 @@ namespace Trabajo_ipo
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool click = false;
+        bool click_user = false;
+        bool click_pass = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -56,10 +57,19 @@ namespace Trabajo_ipo
 
         private void txtboxUsuario_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (!click)
+            if (!click_user)
             {
-                click = true;
+                click_user = true;
                 txtboxUsuario.Text = "";
+            }
+        }
+
+        private void passBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!click_pass)
+            {
+                click_pass = true;
+                passBox.Password = "";
             }
         }
     }
