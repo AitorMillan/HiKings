@@ -143,7 +143,7 @@
                 BorderBrush="#2E333A"
                 BorderThickness="0"
                 Height="50"
-                Width="230"
+                Width="auto"
                 >
 
             <Grid>

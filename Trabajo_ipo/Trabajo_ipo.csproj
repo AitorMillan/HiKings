@@ -127,5 +127,17 @@
     <Resource Include="Imagenes\img_exit.png" />
     <Resource Include="Imagenes\img_home.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\img_rutas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\img_excursionista.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\img_ayuda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\bosque.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
