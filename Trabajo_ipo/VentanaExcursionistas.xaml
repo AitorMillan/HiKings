@@ -5,24 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="Window1" Height="859" Width="1526" WindowState="Maximized">
+        Title="VentanaExcursionistas" Height="859" Width="1526" WindowState="Maximized" Background="#FFD4E8EC">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="581*"/>
-            <RowDefinition Height="260*"/>
+            <RowDefinition Height="123*"/>
+            <RowDefinition Height="289*"/>
+            <RowDefinition Height="322*"/>
+            <RowDefinition Height="110*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
 
 
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="129*"/>
-            <ColumnDefinition Width="634*"/>
+            <ColumnDefinition Width="258*"/>
+            <ColumnDefinition Width="78*"/>
+            <ColumnDefinition Width="289*"/>
+            <ColumnDefinition Width="901*"/>
         </Grid.ColumnDefinitions>
         <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
         <StackPanel Background="#2E333A" 
                     Width="258"
                     Orientation="Vertical"
-                    HorizontalAlignment="Center" Grid.Column="1" Grid.RowSpan="2">
+                    HorizontalAlignment="Center" Grid.Column="1" Grid.RowSpan="4">
             <Menu Background="Transparent"
                   Height="auto"
                   Width="auto">
@@ -50,8 +54,8 @@
                 </Grid>
 
 
-                <MenuItem Header="Mi Perfil"
-                          Template="{StaticResource Menu_Template}">
+                <MenuItem x:Name="MenuPerfil" Header="Mi Perfil"
+                          Template="{StaticResource Menu_Template}" Click="MenuPerfil_Click">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_home.png"
@@ -86,7 +90,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                
+
                 <MenuItem Header="Ayuda"
                           Template="{StaticResource Menu_Template}">
 
@@ -121,8 +125,9 @@
 
         </StackPanel>
         <Image Source="/Imagenes/logo.png"
-                       Stretch="None" Grid.ColumnSpan="2"  Grid.Row="1"/>
-        <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="141,185,0,0" VerticalAlignment="Top" Width="120"/>
+                       Stretch="None" Grid.ColumnSpan="2"  Grid.Row="2" Margin="0,321,0,0" Grid.RowSpan="2"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="3"  Grid.Row="1" SelectedIndex="0"/>
+        <Label x:Name="lblExcursionistas" Grid.Column="3" Content="Excursionistas:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,87,0,0"/>
     </Grid>
 
 

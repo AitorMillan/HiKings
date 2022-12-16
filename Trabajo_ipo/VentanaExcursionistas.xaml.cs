@@ -23,5 +23,12 @@ namespace Trabajo_ipo
         {
             InitializeComponent();
         }
+
+        private void MenuPerfil_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaDatos datos = new VentanaDatos();
+            datos.Show();
+            this.Close();
+        }
     }
 }
