@@ -72,5 +72,11 @@ namespace Trabajo_ipo
                 passBox.Password = "";
             }
         }
+
+        private void menuAcerca_Click(object sender, RoutedEventArgs e)
+        {
+            Acerca_De acerca = new Acerca_De();
+            acerca.Show();
+        }
     }
 }

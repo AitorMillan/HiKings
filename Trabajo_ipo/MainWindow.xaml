@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" x:Name="Menu" Margin="0,0,0,1" Grid.ColumnSpan="3">
             <MenuItem Header="Ayuda" Height="25"></MenuItem>
-            <MenuItem Header="Acerca de" Height="25"></MenuItem>
+            <MenuItem x:Name="menuAcerca" Header="Acerca de" Height="25" Click="menuAcerca_Click"></MenuItem>
             <MenuItem Header="Salir" Height="25" Click="MenuItem_Click"></MenuItem>
         </Menu>
         <WrapPanel Height="169" Width="902" Grid.Row="1" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Center">
