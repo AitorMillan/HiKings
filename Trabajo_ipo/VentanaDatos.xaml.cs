@@ -28,5 +28,15 @@ namespace Trabajo_ipo
         {
             this.Close();
         }
+
+        private void TextBlock_MouseEnter(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
