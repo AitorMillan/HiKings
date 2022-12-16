@@ -5,10 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="VentanaDatos" Height="859" Width="1526" WindowState="Maximized">
-    <Window.Background>
-        <ImageBrush ImageSource="/Imagenes/bosque.jpg"/>
-    </Window.Background>
+        Title="VentanaDatos" Height="859" Width="1526" WindowState="Maximized" Background="#FFD4E8EC">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="31*"/>
@@ -18,13 +15,19 @@
             <RowDefinition Height="249*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="257*"/>
-            <ColumnDefinition Width="94*"/>
-            <ColumnDefinition Width="824*"/>
-            <ColumnDefinition Width="351*"/>
+            <ColumnDefinition Width="253*"/>
+
+            <ColumnDefinition Width="1273*"/>
         </Grid.ColumnDefinitions>
 
-        <WrapPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="222" Width="618" Background="#FFD4E8F1">
+
+
+
+
+
+
+
+        <WrapPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="222" Width="618">
             <StackPanel HorizontalAlignment="Center" Height="189" VerticalAlignment="Center" Width="270" Orientation="Vertical" Margin="0,25,0,0">
                 <Image x:Name="fotoUsuario" Height="162" Width="Auto" Source="/Imagenes/usuario.PNG"/>
                 <Label x:Name="lblUsuario" Content="Foto del usuario" Height="26" Width="Auto" FontFamily="Verdana" FontWeight="Bold" RenderTransformOrigin="0.244,1.155" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -60,7 +63,7 @@
                 </WrapPanel>
             </StackPanel>
         </WrapPanel>
-        <Label x:Name="lblTitulo" Grid.Column="2" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="40" FontFamily="Bernard MT Condensed" Height="52" Width="277" Foreground="Black" Background="#FFD4E8EE"/>
+        <Label x:Name="lblTitulo" Grid.Column="1" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="40" FontFamily="Bernard MT Condensed" Height="52" Width="278" Foreground="Black" Background="#FFD4E8EE"/>
 
         <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
         <StackPanel Background="#2E333A" 
