@@ -55,9 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Acerca_De.xaml.cs">
+      <DependentUpon>Acerca_De.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaDatos.xaml.cs">
       <DependentUpon>VentanaDatos.xaml</DependentUpon>
     </Compile>
+    <Page Include="Acerca_De.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

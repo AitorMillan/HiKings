@@ -34,9 +34,15 @@ namespace Trabajo_ipo
             
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void menuSalir_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void menuAcerca_Click(object sender, RoutedEventArgs e)
+        {
+            Acerca_De acerca = new Acerca_De();
+            acerca.Show();
         }
     }
 }
