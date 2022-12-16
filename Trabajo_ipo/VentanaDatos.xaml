@@ -111,7 +111,7 @@
                 </MenuItem>
 
                 <MenuItem Header="Rutas"
-                          Template="{StaticResource Menu_Template}">
+                          Template="{StaticResource Menu_Template}" Padding="6,0,6,0">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_rutas.png"
