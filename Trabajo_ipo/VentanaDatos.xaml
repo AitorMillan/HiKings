@@ -123,8 +123,8 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Excursionistas"
-                          Template="{StaticResource Menu_Template}">
+                <MenuItem x:Name="menuExcursionista" Header="Excursionistas"
+                          Template="{StaticResource Menu_Template}" Click="menuExcursionista_Click">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_excursionista.png"

@@ -44,5 +44,12 @@ namespace Trabajo_ipo
             Acerca_De acerca = new Acerca_De();
             acerca.Show();
         }
+
+        private void menuExcursionista_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 excursionistas = new Window1();
+            excursionistas.Show();
+            this.Close();
+        }
     }
 }
