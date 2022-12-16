@@ -61,10 +61,16 @@
     <Compile Include="VentanaDatos.xaml.cs">
       <DependentUpon>VentanaDatos.xaml</DependentUpon>
     </Compile>
+
     <Page Include="Acerca_De.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+
+    <Compile Include="VentanaExcursionistas.xaml.cs">
+      <DependentUpon>VentanaExcursionistas.xaml</DependentUpon>
+    </Compile>
+
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,6 +88,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="VentanaDatos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaExcursionistas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
