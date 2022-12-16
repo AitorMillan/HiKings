@@ -144,7 +144,7 @@
                 BorderThickness="0"
                 Height="50"
                 Width="auto"
-                Padding="0,5,0,0"
+                Padding="15,5,0,0"
                 >
 
             <Grid>

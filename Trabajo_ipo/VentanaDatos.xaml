@@ -11,11 +11,11 @@
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="28*"/>
-            <RowDefinition Height="118*"/>
-            <RowDefinition Height="45*"/>
-            <RowDefinition Height="339*"/>
-            <RowDefinition Height="222*"/>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="132*"/>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="368*"/>
+            <RowDefinition Height="249*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="257*"/>
@@ -24,13 +24,7 @@
             <ColumnDefinition Width="351*"/>
         </Grid.ColumnDefinitions>
 
-        <WrapPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="222" Width="618">
-            <WrapPanel.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF434842"/>
-                    <GradientStop Color="#FF4EDC1D" Offset="1"/>
-                </LinearGradientBrush>
-            </WrapPanel.Background>
+        <WrapPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="222" Width="618" Background="#FFD4E8F1">
             <StackPanel HorizontalAlignment="Center" Height="189" VerticalAlignment="Center" Width="270" Orientation="Vertical" Margin="0,25,0,0">
                 <Image x:Name="fotoUsuario" Height="162" Width="Auto" Source="/Imagenes/usuario.PNG"/>
                 <Label x:Name="lblUsuario" Content="Foto del usuario" Height="26" Width="Auto" FontFamily="Verdana" FontWeight="Bold" RenderTransformOrigin="0.244,1.155" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -66,7 +60,7 @@
                 </WrapPanel>
             </StackPanel>
         </WrapPanel>
-        <Label x:Name="lblTitulo" Grid.Column="2" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="24" FontFamily="Bernard MT Condensed" Height="39" Width="170"/>
+        <Label x:Name="lblTitulo" Grid.Column="2" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="40" FontFamily="Bernard MT Condensed" Height="52" Width="277" Foreground="Black" Background="#FFD4E8EE"/>
 
         <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
         <StackPanel Background="#2E333A" 
@@ -95,8 +89,7 @@
                        FontSize="15"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center" 
-                       Width="auto" MouseEnter="TextBlock_MouseEnter" IsEnabled="False">
-                    </TextBlock>
+                       Width="auto" MouseEnter="TextBlock_MouseEnter" IsEnabled="False"/>
 
                 </Grid>
 
@@ -111,7 +104,7 @@
                 </MenuItem>
 
                 <MenuItem Header="Rutas"
-                          Template="{StaticResource Menu_Template}" Padding="6,0,6,0">
+                          Template="{StaticResource Menu_Template}" Padding="20,0,20,0">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_rutas.png"
