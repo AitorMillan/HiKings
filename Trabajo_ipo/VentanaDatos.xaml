@@ -63,7 +63,7 @@
                 </WrapPanel>
             </StackPanel>
         </WrapPanel>
-        <Label x:Name="lblTitulo" Grid.Column="1" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="40" FontFamily="Bernard MT Condensed" Height="52" Width="278" Foreground="Black" Background="#FFD4E8EE"/>
+        <Label x:Name="lblTitulo" Grid.Column="1" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="40" FontFamily="Bernard MT Condensed" Height="52" Width="278" Foreground="Black" Background="#FFD4E8EE" BorderThickness="0,0,0,1" BorderBrush="Black"/>
 
         <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
         <StackPanel Background="#2E333A" 
@@ -71,7 +71,7 @@
                     Orientation="Vertical"
                     HorizontalAlignment="Center" Grid.RowSpan="5">
             <Menu Background="Transparent"
-                  Height="751"
+                  Height="auto"
                   Width="auto">
 
                 <Menu.ItemsPanel>
@@ -111,6 +111,15 @@
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_rutas.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Guías"
+                          Template="{StaticResource Menu_Template}">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_brujula.png"
                                Stretch="None"/>
                     </MenuItem.Icon>
                 </MenuItem>
@@ -157,6 +166,8 @@
 
 
         </StackPanel>
+        <Image Source="Imagenes/Captura_de_pantalla_2022-12-12_122451-removebg-preview.png"
+                       Stretch="None" Grid.Row="4" Margin="-16,0,0,0"/>
 
 
 
