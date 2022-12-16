@@ -100,8 +100,8 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Acerca de"
-                          Template="{StaticResource Menu_Template}">
+                <MenuItem x:Name="menuAcerca" Header="Acerca de"
+                          Template="{StaticResource Menu_Template}" Click="menuAcerca_Click">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_about.png"
@@ -110,8 +110,8 @@
                 </MenuItem>
 
 
-                <MenuItem Header="Salir"
-                          Template="{StaticResource Menu_Template}">
+                <MenuItem x:Name="menuSalir" Header="Salir"
+                          Template="{StaticResource Menu_Template}" Click="menuSalir_Click">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_exit.png"

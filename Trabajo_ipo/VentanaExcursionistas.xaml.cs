@@ -30,5 +30,16 @@ namespace Trabajo_ipo
             datos.Show();
             this.Close();
         }
+
+        private void menuAcerca_Click(object sender, RoutedEventArgs e)
+        {
+            Acerca_De acerca = new Acerca_De();
+            acerca.Show();
+        }
+
+        private void menuSalir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
