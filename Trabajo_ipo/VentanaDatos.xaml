@@ -21,6 +21,32 @@
             <ColumnDefinition Width="351*"/>
         </Grid.ColumnDefinitions>
 
+        <StackPanel Background="#2E333A" 
+                    Width="258"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center" Grid.RowSpan="5">
+            <Menu Background="Transparent"
+                  Height="751"
+                  Width="auto">
+
+                <Menu.ItemsPanel>
+
+                    <ItemsPanelTemplate>
+
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+
+                    </ItemsPanelTemplate>
+
+                </Menu.ItemsPanel>
+
+                <MenuItem Header="Mi Perfil"
+                         ItemTemplate="{StaticResource ResourceKey=Menu_template>
+
+            </Menu>
+
+
+        </StackPanel>
+
         <WrapPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="222" Width="618">
             <WrapPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -65,35 +91,6 @@
         </WrapPanel>
         <Label x:Name="lblTitulo" Grid.Column="2" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="24" FontFamily="Bernard MT Condensed" Height="39" Width="170"/>
 
-
-        <StackPanel Background="#2E333A" 
-                    Width="258"
-                    Orientation="Vertical"
-                    HorizontalAlignment="Center" Grid.RowSpan="5">
-
-            <Menu Background="Transparent"
-                  Height="751"
-                  Width="auto">
-
-                <Menu.ItemsPanel>
-
-                    <ItemsPanelTemplate>
-
-                        <VirtualizingStackPanel Orientation="Vertical"/>
-
-                    </ItemsPanelTemplate>
-
-                </Menu.ItemsPanel>
-
-                <MenuItem Header="Mi Perfil"
-                          Template="{x:Menu_Template}">
-                          
-                </MenuItem>
-
-            </Menu>
-
-
-        </StackPanel>
 
         <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
 

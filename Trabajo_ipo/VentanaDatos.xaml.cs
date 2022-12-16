@@ -21,7 +21,8 @@ namespace Trabajo_ipo
     {
         public VentanaDatos()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
