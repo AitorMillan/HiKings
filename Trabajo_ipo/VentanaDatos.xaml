@@ -81,10 +81,14 @@
 
                         <VirtualizingStackPanel Orientation="Vertical"/>
 
-
                     </ItemsPanelTemplate>
 
                 </Menu.ItemsPanel>
+
+                <MenuItem Header="Mi Perfil"
+                          Template="{x:Menu_Template}">
+                          
+                </MenuItem>
 
             </Menu>
 
