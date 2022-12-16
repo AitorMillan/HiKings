@@ -45,7 +45,7 @@
                        FontSize="15"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center" 
-                       Width="auto" MouseEnter="TextBlock_MouseEnter" IsEnabled="False"/>
+                       Width="auto" IsEnabled="False"/>
 
                 </Grid>
 
@@ -107,7 +107,7 @@
 
 
                 <MenuItem Header="Salir"
-                          Template="{StaticResource Menu_Template}" Click="MenuItem_Click_1">
+                          Template="{StaticResource Menu_Template}">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_exit.png"
