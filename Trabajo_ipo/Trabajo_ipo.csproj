@@ -61,16 +61,13 @@
     <Compile Include="VentanaDatos.xaml.cs">
       <DependentUpon>VentanaDatos.xaml</DependentUpon>
     </Compile>
-
     <Page Include="Acerca_De.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
     <Compile Include="VentanaExcursionistas.xaml.cs">
       <DependentUpon>VentanaExcursionistas.xaml</DependentUpon>
     </Compile>
-
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -157,10 +154,16 @@
     <Resource Include="Imagenes\bosque.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\img_brujula.png" />
+    <Resource Include="Imagenes\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\logo.png" />
+    <Resource Include="Imagenes\img_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\img_tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\img_brujula.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

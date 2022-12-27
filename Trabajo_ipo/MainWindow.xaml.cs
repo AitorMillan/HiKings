@@ -30,16 +30,27 @@ namespace Trabajo_ipo
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (txtboxUsuario.Text == "Miguel" && passBox.Password == "HiKings2022" || txtboxUsuario.Text == "" && passBox.Password == "") { 
-            VentanaDatos datos = new VentanaDatos();
-            datos.Show();
-            this.Close();
+            if (txtboxUsuario.Text == "admin") {
+                if (passBox.Password == "admin") { 
+                    VentanaDatos datos = new VentanaDatos();
+                    datos.Show();
+                    this.Close();
+                }
+                else
+                {
+                    imgErrorPass.Visibility = Visibility.Visible;
+                    lblEstado.Content = "La contraseña introducida no pertenece a este usuario";
+                    lblEstado.Visibility = Visibility.Visible;
+                    imgUser.Source = new BitmapImage(new Uri("/Imagenes/img_tick.png", UriKind.Relative));
+                    imgErrorPass.Source = new BitmapImage(new Uri("/Imagenes/img_error.png",UriKind.Relative));
+                }
             }
-            else
-            {
-                lblEstado.Content = "La contraseña o usuario introducidos son incorrectos";
+            
+            else {
+                imgErrorPass.Visibility = Visibility.Hidden;
+                lblEstado.Content = "El usuario introducido es incorrecto";
                 lblEstado.Visibility = Visibility.Visible;
-                //lblEstado.Foreground = 
+                imgUser.Source = new BitmapImage(new Uri("/Imagenes/img_error.png", UriKind.Relative));
             }
         }
 
@@ -77,6 +88,14 @@ namespace Trabajo_ipo
         {
             Acerca_De acerca = new Acerca_De();
             acerca.Show();
+        }
+
+        private void txtboxUsuario_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                passBox.Focus();
+            }
         }
     }
 }
