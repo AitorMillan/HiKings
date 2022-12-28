@@ -114,8 +114,8 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Rutas"
-                          Template="{StaticResource Menu_Template}" Padding="20,0,20,0">
+                <MenuItem x:Name="menuRutas" Header="Rutas"
+                          Template="{StaticResource Menu_Template}" Padding="20,0,20,0" Click="menuRutas_Click">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_rutas.png"
@@ -123,7 +123,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Guías"
+                <MenuItem x:Name="menuGuias" Header="Guías"
                           Template="{StaticResource Menu_Template}">
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_brujula.png"

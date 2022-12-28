@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace Trabajo_ipo
 {
@@ -24,13 +25,26 @@ namespace Trabajo_ipo
         List<Excursionista> listadoExcursionistas;
         private Excursionista excursionista_seleccionado;
         VentanaDatos datos;
+        VentanaRutas ru;
         public Window1()
         {
             InitializeComponent();
             listadoExcursionistas = CargarArchivoXML();
             añadirExcursionistas();
+            anadirXML();
         }
 
+        private void anadirXML()    
+        {
+            XDocument doc = XDocument.Load("excursionistas.xml");
+            XElement exc = doc.Element("Excursionista");
+            exc.Add(new XElement("Nombre","Aitor"),
+                                 ("Apellidos","Millán Trujillo"),
+                                 ("Edad","20"),
+                                 ("Telefono","123123123"),
+                                 ("RutaFoto","/Imagenes/persona_estandar.png"));
+            
+        }
         private void MenuPerfil_Click(object sender, RoutedEventArgs e)
         {
             if (IsWindowOpen<VentanaDatos>())
@@ -218,6 +232,7 @@ namespace Trabajo_ipo
                 btnEliminarUsuario.IsEnabled = false;
                 btnModificarDatos.IsEnabled = false;
                 limpiarTxtBox();
+                MessageBox.Show("Datos modificados correctamente", "Completado", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -232,6 +247,22 @@ namespace Trabajo_ipo
         {
             imgUsuario.Source = new BitmapImage(new Uri("Imagenes/persona_estandar.png", UriKind.Relative));
             txtBoxRutaImagen.Text = "Imagenes/persona_estandar.png";
+        }
+
+        private void MenuRutas_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsWindowOpen<VentanaRutas>())
+            {
+                this.Hide();
+                Window ventanaRutas = (Window)Application.Current.Windows.OfType<VentanaRutas>().FirstOrDefault();
+                ventanaRutas.Show();
+            }
+            else
+            {
+                ru = new VentanaRutas();
+                ru.Show();
+                this.Hide();
+            }
         }
     }
 }

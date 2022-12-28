@@ -21,6 +21,7 @@ namespace Trabajo_ipo
     {
         bool ventana_excursionistas = false;
         Window1 ex;
+        VentanaRutas ru;
 
         public VentanaDatos()
         {
@@ -65,6 +66,22 @@ namespace Trabajo_ipo
             {
                 ex = new Window1();
                 ex.Show();
+                this.Hide();
+            }
+        }
+
+        private void menuRutas_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsWindowOpen<VentanaRutas>())
+            {
+                this.Hide();
+                Window ventanaRutas = (Window)Application.Current.Windows.OfType<VentanaRutas>().FirstOrDefault();
+                ventanaRutas.Show();
+            }
+            else
+            {
+                ru = new VentanaRutas();
+                ru.Show();
                 this.Hide();
             }
         }

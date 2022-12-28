@@ -5,8 +5,114 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="VentanaRutas" Height="859" Width="1526" Background="#FFD4E8EE">
+        Title="VentanaRutas" Height="859" Width="1526" Background="#FFD4E8EE" WindowState="Maximized">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="634*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
+        <StackPanel Background="#2E333A" 
+                    Width="258"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center">
+            <Menu Background="Transparent"
+                  Height="auto"
+                  Width="auto">
+
+                <Menu.ItemsPanel>
+
+                    <ItemsPanelTemplate>
+
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+
+                    </ItemsPanelTemplate>
+
+                </Menu.ItemsPanel>
+
+                <Grid Height="41"
+              Width="258">
+                    <TextBlock Text="HiKings"
+                          
+                       Foreground="#FFFFFF"
+                       FontFamily="Fuentes/#Orbitron Medium"
+                       FontSize="15"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" 
+                       Width="auto" IsEnabled="False"/>
+
+                </Grid>
+
+
+                <MenuItem x:Name="MenuPerfil" Header="Mi Perfil"
+                          Template="{StaticResource Menu_Template}" Click="MenuPerfil_Click">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_home.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="MenuRutas" Header="Rutas"
+                          Template="{StaticResource Menu_Template}" Padding="20,0,20,0">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_rutas.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="MenuGuias" Header="Guías"
+                          Template="{StaticResource Menu_Template}">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_brujula.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="menuExcursionistas" Header="Excursionistas"
+                          Template="{StaticResource Menu_Template}" Background="#FF8F3232" Click="menuExcursionistas_Click">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_excursionista.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+
+                <MenuItem Header="Ayuda"
+                          Template="{StaticResource Menu_Template}">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_ayuda.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="menuAcerca" Header="Acerca de"
+                          Template="{StaticResource Menu_Template}" Click="menuAcerca_Click">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_about.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+
+                <MenuItem x:Name="menuSalir" Header="Salir"
+                          Template="{StaticResource Menu_Template}" Click="menuSalir_Click">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_exit.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+
+                </MenuItem>
+
+            </Menu>
+        </StackPanel>
+
     </Grid>
 </Window>
