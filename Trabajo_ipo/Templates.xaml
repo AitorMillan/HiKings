@@ -210,8 +210,6 @@
                         TargetName="border"
                         Value="#404D5B" />
             </Trigger>
-
-
         </ControlTemplate.Triggers>
     </ControlTemplate>
 

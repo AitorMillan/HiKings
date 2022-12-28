@@ -58,6 +58,7 @@
     <Compile Include="Acerca_De.xaml.cs">
       <DependentUpon>Acerca_De.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Excursionista.cs" />
     <Compile Include="VentanaDatos.xaml.cs">
       <DependentUpon>VentanaDatos.xaml</DependentUpon>
     </Compile>
@@ -164,6 +165,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\img_brujula.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\persona_estandar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="excursionistas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\foto_Unai.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

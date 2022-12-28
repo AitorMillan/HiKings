@@ -8,10 +8,12 @@
         Title="VentanaExcursionistas" Height="859" Width="1526" WindowState="Maximized" Background="#FFD4E8EC">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="123*"/>
-            <RowDefinition Height="289*"/>
-            <RowDefinition Height="322*"/>
-            <RowDefinition Height="110*"/>
+            <RowDefinition Height="141*"/>
+            <RowDefinition Height="212*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="97*"/>
+            <RowDefinition Height="273*"/>
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
 
@@ -20,13 +22,14 @@
             <ColumnDefinition Width="258*"/>
             <ColumnDefinition Width="78*"/>
             <ColumnDefinition Width="289*"/>
-            <ColumnDefinition Width="901*"/>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="875*"/>
         </Grid.ColumnDefinitions>
         <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
         <StackPanel Background="#2E333A" 
                     Width="258"
                     Orientation="Vertical"
-                    HorizontalAlignment="Center" Grid.Column="1" Grid.RowSpan="4">
+                    HorizontalAlignment="Center" Grid.Column="1" Grid.RowSpan="5">
             <Menu Background="Transparent"
                   Height="auto"
                   Width="auto">
@@ -44,6 +47,7 @@
                 <Grid Height="41"
               Width="258">
                     <TextBlock Text="HiKings"
+                          
                        Foreground="#FFFFFF"
                        FontFamily="Fuentes/#Orbitron Medium"
                        FontSize="15"
@@ -81,8 +85,8 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Excursionistas"
-                          Template="{StaticResource Menu_Template}">
+                <MenuItem x:Name="menuExcursionistas" Header="Excursionistas"
+                          Template="{StaticResource Menu_Template}" Background="#FF8F3232">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_excursionista.png"
@@ -125,9 +129,29 @@
 
         </StackPanel>
         <Image Source="/Imagenes/logo.png"
-                       Stretch="None" Grid.ColumnSpan="2"  Grid.Row="2" Margin="0,321,0,0" Grid.RowSpan="2"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="3"  Grid.Row="1" SelectedIndex="0"/>
+                       Stretch="None" Grid.ColumnSpan="2"  Grid.Row="3" Margin="0,97,0,0" Grid.RowSpan="2"  />
+        <ListBox x:Name="lstBoxExcursionistas" Grid.Column="3" Margin="0,141,0,0" Grid.RowSpan="3" SelectionChanged="lstBoxExcursionistas_SelectionChanged"/>
         <Label x:Name="lblExcursionistas" Grid.Column="3" Content="Excursionistas:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,87,0,0"/>
+        <Rectangle Stroke="Black" Grid.Column="5" Fill="#2E333A" RadiusX="50" RadiusY="50" Margin="0,141,0,0" Grid.RowSpan="3" />
+        <WrapPanel Grid.Column="5" Orientation="Vertical"  Grid.Row="1">
+            <Label x:Name="lblNombre" Content="Nombre" HorizontalContentAlignment="Center" Foreground="White"/>
+            <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" Width="120" Height="17.96" HorizontalAlignment="Left"/>
+            <Label x:Name="lblApellido" Content="Apellidos" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" HorizontalContentAlignment="Center" Width="120"/>
+            <TextBox x:Name="txtBoxApellido" TextWrapping="Wrap" Width="151"/>
+            <Label x:Name="lblEdad" Content="Edad" HorizontalContentAlignment="Center" Foreground="White"/>
+            <TextBox x:Name="txtBoxEdad" Grid.Column="5" HorizontalAlignment="Left"  Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="lblTelefono" Content="Teléfono" Foreground="White" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="txtBoxTelefono" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="lblImage" Content="Imágen del usuario" Foreground="White" HorizontalAlignment="Center"/>
+            <Image x:Name="imgUsuario" Source="/Imagenes/persona_estandar.png" Grid.Column="5" HorizontalAlignment="Left" Height="159" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Top" Width="160"/>
+            <TextBox x:Name="txtBoxRutaImagen" TextWrapping="Wrap" Text="Ruta de la imagen" Width="120"/>
+            <Button x:Name="btnBuscarImagen" Content="Añadir imagen" Click="btnBuscarImagen_Click"/>
+        </WrapPanel>
+        <WrapPanel Grid.Column="5" HorizontalAlignment="Center" Height="100" Grid.Row="2" VerticalAlignment="Center" Width="855">
+            <Button x:Name="btnEliminarUsuario" Content="Eliminar excursionista" Click="btnEliminarUsuario_Click" IsEnabled="False"/>
+            <Button x:Name="btnAñadirExcursionista" Grid.Column="5" Content="Añadir Excursionista" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Click="btnAñadirExcursionista_Click"/>
+            <Button x:Name="btnModificarDatos" Grid.Column="5" Content="Modificar datos" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" IsEnabled="False" Click="btnModificarDatos_Click"/>
+        </WrapPanel>
     </Grid>
 
 

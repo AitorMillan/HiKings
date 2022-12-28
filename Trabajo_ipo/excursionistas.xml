@@ -1,0 +1,20 @@
+﻿<Excursionistas>
+	<Excursionista Nombre="Miguel" Apellidos="Ortiz Castillo" 
+				   Edad="20" Telefono="123456789" 
+				   RutaFoto="/Imagenes/persona_estandar.png"/>
+	<Excursionista Nombre="Mario" Apellidos="Ortiz Moreno"
+			   Edad="45" Telefono="987654321"
+			   RutaFoto="/Imagenes/persona_estandar.png"/>
+	<Excursionista Nombre="Elena" Apellidos="Martínez Puig"
+			   Edad="18" Telefono="2143658709"
+			   RutaFoto="/Imagenes/persona_estandar.png"/>
+	<Excursionista Nombre="Mara" Apellidos="Hortelano López"
+			   Edad="34" Telefono="890451237"
+			   RutaFoto="/Imagenes/persona_estandar.png"/>
+	<Excursionista Nombre="José Javier" Apellidos="Domingo Domingo"
+			   Edad="20" Telefono="666891234"
+			   RutaFoto="/Imagenes/persona_estandar.png"/>
+	<Excursionista Nombre="Unai" Apellidos="Simón mendibil"
+			   Edad="30" Telefono="634907101"
+			   RutaFoto="/Imagenes/foto_unai.png"/>
+</Excursionistas>
