@@ -123,8 +123,8 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Guías"
-                          Template="{StaticResource Menu_Template}">
+                <MenuItem x:Name="menuGuia" Header="Guías"
+                          Template="{StaticResource Menu_Template}" Click="menuGuia_Click">
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_brujula.png"
                                Stretch="None" />

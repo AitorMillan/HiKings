@@ -19,8 +19,8 @@ namespace Trabajo_ipo
     /// </summary>
     public partial class VentanaDatos : Window
     {
-        bool ventana_excursionistas = false;
         Window1 ex;
+        VentanaGuias gui;
 
         public VentanaDatos()
         {
@@ -65,6 +65,22 @@ namespace Trabajo_ipo
             {
                 ex = new Window1();
                 ex.Show();
+                this.Hide();
+            }
+        }
+
+        private void menuGuia_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsWindowOpen<VentanaGuias>())
+            {
+                this.Hide();
+                Window ventanaGuias = (Window)Application.Current.Windows.OfType<VentanaGuias>().FirstOrDefault();
+                ventanaGuias.Show();
+            }
+            else
+            {
+                gui = new VentanaGuias();
+                gui.Show();
                 this.Hide();
             }
         }

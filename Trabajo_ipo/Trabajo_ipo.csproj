@@ -59,6 +59,7 @@
       <DependentUpon>Acerca_De.xaml</DependentUpon>
     </Compile>
     <Compile Include="Excursionista.cs" />
+    <Compile Include="Guia.cs" />
     <Compile Include="VentanaDatos.xaml.cs">
       <DependentUpon>VentanaDatos.xaml</DependentUpon>
     </Compile>
@@ -188,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\foto_Unai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="guias.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
