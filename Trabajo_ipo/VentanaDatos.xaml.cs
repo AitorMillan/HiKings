@@ -19,6 +19,9 @@ namespace Trabajo_ipo
     /// </summary>
     public partial class VentanaDatos : Window
     {
+        bool ventana_excursionistas = false;
+        Window1 ex;
+
         public VentanaDatos()
         {
             InitializeComponent(); 
@@ -36,7 +39,7 @@ namespace Trabajo_ipo
 
         private void menuSalir_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void menuAcerca_Click(object sender, RoutedEventArgs e)
@@ -44,12 +47,26 @@ namespace Trabajo_ipo
             Acerca_De acerca = new Acerca_De();
             acerca.Show();
         }
-
+        public static bool IsWindowOpen<T>(string name = "") where T : Window
+        {
+            return string.IsNullOrEmpty(name)
+               ? Application.Current.Windows.OfType<T>().Any()
+               : Application.Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
+        }
         private void menuExcursionista_Click(object sender, RoutedEventArgs e)
         {
-            Window1 excursionistas = new Window1();
-            excursionistas.Show();
-            this.Close();
+            if (IsWindowOpen<Window1>())
+            {
+                this.Hide();
+                Window ventanaExcursionistas = (Window)Application.Current.Windows.OfType<Window1>().FirstOrDefault();
+                ventanaExcursionistas.Show();
+            }
+            else
+            {
+                ex = new Window1();
+                ex.Show();
+                this.Hide();
+            }
         }
     }
 }

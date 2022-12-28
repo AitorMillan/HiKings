@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace Trabajo_ipo
     {
         List<Excursionista> listadoExcursionistas;
         private Excursionista excursionista_seleccionado;
+        VentanaDatos datos;
         public Window1()
         {
             InitializeComponent();
@@ -31,9 +33,18 @@ namespace Trabajo_ipo
 
         private void MenuPerfil_Click(object sender, RoutedEventArgs e)
         {
-            VentanaDatos datos = new VentanaDatos();
-            datos.Show();
-            this.Close();
+            if (IsWindowOpen<VentanaDatos>())
+            {
+                this.Hide();
+                Window VentanaDatos = (Window)Application.Current.Windows.OfType<VentanaDatos>().FirstOrDefault();
+                VentanaDatos.Show();
+            }
+            else
+            {
+                datos = new VentanaDatos();
+                datos.Show();
+                this.Hide();
+            }
         }
 
         private void menuAcerca_Click(object sender, RoutedEventArgs e)
@@ -44,7 +55,7 @@ namespace Trabajo_ipo
 
         private void menuSalir_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void añadirExcursionistas()
@@ -96,6 +107,7 @@ namespace Trabajo_ipo
                     imgUsuario.Source = excursionista.Foto;
                     txtBoxRutaImagen.Text =Convert.ToString(excursionista.RutaFoto);
                     btnEliminarUsuario.IsEnabled = true;
+                    btnModificarDatos.IsEnabled = true;
                     excursionista_seleccionado = excursionista;
                     break;
                 }
@@ -104,13 +116,13 @@ namespace Trabajo_ipo
 
         private void btnBuscarImagen_Click(object sender, RoutedEventArgs e)
         {
-            if (txtBoxRutaImagen.Text != "/Imagenes/persona_estandar.png" && txtBoxRutaImagen.Text != "/Imagenes/foto_Unai.png")
+            OpenFileDialog a = new OpenFileDialog();
+
+            if (a.ShowDialog() == true)
             {
-               MessageBox.Show("Introduzca una ruta relativa válida", "Ruta incorrecta", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                txtBoxRutaImagen.Text = a.FileName;
+                imgUsuario.Source = new BitmapImage(new Uri(a.FileName, UriKind.RelativeOrAbsolute));
             }
-            BitmapImage foto = new BitmapImage(new Uri(txtBoxRutaImagen.Text, UriKind.Relative));
-            imgUsuario.Source = foto;
         }
 
         private void limpiarTxtBox()
@@ -131,6 +143,7 @@ namespace Trabajo_ipo
                 lstBoxExcursionistas.Items.Remove(nombre);
                 listadoExcursionistas.Remove(excursionista_seleccionado);
                 btnEliminarUsuario.IsEnabled = false;
+                btnModificarDatos.IsEnabled = false;
                 limpiarTxtBox();
             }
         }
@@ -166,17 +179,11 @@ namespace Trabajo_ipo
                         string apellidos = txtBoxApellido.Text;
                         int edad = Convert.ToInt32(txtBoxEdad.Text);
                         long telefono = Convert.ToInt64(txtBoxTelefono.Text);
-                        if (txtBoxRutaImagen.Text != "/Imagenes/persona_estandar.png" && txtBoxRutaImagen.Text != "/Imagenes/foto_Unai.png")
-                        {
-                            MessageBox.Show("Introduzca una ruta relativa válida", "Ruta incorrecta", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                        else
-                        {
-                            Uri rutaFoto = new Uri(txtBoxRutaImagen.Text, UriKind.Relative);
-                            Excursionista ex = new Excursionista(nombre, apellidos, edad, telefono, rutaFoto);
-                            listadoExcursionistas.Add(ex);
-                            lstBoxExcursionistas.Items.Add(nombre);
-                        }
+                        Uri rutaFoto = new Uri(txtBoxRutaImagen.Text, UriKind.RelativeOrAbsolute);
+                        Excursionista ex = new Excursionista(nombre, apellidos, edad, telefono, rutaFoto);
+                        listadoExcursionistas.Add(ex);
+                        lstBoxExcursionistas.Items.Add(nombre);
+
                     }
                     catch (Exception ex)
                     {
@@ -189,6 +196,18 @@ namespace Trabajo_ipo
         private void btnModificarDatos_Click(object sender, RoutedEventArgs e)
         {
             //POR IMPLEMENTAR
+        }
+
+        public static bool IsWindowOpen<T>(string name = "") where T : Window
+        {
+            return string.IsNullOrEmpty(name)
+               ? Application.Current.Windows.OfType<T>().Any()
+               : Application.Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
+        }
+
+        private void btnEliminarFoto_Click(object sender, RoutedEventArgs e)
+        {
+            imgUsuario.Source = new BitmapImage(new Uri("Imagenes/persona_estandar.png", UriKind.Relative));
         }
     }
 }
