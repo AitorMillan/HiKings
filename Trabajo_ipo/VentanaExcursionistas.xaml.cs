@@ -140,7 +140,8 @@ namespace Trabajo_ipo
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 string nombre = txtBoxNombre.Text;
-                lstBoxExcursionistas.Items.Remove(nombre);
+                int pos = lstBoxExcursionistas.SelectedIndex;
+                lstBoxExcursionistas.Items.RemoveAt(pos);
                 listadoExcursionistas.Remove(excursionista_seleccionado);
                 btnEliminarUsuario.IsEnabled = false;
                 btnModificarDatos.IsEnabled = false;
@@ -183,6 +184,10 @@ namespace Trabajo_ipo
                         Excursionista ex = new Excursionista(nombre, apellidos, edad, telefono, rutaFoto);
                         listadoExcursionistas.Add(ex);
                         lstBoxExcursionistas.Items.Add(nombre);
+                        lstBoxExcursionistas.SelectedIndex = -1;
+                        btnEliminarUsuario.IsEnabled = false;
+                        btnModificarDatos.IsEnabled = false;
+                        limpiarTxtBox();
 
                     }
                     catch (Exception ex)
@@ -195,7 +200,25 @@ namespace Trabajo_ipo
 
         private void btnModificarDatos_Click(object sender, RoutedEventArgs e)
         {
-            //POR IMPLEMENTAR
+            MessageBoxResult messageBoxResult = MessageBox.Show("¿Estás seguro de que desea editar los datos de esta persona?: " + txtBoxNombre.Text, "Por favor confirma", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                string nombre = txtBoxNombre.Text;
+                string apellidos = txtBoxApellido.Text;
+                int edad = Convert.ToInt32(txtBoxEdad.Text);
+                long telefono = Convert.ToInt64(txtBoxTelefono.Text);
+                Uri rutaFoto = new Uri(txtBoxRutaImagen.Text, UriKind.RelativeOrAbsolute);
+                Excursionista ex = new Excursionista(nombre, apellidos, edad, telefono, rutaFoto);
+                int pos = lstBoxExcursionistas.SelectedIndex;
+                lstBoxExcursionistas.Items.RemoveAt(pos);
+                listadoExcursionistas.Remove(excursionista_seleccionado);
+                listadoExcursionistas.Add(ex);
+                lstBoxExcursionistas.Items.Add(nombre);
+                lstBoxExcursionistas.SelectedIndex = -1;
+                btnEliminarUsuario.IsEnabled = false;
+                btnModificarDatos.IsEnabled = false;
+                limpiarTxtBox();
+            }
         }
 
         public static bool IsWindowOpen<T>(string name = "") where T : Window
@@ -208,6 +231,7 @@ namespace Trabajo_ipo
         private void btnEliminarFoto_Click(object sender, RoutedEventArgs e)
         {
             imgUsuario.Source = new BitmapImage(new Uri("Imagenes/persona_estandar.png", UriKind.Relative));
+            txtBoxRutaImagen.Text = "Imagenes/persona_estandar.png";
         }
     }
 }
