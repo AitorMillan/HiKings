@@ -31,19 +31,39 @@ namespace Trabajo_ipo
             InitializeComponent();
             listadoExcursionistas = CargarArchivoXML();
             añadirExcursionistas();
-            anadirXML();
         }
 
-        private void anadirXML()    
+        private void eliminarXML(string Nombre, string Apellidos, string Edad, string Telefono, string RutaFoto)
         {
-            XDocument doc = XDocument.Load("excursionistas.xml");
-            XElement exc = doc.Element("Excursionista");
-            exc.Add(new XElement("Nombre","Aitor"),
-                                 ("Apellidos","Millán Trujillo"),
-                                 ("Edad","20"),
-                                 ("Telefono","123123123"),
-                                 ("RutaFoto","/Imagenes/persona_estandar.png"));
-            
+            string defaultFolder = System.AppDomain.CurrentDomain.BaseDirectory;
+            string newFolder = defaultFolder.Substring(0, defaultFolder.Length - 11);
+
+            XDocument doc = XDocument.Load(newFolder + "/excursionistas.xml");
+            var q = from node in doc.Descendants("Excursionista")
+                    let nombre = node.Attribute("Nombre")
+                    let apellido = node.Attribute("Apellidos")
+                    let edad = node.Attribute("Edad")
+                    let telefono = node.Attribute("Telefono")
+                    let rutaFoto = node.Attribute("RutaFoto")
+                    where nombre.Value == Nombre && apellido.Value == Apellidos && edad.Value == Edad && telefono.Value == Telefono && rutaFoto.Value == RutaFoto
+                    select node;
+            q.ToList().ForEach(x => x.Remove());
+            doc.Save(newFolder + "/excursionistas.xml");
+        }
+        private void anadirXML(string nombre, string apellidos, int edad, long telefono, Uri rutaFoto)    
+        {
+            string defaultFolder = System.AppDomain.CurrentDomain.BaseDirectory;
+            string newFolder = defaultFolder.Substring (0, defaultFolder.Length - 11);
+            XDocument doc = XDocument.Load(newFolder+"/excursionistas.xml");
+            XElement exc = doc.Element("Excursionistas");
+            exc.Add(new XElement("Excursionista",
+                        new XAttribute("Nombre",nombre),
+                        new XAttribute("Apellidos",apellidos),
+                        new XAttribute("Edad",Convert.ToString(edad)),
+                        new XAttribute("Telefono",Convert.ToString(telefono)),
+                        new XAttribute("RutaFoto",Convert.ToString(rutaFoto))));
+            doc.Save(newFolder+"/excursionistas.xml");
+
         }
         private void MenuPerfil_Click(object sender, RoutedEventArgs e)
         {
@@ -92,7 +112,7 @@ namespace Trabajo_ipo
                 string apellidos = node.Attributes["Apellidos"].Value;
                 int edad = Convert.ToInt32(node.Attributes["Edad"].Value);
                 long telefono = Convert.ToInt64(node.Attributes["Telefono"].Value);
-                Uri rutaFoto = new Uri(node.Attributes["RutaFoto"].Value, UriKind.Relative);
+                Uri rutaFoto = new Uri(node.Attributes["RutaFoto"].Value, UriKind.RelativeOrAbsolute);
                 Excursionista excursionista = new Excursionista(nombre,apellidos,edad ,telefono,rutaFoto);
                 listado.Add(excursionista);
             }
@@ -103,7 +123,6 @@ namespace Trabajo_ipo
         {
             if (lstBoxExcursionistas.SelectedItem is null)
             {
-                txtBoxApellido.Text = "f";
                 return;
             }
             string nombre = lstBoxExcursionistas.SelectedItem.ToString();
@@ -154,11 +173,13 @@ namespace Trabajo_ipo
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 string nombre = txtBoxNombre.Text;
+                string apellidos = txtBoxApellido.Text;
                 int pos = lstBoxExcursionistas.SelectedIndex;
                 lstBoxExcursionistas.Items.RemoveAt(pos);
                 listadoExcursionistas.Remove(excursionista_seleccionado);
                 btnEliminarUsuario.IsEnabled = false;
                 btnModificarDatos.IsEnabled = false;
+                eliminarXML(nombre, apellidos, txtBoxEdad.Text, txtBoxTelefono.Text, txtBoxRutaImagen.Text);
                 limpiarTxtBox();
             }
         }
@@ -201,6 +222,7 @@ namespace Trabajo_ipo
                         lstBoxExcursionistas.SelectedIndex = -1;
                         btnEliminarUsuario.IsEnabled = false;
                         btnModificarDatos.IsEnabled = false;
+                        anadirXML(nombre, apellidos, edad, telefono, rutaFoto);
                         limpiarTxtBox();
 
                     }
@@ -217,6 +239,8 @@ namespace Trabajo_ipo
             MessageBoxResult messageBoxResult = MessageBox.Show("¿Estás seguro de que desea editar los datos de esta persona?: " + txtBoxNombre.Text, "Por favor confirma", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
+                eliminarXML(excursionista_seleccionado.Nombre, excursionista_seleccionado.Apellidos, Convert.ToString(excursionista_seleccionado.Edad), Convert.ToString(excursionista_seleccionado.Telefono),
+                    Convert.ToString(excursionista_seleccionado.RutaFoto));
                 string nombre = txtBoxNombre.Text;
                 string apellidos = txtBoxApellido.Text;
                 int edad = Convert.ToInt32(txtBoxEdad.Text);
@@ -233,6 +257,7 @@ namespace Trabajo_ipo
                 btnModificarDatos.IsEnabled = false;
                 limpiarTxtBox();
                 MessageBox.Show("Datos modificados correctamente", "Completado", MessageBoxButton.OK, MessageBoxImage.Information);
+                anadirXML(nombre, apellidos, edad, telefono, rutaFoto);
             }
         }
 
