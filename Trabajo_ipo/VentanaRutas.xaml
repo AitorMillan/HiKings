@@ -113,6 +113,33 @@
 
             </Menu>
         </StackPanel>
+        <Rectangle Grid.Column="1" HorizontalAlignment="Left" Height="488" Margin="232,132,0,0" Stroke="Black" VerticalAlignment="Top" Width="892" Fill="#FF2E333A"/>
+        <WrapPanel Grid.Column="1" HorizontalAlignment="Left" Height="450" Margin="249,150,0,0" VerticalAlignment="Top" Width="858" Orientation="Vertical">
+            <ListBox x:Name="lstBoxRutas" Height="242" Width="210" SelectionChanged="lstBoxRutas_SelectionChanged"/>
+            <Label x:Name="lblNombre" Content="Nombre de la ruta" Foreground="White" Height="31" Width="117"/>
+            <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" Width="178" Height="22"/>
+            <Label x:Name="lblOrigen" Content="Origen" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="31" Width="124"/>
+            <TextBox x:Name="txtBoxOrigen" TextWrapping="Wrap" Width="120"/>
+            <Label x:Name="lblDestino" Content="Destino" Foreground="White"/>
+            <TextBox x:Name="txtBoxDestino" TextWrapping="Wrap" Width="120"/>
+            <Label x:Name="lblDificultad" Content="Dificultad" Foreground="White"/>
+            <ComboBox x:Name="comboBoxDificultad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Text="Dificultad">
+                <ComboBoxItem Content="Fácil"/>
+                <ComboBoxItem Content="Intermedio"/>
+                <ComboBoxItem Content="Difícil"/>
+            </ComboBox>
+            <Label x:Name="lblDuracion" Content="Duración (minutos)" Height="26" Foreground="White"/>
+            <TextBox x:Name="txtBoxDuracion" Width="120"/>
+            <Label x:Name="lblFecha" Content="Fecha de la ruta" Foreground="White"/>
+            <DatePicker x:Name="dateFecha" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label x:Name="lblNumExcursionistas" Content="Excursionistas apuntados" Foreground="White"/>
+            <TextBox x:Name="txtboxNumExcursionistas" TextWrapping="Wrap" Width="120"/>
+            <Button x:Name="btnAnadirRuta" Content="Añadir ruta" Click="btnAnadirRuta_Click"/>
+            <Button x:Name="btnEliminarRuta" Content="Eliminar ruta" IsEnabled="False"/>
+            <Button x:Name="btnModificarRuta" Content="Modificar ruta" IsEnabled="False"/>
+            <Button x:Name="btnContratarRuta" Content="Contratar Ruta" HorizontalAlignment="Center" VerticalAlignment="Center" Width="145" IsEnabled="False"/>
+            <Button x:Name="btnIncidencias" Content="Ver incidencias" IsEnabled="False" Click="btnIncidencias_Click"/>
+        </WrapPanel>
 
     </Grid>
 </Window>

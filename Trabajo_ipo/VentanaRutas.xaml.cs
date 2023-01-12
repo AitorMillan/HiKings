@@ -22,11 +22,30 @@ namespace Trabajo_ipo
     {
         VentanaDatos datos;
         Window1 ex;
+        Rutas ruta_seleccionada;
         List<Rutas> listadoRutas;
+        List<Excursionista> listadoExcursionistas;
         public VentanaRutas()
         {
             InitializeComponent();
             listadoRutas = CargarArchivoXML();
+            anadirRutas();
+        }
+
+        private void anadirRutas()
+        {
+            foreach (Rutas ruta in listadoRutas)
+            {
+                if (ruta.Finalizada == true)
+                {
+                    lstBoxRutas.Items.Add(ruta.Nombre + "(Finalizada)");
+                }
+                else
+                {
+
+                    lstBoxRutas.Items.Add(ruta.Nombre);
+                }
+            }
         }
         private List<Rutas> CargarArchivoXML()
         {
@@ -104,6 +123,60 @@ namespace Trabajo_ipo
                 ex = new Window1();
                 ex.Show();
                 this.Hide();
+            }
+        }
+
+        private void lstBoxRutas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lstBoxRutas.SelectedItem is null)
+            {
+                return;
+            }
+            string nombre = lstBoxRutas.SelectedItem.ToString();
+            nombre = nombre.Split('(')[0];
+            int posicion = lstBoxRutas.SelectedIndex + 1;
+            int posRuta = 0;
+            foreach (Rutas ruta in listadoRutas)
+            {
+                posRuta++;
+                if (ruta.Nombre == nombre && posRuta == posicion)
+                {
+                    txtBoxNombre.Text = nombre;
+                    txtBoxOrigen.Text = ruta.Origen;
+                    txtBoxDestino.Text = ruta.Destino;
+                    comboBoxDificultad.Text = ruta.Dificultad;
+                    txtBoxDuracion.Text = Convert.ToString(ruta.Duracion);
+                    dateFecha.Text = Convert.ToString(ruta.Fecha);
+                    txtboxNumExcursionistas.Text = Convert.ToString(ruta.Num_excursionistas);
+                    btnEliminarRuta.IsEnabled = true;
+                    btnModificarRuta.IsEnabled = true;
+                    ruta_seleccionada = ruta;
+                    if (ruta.Finalizada == true)
+                    {
+                        btnContratarRuta.IsEnabled = false;
+                        btnIncidencias.IsEnabled = true;
+                    }
+                    else
+                    {
+                        btnIncidencias.IsEnabled=false;
+                        btnContratarRuta.IsEnabled = true;
+                    }
+                    break;
+                }
+            }
+        }
+
+        private void btnIncidencias_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaIncidencias incidencias = new VentanaIncidencias(ruta_seleccionada.Incidencias);
+            incidencias.Show();
+        }
+
+        private void btnAnadirRuta_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtBoxNombre.Text == "" || txtBoxOrigen.Text == "" || txtBoxDestino.Text == "" || txtBoxDuracion.Text == "" || dateFecha.Text == "" || comboBoxDificultad.Text == "")
+            {
+                MessageBox.Show("Por favor rellene todos los cambios antes de añadir un usuario", "Error al añadir el usuario", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

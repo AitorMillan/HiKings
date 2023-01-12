@@ -18,6 +18,8 @@ namespace Trabajo_ipo
         public bool Finalizada { get; set; }
         public string Incidencias { get; set; }
 
+        public List<Excursionista> Excursionistas_apuntados { get; set; }
+
         //Añadir PDIs
 
         public Rutas(string nombre, string origen, string destino, string dificultad, int duracion, string fecha, int num_excursionistas, bool finalizada)
