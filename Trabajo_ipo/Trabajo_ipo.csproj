@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Excursionista.cs" />
     <Compile Include="Guia.cs" />
+    <Compile Include="Pdi.cs" />
     <Compile Include="Rutas.cs" />
     <Compile Include="VentanaDatos.xaml.cs">
       <DependentUpon>VentanaDatos.xaml</DependentUpon>
@@ -207,6 +208,46 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="rutas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pdis.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\sanAnton1.jpg" />
+    <Resource Include="Imagenes\sanAnton2.jpg" />
+    <Resource Include="Imagenes\sanAnton3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\doGozo1.jpg" />
+    <Resource Include="Imagenes\doGozo2.jpg" />
+    <Resource Include="Imagenes\doGozo3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\medrano1.jpg" />
+    <Resource Include="Imagenes\medrano2.jpg" />
+    <Resource Include="Imagenes\medrano3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\jamilla1.jpg" />
+    <Resource Include="Imagenes\jamilla2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\pan1.jpg" />
+    <Resource Include="Imagenes\pan2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\posada1.jpg" />
+    <Resource Include="Imagenes\posada2.jpg" />
+    <Resource Include="Imagenes\posada3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\cueva1.jpg" />
+    <Resource Include="Imagenes\cueva2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\cerro1.jpg" />
+    <Resource Include="Imagenes\cerro2.jpg" />
+    <Resource Include="Imagenes\cerro3.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
