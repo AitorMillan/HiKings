@@ -25,14 +25,13 @@ namespace Trabajo_ipo
         private Excursionista excursionista_seleccionado;
         VentanaDatos datos;
         VentanaRutas ru;
-        List<Excursionista> listadoExcursionistas;
         GestorDatos Gestor;
         public Window1(GestorDatos gestor)
         {
             InitializeComponent();
-            listadoExcursionistas = CargarArchivoXML();
-            añadirExcursionistas();
             Gestor = gestor;
+            Gestor.Excursionistas = CargarArchivoXML();
+            añadirExcursionistas();
         }
 
         
@@ -96,7 +95,7 @@ namespace Trabajo_ipo
 
         private void añadirExcursionistas()
         {
-            foreach (Excursionista excursionista in listadoExcursionistas)
+            foreach (Excursionista excursionista in Gestor.Excursionistas)
             {
                 lstBoxExcursionistas.Items.Add(excursionista.Nombre);
             }
@@ -130,7 +129,7 @@ namespace Trabajo_ipo
             string nombre = lstBoxExcursionistas.SelectedItem.ToString();
             int posicion = lstBoxExcursionistas.SelectedIndex + 1;
             int posExcursionista = 0;
-            foreach (Excursionista excursionista in listadoExcursionistas)
+            foreach (Excursionista excursionista in Gestor.Excursionistas)
             {
                 posExcursionista++;
                 if (excursionista.Nombre == nombre && posExcursionista == posicion)
@@ -178,7 +177,7 @@ namespace Trabajo_ipo
                 string apellidos = txtBoxApellido.Text;
                 int pos = lstBoxExcursionistas.SelectedIndex;
                 lstBoxExcursionistas.Items.RemoveAt(pos);
-                listadoExcursionistas.Remove(excursionista_seleccionado);
+                Gestor.Excursionistas.Remove(excursionista_seleccionado);
                 btnEliminarUsuario.IsEnabled = false;
                 btnModificarDatos.IsEnabled = false;
                 eliminarXML(nombre, apellidos, txtBoxEdad.Text, txtBoxTelefono.Text, txtBoxRutaImagen.Text);
@@ -219,7 +218,7 @@ namespace Trabajo_ipo
                         long telefono = Convert.ToInt64(txtBoxTelefono.Text);
                         Uri rutaFoto = new Uri(txtBoxRutaImagen.Text, UriKind.RelativeOrAbsolute);
                         Excursionista ex = new Excursionista(nombre, apellidos, edad, telefono, rutaFoto);
-                        listadoExcursionistas.Add(ex);
+                        Gestor.Excursionistas.Add(ex);
                         lstBoxExcursionistas.Items.Add(nombre);
                         lstBoxExcursionistas.SelectedIndex = -1;
                         btnEliminarUsuario.IsEnabled = false;
@@ -251,8 +250,8 @@ namespace Trabajo_ipo
                 Excursionista ex = new Excursionista(nombre, apellidos, edad, telefono, rutaFoto);
                 int pos = lstBoxExcursionistas.SelectedIndex;
                 lstBoxExcursionistas.Items.RemoveAt(pos);
-                listadoExcursionistas.Remove(excursionista_seleccionado);
-                listadoExcursionistas.Add(ex);
+                Gestor.Excursionistas.Remove(excursionista_seleccionado);
+                Gestor.Excursionistas.Add(ex);
                 lstBoxExcursionistas.Items.Add(nombre);
                 lstBoxExcursionistas.SelectedIndex = -1;
                 btnEliminarUsuario.IsEnabled = false;
@@ -295,11 +294,6 @@ namespace Trabajo_ipo
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CargarArchivoXML();
-        }
-
-        private void Window_Deactivated(object sender, EventArgs e)
-        {
-            Gestor.Excursionistas = listadoExcursionistas;
         }
     }
 }

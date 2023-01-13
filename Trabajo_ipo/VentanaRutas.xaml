@@ -117,7 +117,8 @@
         <WrapPanel Grid.Column="1" HorizontalAlignment="Left" Height="765" Margin="62,43,0,0" VerticalAlignment="Top" Width="1151" Orientation="Vertical">
             <ListBox x:Name="lstBoxRutas" Height="242" Width="210" SelectionChanged="lstBoxRutas_SelectionChanged"/>
             <Label x:Name="lblApuntados" Content="Excursionistas apuntados:" Foreground="White" HorizontalContentAlignment="Center"/>
-            <ListBox x:Name="lstBoxApuntados" Height="242" Width="207"/>
+            <ListBox x:Name="lstBoxApuntados" Height="242" Width="207" SelectionChanged="lstBoxApuntados_SelectionChanged"/>
+            <Button x:Name="btnVerDatosExcursionista" Content="Ver Info" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnVerDatosExcursionista_Click" IsEnabled="False"/>
             <Label x:Name="lblNombre" Content="Nombre de la ruta" Foreground="White" Height="31" Width="117"/>
             <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" Width="178" Height="22"/>
             <Label x:Name="lblOrigen" Content="Origen" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="31" Width="124"/>

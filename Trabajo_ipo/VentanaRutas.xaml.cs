@@ -23,15 +23,16 @@ namespace Trabajo_ipo
         VentanaDatos datos;
         Window1 ex;
         Rutas ruta_seleccionada;
+        Excursionista ex_seleccionado;
         List<Rutas> listadoRutas;
         GestorDatos Gestor;
         public VentanaRutas(GestorDatos gestor)
         {
             InitializeComponent();
             listadoRutas = CargarArchivoXML();
+            Gestor = gestor;
             cargarExcursionistas();
             anadirRutas();
-            Gestor = gestor;
         }
 
 
@@ -157,7 +158,7 @@ namespace Trabajo_ipo
                     comboBoxDificultad.Text = ruta.Dificultad;
                     txtBoxDuracion.Text = Convert.ToString(ruta.Duracion);
                     dateFecha.Text = Convert.ToString(ruta.Fecha);
-                    txtboxNumExcursionistas.Text = Convert.ToString(ruta.Num_excursionistas);
+                    txtboxNumExcursionistas.Text = Convert.ToString(ruta.Excursionistas_apuntados.Count);
                     btnEliminarRuta.IsEnabled = true;
                     btnModificarRuta.IsEnabled = true;
                     ruta_seleccionada = ruta;
@@ -185,6 +186,7 @@ namespace Trabajo_ipo
             if(ruta_seleccionada.Excursionistas_apuntados.Count == 0)
             {
                 lstBoxApuntados.Items.Add("No hay excursionistas para esta ruta");
+                btnVerDatosExcursionista.IsEnabled = false;
             }
             else
             {
@@ -320,6 +322,35 @@ namespace Trabajo_ipo
                 listado.Add(excursionista);
             }
             return listado;
+        }
+
+        private void btnVerDatosExcursionista_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaDatosPersona datos_p = new VentanaDatosPersona(ex_seleccionado.Nombre,ex_seleccionado.Apellidos,
+                                                                    Convert.ToString(ex_seleccionado.Telefono),
+                                                                    ex_seleccionado.RutaFoto);
+            datos_p.Show();
+        }
+
+        private void lstBoxApuntados_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lstBoxApuntados.SelectedItem is null)
+            {
+                return;
+            }
+            string nombre = lstBoxApuntados.SelectedItem.ToString();
+            int posicion = lstBoxApuntados.SelectedIndex + 1;
+            int posExcursionista = 0;
+            foreach (Excursionista excursionista in ruta_seleccionada.Excursionistas_apuntados)
+            {
+                posExcursionista++;
+                if (excursionista.Nombre == nombre && posExcursionista == posicion)
+                {
+                    ex_seleccionado = excursionista;
+                    btnVerDatosExcursionista.IsEnabled = true;
+                    break;
+                }
+            }
         }
     }
 }
