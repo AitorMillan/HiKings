@@ -1,20 +1,20 @@
 ﻿<Rutas>
 	<Ruta Nombre="Camino de Santiago" Origen="Tomelloso" Destino="Daimiel"
-		  Dificultad="Intermedio" Duracion="120" Fecha="4/8/2022" Num_excursionistas="5"
+		  Dificultad="Intermedio" Duracion="120" Fecha="4/8/2022" Num_excursionistas="4"
 		  Finalizada="true" Incidencias="Sin incidencias"/>
 	<Ruta Nombre="Camino de San Nicolás" Origen="Argamasilla de Alba" Destino="Argamasilla de Alba"
 	      Dificultad="Fácil" Duracion="30" Fecha="7/10/2023" Num_excursionistas="0"
 		  Finalizada="false"/>
 	<Ruta Nombre="Don Quijote de la Mancha" Origen="Argamasilla de Alba" Destino="Villanueva de los Infantes"
-	      Dificultad="Difícil" Duracion="180" Fecha="4/8/2023" Num_excursionistas="6"
+	      Dificultad="Difícil" Duracion="180" Fecha="4/8/2023" Num_excursionistas="0"
 		  Finalizada="false"/>
 	<Ruta Nombre="Tablas de Daimiel" Origen="Daimiel" Destino="Daimiel"
-	      Dificultad="Fácil" Duracion="30" Fecha="1/2/2023" Num_excursionistas="5"
+	      Dificultad="Fácil" Duracion="30" Fecha="1/2/2023" Num_excursionistas="0"
 		  Finalizada="false"/>
 	<Ruta Nombre="Camino Virgen de las Viñas" Origen="Tomelloso" Destino="Tomelloso"
-	      Dificultad="Fácil" Duracion="45" Fecha="20/4/2023" Num_excursionistas="6"
+	      Dificultad="Fácil" Duracion="45" Fecha="20/4/2023" Num_excursionistas="0"
 		  Finalizada="false"/>
 	<Ruta Nombre="Camino de la Virgen de Consolación" Origen="Valdepeñas" Destino="Valdepeñas"
-	      Dificultad="Intermedio" Duracion="60" Fecha="8/9/2023" Num_excursionistas="5"
+	      Dificultad="Intermedio" Duracion="60" Fecha="8/9/2023" Num_excursionistas="0"
 		  Finalizada="false"/>
 </Rutas>

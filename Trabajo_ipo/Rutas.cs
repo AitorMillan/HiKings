@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trabajo_ipo
 {
-    internal class Rutas
+    public class Rutas
     {
         public string Nombre { get; set; }
         public string Origen { get; set; }
@@ -32,6 +32,7 @@ namespace Trabajo_ipo
             Fecha = fecha;
             Num_excursionistas = num_excursionistas;
             Finalizada = finalizada;
+            Excursionistas_apuntados = new List<Excursionista>();
         }
 
         public Rutas(string nombre, string origen, string destino, string dificultad, int duracion, string fecha, int num_excursionistas, bool finalizada, string incidencias)
@@ -45,6 +46,7 @@ namespace Trabajo_ipo
             Num_excursionistas = num_excursionistas;
             Finalizada = finalizada;
             Incidencias = incidencias;
+            Excursionistas_apuntados = new List<Excursionista>();
         }
     }
 }

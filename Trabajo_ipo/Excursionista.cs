@@ -9,7 +9,7 @@ using System.Xml;
 namespace Trabajo_ipo
 {
 
-    internal class Excursionista
+    public class Excursionista
     {
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
@@ -37,6 +37,12 @@ namespace Trabajo_ipo
             Edad = edad;
             Telefono = telefono;
             Foto = new BitmapImage(new Uri("/Imagenes/persona_estandar.png", UriKind.Relative));
+        }
+
+    public override bool Equals(System.Object obj)
+        {
+            Excursionista ex = obj as Excursionista;
+            return Nombre == ex.Nombre && Apellidos == ex.Apellidos && Telefono == ex.Telefono;
         }
     }
 

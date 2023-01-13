@@ -59,9 +59,13 @@
       <DependentUpon>Acerca_De.xaml</DependentUpon>
     </Compile>
     <Compile Include="Excursionista.cs" />
+    <Compile Include="GestorDatos.cs" />
     <Compile Include="Guia.cs" />
     <Compile Include="Pdi.cs" />
     <Compile Include="Rutas.cs" />
+    <Compile Include="VentanaContratar.xaml.cs">
+      <DependentUpon>VentanaContratar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaDatos.xaml.cs">
       <DependentUpon>VentanaDatos.xaml</DependentUpon>
     </Compile>
@@ -96,6 +100,10 @@
     <Page Include="Templates.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VentanaContratar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VentanaDatos.xaml">
       <SubType>Designer</SubType>
@@ -248,6 +256,12 @@
     <Resource Include="Imagenes\cerro1.jpg" />
     <Resource Include="Imagenes\cerro2.jpg" />
     <Resource Include="Imagenes\cerro3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\flecha_derecha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\flecha_izquierda.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -22,17 +22,20 @@ namespace Trabajo_ipo
     /// </summary>
     public partial class Window1 : Window
     {
-        List<Excursionista> listadoExcursionistas;
         private Excursionista excursionista_seleccionado;
         VentanaDatos datos;
         VentanaRutas ru;
-        public Window1()
+        List<Excursionista> listadoExcursionistas;
+        GestorDatos Gestor;
+        public Window1(GestorDatos gestor)
         {
             InitializeComponent();
             listadoExcursionistas = CargarArchivoXML();
             añadirExcursionistas();
+            Gestor = gestor;
         }
 
+        
         private void eliminarXML(string Nombre, string Apellidos, string Edad, string Telefono, string RutaFoto)
         {
             string defaultFolder = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -63,7 +66,6 @@ namespace Trabajo_ipo
                         new XAttribute("Telefono",Convert.ToString(telefono)),
                         new XAttribute("RutaFoto",Convert.ToString(rutaFoto))));
             doc.Save(newFolder+"/excursionistas.xml");
-
         }
         private void MenuPerfil_Click(object sender, RoutedEventArgs e)
         {
@@ -279,15 +281,25 @@ namespace Trabajo_ipo
             if (IsWindowOpen<VentanaRutas>())
             {
                 this.Hide();
-                Window ventanaRutas = (Window)Application.Current.Windows.OfType<VentanaRutas>().FirstOrDefault();
+                VentanaRutas ventanaRutas = (VentanaRutas)Application.Current.Windows.OfType<VentanaRutas>().FirstOrDefault();
                 ventanaRutas.Show();
             }
             else
             {
-                ru = new VentanaRutas();
+                ru = new VentanaRutas(Gestor);
                 ru.Show();
                 this.Hide();
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CargarArchivoXML();
+        }
+
+        private void Window_Deactivated(object sender, EventArgs e)
+        {
+            Gestor.Excursionistas = listadoExcursionistas;
         }
     }
 }

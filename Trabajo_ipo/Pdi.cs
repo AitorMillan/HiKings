@@ -13,6 +13,7 @@ namespace Trabajo_ipo
         public string Descripcion { get; set; }
         public string Tipologia { get; set; }
         public List<Uri> RutasFotos { get; set; } 
+        public int posicionFoto { get; set; }
         public BitmapImage Foto { get; set; }
         public List<Rutas> Rutas_realcionadas { get; set; }
 
@@ -23,6 +24,7 @@ namespace Trabajo_ipo
             Tipologia = tipologia;
             RutasFotos = rutasFotos;
             Foto = new BitmapImage(rutasFotos[0]);
+            posicionFoto = 0;
         }
     }
 }

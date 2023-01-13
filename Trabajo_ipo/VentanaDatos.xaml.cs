@@ -22,10 +22,12 @@ namespace Trabajo_ipo
         bool ventana_excursionistas = false;
         Window1 ex;
         VentanaRutas ru;
+        GestorDatos gestor;
 
         public VentanaDatos()
         {
             InitializeComponent(); 
+            gestor = new GestorDatos();
             
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -64,7 +66,7 @@ namespace Trabajo_ipo
             }
             else
             {
-                ex = new Window1();
+                ex = new Window1(gestor);
                 ex.Show();
                 this.Hide();
             }
@@ -80,7 +82,7 @@ namespace Trabajo_ipo
             }
             else
             {
-                ru = new VentanaRutas();
+                ru = new VentanaRutas(gestor);
                 ru.Show();
                 this.Hide();
             }
