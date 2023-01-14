@@ -1,6 +1,7 @@
 ﻿<Guias>
 	<Guia Nombre="Pedro" Apellidos="Guti Fernando" Telefono="11231231"
 		  Email="pedro.20@gmail.com" RutaFoto="/Imagenes/persona_estandar.png"
+
 		  Idiomas="Español" Valoracion="3,5"/>
 	<Guia Nombre="Mencía" Apellidos="García Vaquero" Telefono="98972314"
 	      Email="Mencia_gv@gmail.com" RutaFoto="/Imagenes/persona_estandar.png"
@@ -14,4 +15,5 @@
 	<Guia Nombre="Iñaki" Apellidos="Williams Fernando" Telefono="753951264"
 	      Email="IñaWil@gmail.com" RutaFoto="/Imagenes/foto_iñaki.png"
 	      Idiomas="Español,Griego" Valoracion="3,3"/>
+
 </Guias>

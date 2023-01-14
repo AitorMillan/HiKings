@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="VentanaExcursionistas" Height="859" Width="1526" WindowState="Maximized" Background="#FFD4E8EC">
+        Title="VentanaExcursionistas" Height="859" Width="1526" WindowState="Maximized" Background="#FFD4E8EC" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
 
@@ -93,8 +93,8 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Rutas"
-                          Template="{StaticResource Menu_Template}" Padding="20,0,20,0">
+                <MenuItem x:Name="MenuRutas" Header="Rutas"
+                          Template="{StaticResource Menu_Template}" Padding="20,0,20,0" Click="MenuRutas_Click">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_rutas.png"
@@ -102,7 +102,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Guías"
+                <MenuItem x:Name="MenuGuias" Header="Guías"
                           Template="{StaticResource Menu_Template}">
 
                     <MenuItem.Icon>

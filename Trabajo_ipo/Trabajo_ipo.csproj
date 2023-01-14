@@ -59,12 +59,28 @@
       <DependentUpon>Acerca_De.xaml</DependentUpon>
     </Compile>
     <Compile Include="Excursionista.cs" />
+
     <Compile Include="Guia.cs" />
+
+    <Compile Include="GestorDatos.cs" />
+    <Compile Include="Guia.cs" />
+    <Compile Include="Pdi.cs" />
+    <Compile Include="Rutas.cs" />
+    <Compile Include="VentanaContratar.xaml.cs">
+      <DependentUpon>VentanaContratar.xaml</DependentUpon>
+    </Compile>
+
     <Compile Include="VentanaDatos.xaml.cs">
       <DependentUpon>VentanaDatos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VentanaDatosPersona.xaml.cs">
+      <DependentUpon>VentanaDatosPersona.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaGuias.xaml.cs">
       <DependentUpon>VentanaGuias.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaIncidencias.xaml.cs">
+      <DependentUpon>VentanaIncidencias.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaRutas.xaml.cs">
       <DependentUpon>VentanaRutas.xaml</DependentUpon>
@@ -92,7 +108,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="VentanaContratar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VentanaDatos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaDatosPersona.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VentanaGuias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaIncidencias.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,6 +220,60 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="guias.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Imagenes\foto_iñaki.png" />
+    <Resource Include="Imagenes\foto_Shakira.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rutas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pdis.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\sanAnton1.jpg" />
+    <Resource Include="Imagenes\sanAnton2.jpg" />
+    <Resource Include="Imagenes\sanAnton3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\doGozo1.jpg" />
+    <Resource Include="Imagenes\doGozo2.jpg" />
+    <Resource Include="Imagenes\doGozo3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\medrano1.jpg" />
+    <Resource Include="Imagenes\medrano2.jpg" />
+    <Resource Include="Imagenes\medrano3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\jamilla1.jpg" />
+    <Resource Include="Imagenes\jamilla2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\pan1.jpg" />
+    <Resource Include="Imagenes\pan2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\posada1.jpg" />
+    <Resource Include="Imagenes\posada2.jpg" />
+    <Resource Include="Imagenes\posada3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\cueva1.jpg" />
+    <Resource Include="Imagenes\cueva2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\cerro1.jpg" />
+    <Resource Include="Imagenes\cerro2.jpg" />
+    <Resource Include="Imagenes\cerro3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\flecha_derecha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\flecha_izquierda.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

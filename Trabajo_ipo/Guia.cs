@@ -7,7 +7,10 @@ using System.Windows.Media.Imaging;
 
 namespace Trabajo_ipo
 {
-    internal class Guia
+
+
+    public class Guia
+
     {
         public string Nombre { get; set; }
         public string Apellidos { get; set; }

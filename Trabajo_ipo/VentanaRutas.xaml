@@ -5,8 +5,143 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="VentanaRutas" Height="859" Width="1526" Background="#FFD4E8EE">
+        Title="VentanaRutas" Height="859" Width="1526" Background="#FFD4E8EE" WindowState="Maximized" WindowStyle="None">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="634*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
+        <StackPanel Background="#2E333A" 
+                    Width="258"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center">
+            <Menu Background="Transparent"
+                  Height="auto"
+                  Width="auto">
+
+                <Menu.ItemsPanel>
+
+                    <ItemsPanelTemplate>
+
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+
+                    </ItemsPanelTemplate>
+
+                </Menu.ItemsPanel>
+
+                <Grid Height="41"
+              Width="258">
+                    <TextBlock Text="HiKings"
+                          
+                       Foreground="#FFFFFF"
+                       FontFamily="Fuentes/#Orbitron Medium"
+                       FontSize="15"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" 
+                       Width="auto" IsEnabled="False"/>
+
+                </Grid>
+
+
+                <MenuItem x:Name="MenuPerfil" Header="Mi Perfil"
+                          Template="{StaticResource Menu_Template}" Click="MenuPerfil_Click">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_home.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="MenuRutas" Header="Rutas"
+                          Template="{StaticResource Menu_Template}" Padding="20,0,20,0">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_rutas.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="MenuGuias" Header="Guías"
+                          Template="{StaticResource Menu_Template}">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_brujula.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="menuExcursionistas" Header="Excursionistas"
+                          Template="{StaticResource Menu_Template}" Background="#FF8F3232" Click="menuExcursionistas_Click">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_excursionista.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+
+                <MenuItem Header="Ayuda"
+                          Template="{StaticResource Menu_Template}">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_ayuda.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="menuAcerca" Header="Acerca de"
+                          Template="{StaticResource Menu_Template}" Click="menuAcerca_Click">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_about.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="menuSalir" Header="Salir"
+                          Template="{StaticResource Menu_Template}" Click="menuSalir_Click">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_exit.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+
+                </MenuItem>
+
+            </Menu>
+        </StackPanel>
+        <Rectangle Grid.Column="1" HorizontalAlignment="Left" Height="802" Margin="35,23,0,0" Stroke="Black" VerticalAlignment="Top" Width="1204" Fill="#FF2E333A" RadiusX="30" RadiusY="30"/>
+        <WrapPanel Grid.Column="1" HorizontalAlignment="Left" Height="765" Margin="62,43,0,0" VerticalAlignment="Top" Width="1151" Orientation="Vertical">
+            <ListBox x:Name="lstBoxRutas" Height="242" Width="210" SelectionChanged="lstBoxRutas_SelectionChanged"/>
+            <Label x:Name="lblApuntados" Content="Excursionistas apuntados:" Foreground="White" HorizontalContentAlignment="Center"/>
+            <ListBox x:Name="lstBoxApuntados" Height="242" Width="207" SelectionChanged="lstBoxApuntados_SelectionChanged"/>
+            <Button x:Name="btnVerDatosExcursionista" Content="Ver Info" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnVerDatosExcursionista_Click" IsEnabled="False"/>
+            <Label x:Name="lblNombre" Content="Nombre de la ruta" Foreground="White" Height="31" Width="117"/>
+            <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" Width="178" Height="22"/>
+            <Label x:Name="lblOrigen" Content="Origen" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="31" Width="124"/>
+            <TextBox x:Name="txtBoxOrigen" TextWrapping="Wrap" Width="120"/>
+            <Label x:Name="lblDestino" Content="Destino" Foreground="White"/>
+            <TextBox x:Name="txtBoxDestino" TextWrapping="Wrap" Width="120"/>
+            <Label x:Name="lblDificultad" Content="Dificultad" Foreground="White"/>
+            <ComboBox x:Name="comboBoxDificultad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Text="Dificultad">
+                <ComboBoxItem Content="Fácil"/>
+                <ComboBoxItem Content="Intermedio"/>
+                <ComboBoxItem Content="Difícil"/>
+            </ComboBox>
+            <Label x:Name="lblDuracion" Content="Duración (minutos)" Height="26" Foreground="White"/>
+            <TextBox x:Name="txtBoxDuracion" Width="120"/>
+            <Label x:Name="lblFecha" Content="Fecha de la ruta" Foreground="White"/>
+            <DatePicker x:Name="dateFecha" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label x:Name="lblNumExcursionistas" Content="Excursionistas apuntados" Foreground="White"/>
+            <TextBox x:Name="txtboxNumExcursionistas" TextWrapping="Wrap" Width="120" IsEnabled="False"/>
+            <Button x:Name="btnAnadirRuta" Content="Añadir ruta" Click="btnAnadirRuta_Click"/>
+            <Button x:Name="btnEliminarRuta" Content="Eliminar ruta" IsEnabled="False" Click="btnEliminarRuta_Click"/>
+            <Button x:Name="btnModificarRuta" Content="Modificar ruta" IsEnabled="False" Click="btnModificarRuta_Click"/>
+            <Button x:Name="btnContratarRuta" Content="Contratar Ruta" HorizontalAlignment="Center" VerticalAlignment="Center" Width="145" IsEnabled="False" Click="btnContratarRuta_Click"/>
+            <Button x:Name="btnIncidencias" Content="Ver incidencias" IsEnabled="False" Click="btnIncidencias_Click"/>
+        </WrapPanel>
+
     </Grid>
 </Window>
