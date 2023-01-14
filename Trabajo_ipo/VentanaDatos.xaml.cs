@@ -21,10 +21,13 @@ namespace Trabajo_ipo
     {
         bool ventana_excursionistas = false;
         Window1 ex;
+        VentanaRutas ru;
+        GestorDatos gestor;
 
         public VentanaDatos()
         {
             InitializeComponent(); 
+            gestor = new GestorDatos();
             
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -63,8 +66,24 @@ namespace Trabajo_ipo
             }
             else
             {
-                ex = new Window1();
+                ex = new Window1(gestor);
                 ex.Show();
+                this.Hide();
+            }
+        }
+
+        private void menuRutas_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsWindowOpen<VentanaRutas>())
+            {
+                this.Hide();
+                Window ventanaRutas = (Window)Application.Current.Windows.OfType<VentanaRutas>().FirstOrDefault();
+                ventanaRutas.Show();
+            }
+            else
+            {
+                ru = new VentanaRutas(gestor);
+                ru.Show();
                 this.Hide();
             }
         }

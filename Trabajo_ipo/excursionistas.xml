@@ -1,20 +1,9 @@
-﻿<Excursionistas>
-	<Excursionista Nombre="Miguel" Apellidos="Ortiz Castillo" 
-				   Edad="20" Telefono="123456789" 
-				   RutaFoto="/Imagenes/persona_estandar.png"/>
-	<Excursionista Nombre="Mario" Apellidos="Ortiz Moreno"
-			   Edad="45" Telefono="987654321"
-			   RutaFoto="/Imagenes/persona_estandar.png"/>
-	<Excursionista Nombre="Elena" Apellidos="Martínez Puig"
-			   Edad="18" Telefono="2143658709"
-			   RutaFoto="/Imagenes/persona_estandar.png"/>
-	<Excursionista Nombre="Mara" Apellidos="Hortelano López"
-			   Edad="34" Telefono="890451237"
-			   RutaFoto="/Imagenes/persona_estandar.png"/>
-	<Excursionista Nombre="José Javier" Apellidos="Domingo Domingo"
-			   Edad="20" Telefono="666891234"
-			   RutaFoto="/Imagenes/persona_estandar.png"/>
-	<Excursionista Nombre="Unai" Apellidos="Simón mendibil"
-			   Edad="30" Telefono="634907101"
-			   RutaFoto="/Imagenes/foto_unai.png"/>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Excursionistas>
+  <Excursionista Nombre="José Javier" Apellidos="Domingo Domingo" Edad="20" Telefono="666891234" RutaFoto="/Imagenes/persona_estandar.png" />
+  <Excursionista Nombre="Unai" Apellidos="Simón mendibil" Edad="30" Telefono="634907101" RutaFoto="/Imagenes/foto_unai.png" />
+  <Excursionista Nombre="Miguel" Apellidos="Ortiz Castillo" Edad="20" Telefono="123456789" RutaFoto="/Imagenes/persona_estandar.png" />
+  <Excursionista Nombre="Lucía" Apellidos="L.M" Edad="34" Telefono="890451237" RutaFoto="file:///C:/Users/aitor/source/repos/Trabajo_ipo/Trabajo_ipo/Imagenes/foto_iñaki.png" />
+  <Excursionista Nombre="Elena" Apellidos="Martínez Puig" Edad="18" Telefono="2143658709" RutaFoto="file:///C:/Users/aitor/source/repos/Trabajo_ipo/Trabajo_ipo/Imagenes/foto_Shakira.png" />
+  <Excursionista Nombre="Mario" Apellidos="Hermoso Castellanos" Edad="20" Telefono="52341254" RutaFoto="/Imagenes/persona_estandar.png" />
 </Excursionistas>

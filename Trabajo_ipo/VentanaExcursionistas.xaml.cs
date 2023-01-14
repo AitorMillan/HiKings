@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace Trabajo_ipo
 {
@@ -21,16 +22,50 @@ namespace Trabajo_ipo
     /// </summary>
     public partial class Window1 : Window
     {
-        List<Excursionista> listadoExcursionistas;
         private Excursionista excursionista_seleccionado;
         VentanaDatos datos;
-        public Window1()
+        VentanaRutas ru;
+        GestorDatos Gestor;
+        public Window1(GestorDatos gestor)
         {
             InitializeComponent();
-            listadoExcursionistas = CargarArchivoXML();
+            Gestor = gestor;
+            Gestor.Excursionistas = CargarArchivoXML();
             añadirExcursionistas();
         }
 
+        
+        private void eliminarXML(string Nombre, string Apellidos, string Edad, string Telefono, string RutaFoto)
+        {
+            string defaultFolder = System.AppDomain.CurrentDomain.BaseDirectory;
+            string newFolder = defaultFolder.Substring(0, defaultFolder.Length - 11);
+
+            XDocument doc = XDocument.Load(newFolder + "/excursionistas.xml");
+            var q = from node in doc.Descendants("Excursionista")
+                    let nombre = node.Attribute("Nombre")
+                    let apellido = node.Attribute("Apellidos")
+                    let edad = node.Attribute("Edad")
+                    let telefono = node.Attribute("Telefono")
+                    let rutaFoto = node.Attribute("RutaFoto")
+                    where nombre.Value == Nombre && apellido.Value == Apellidos && edad.Value == Edad && telefono.Value == Telefono && rutaFoto.Value == RutaFoto
+                    select node;
+            q.ToList().ForEach(x => x.Remove());
+            doc.Save(newFolder + "/excursionistas.xml");
+        }
+        private void anadirXML(string nombre, string apellidos, int edad, long telefono, Uri rutaFoto)    
+        {
+            string defaultFolder = System.AppDomain.CurrentDomain.BaseDirectory;
+            string newFolder = defaultFolder.Substring (0, defaultFolder.Length - 11);
+            XDocument doc = XDocument.Load(newFolder+"/excursionistas.xml");
+            XElement exc = doc.Element("Excursionistas");
+            exc.Add(new XElement("Excursionista",
+                        new XAttribute("Nombre",nombre),
+                        new XAttribute("Apellidos",apellidos),
+                        new XAttribute("Edad",Convert.ToString(edad)),
+                        new XAttribute("Telefono",Convert.ToString(telefono)),
+                        new XAttribute("RutaFoto",Convert.ToString(rutaFoto))));
+            doc.Save(newFolder+"/excursionistas.xml");
+        }
         private void MenuPerfil_Click(object sender, RoutedEventArgs e)
         {
             if (IsWindowOpen<VentanaDatos>())
@@ -60,7 +95,7 @@ namespace Trabajo_ipo
 
         private void añadirExcursionistas()
         {
-            foreach (Excursionista excursionista in listadoExcursionistas)
+            foreach (Excursionista excursionista in Gestor.Excursionistas)
             {
                 lstBoxExcursionistas.Items.Add(excursionista.Nombre);
             }
@@ -78,7 +113,7 @@ namespace Trabajo_ipo
                 string apellidos = node.Attributes["Apellidos"].Value;
                 int edad = Convert.ToInt32(node.Attributes["Edad"].Value);
                 long telefono = Convert.ToInt64(node.Attributes["Telefono"].Value);
-                Uri rutaFoto = new Uri(node.Attributes["RutaFoto"].Value, UriKind.Relative);
+                Uri rutaFoto = new Uri(node.Attributes["RutaFoto"].Value, UriKind.RelativeOrAbsolute);
                 Excursionista excursionista = new Excursionista(nombre,apellidos,edad ,telefono,rutaFoto);
                 listado.Add(excursionista);
             }
@@ -89,13 +124,12 @@ namespace Trabajo_ipo
         {
             if (lstBoxExcursionistas.SelectedItem is null)
             {
-                txtBoxApellido.Text = "f";
                 return;
             }
             string nombre = lstBoxExcursionistas.SelectedItem.ToString();
             int posicion = lstBoxExcursionistas.SelectedIndex + 1;
             int posExcursionista = 0;
-            foreach (Excursionista excursionista in listadoExcursionistas)
+            foreach (Excursionista excursionista in Gestor.Excursionistas)
             {
                 posExcursionista++;
                 if (excursionista.Nombre == nombre && posExcursionista == posicion)
@@ -140,11 +174,13 @@ namespace Trabajo_ipo
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 string nombre = txtBoxNombre.Text;
+                string apellidos = txtBoxApellido.Text;
                 int pos = lstBoxExcursionistas.SelectedIndex;
                 lstBoxExcursionistas.Items.RemoveAt(pos);
-                listadoExcursionistas.Remove(excursionista_seleccionado);
+                Gestor.Excursionistas.Remove(excursionista_seleccionado);
                 btnEliminarUsuario.IsEnabled = false;
                 btnModificarDatos.IsEnabled = false;
+                eliminarXML(nombre, apellidos, txtBoxEdad.Text, txtBoxTelefono.Text, txtBoxRutaImagen.Text);
                 limpiarTxtBox();
             }
         }
@@ -182,11 +218,12 @@ namespace Trabajo_ipo
                         long telefono = Convert.ToInt64(txtBoxTelefono.Text);
                         Uri rutaFoto = new Uri(txtBoxRutaImagen.Text, UriKind.RelativeOrAbsolute);
                         Excursionista ex = new Excursionista(nombre, apellidos, edad, telefono, rutaFoto);
-                        listadoExcursionistas.Add(ex);
+                        Gestor.Excursionistas.Add(ex);
                         lstBoxExcursionistas.Items.Add(nombre);
                         lstBoxExcursionistas.SelectedIndex = -1;
                         btnEliminarUsuario.IsEnabled = false;
                         btnModificarDatos.IsEnabled = false;
+                        anadirXML(nombre, apellidos, edad, telefono, rutaFoto);
                         limpiarTxtBox();
 
                     }
@@ -203,6 +240,8 @@ namespace Trabajo_ipo
             MessageBoxResult messageBoxResult = MessageBox.Show("¿Estás seguro de que desea editar los datos de esta persona?: " + txtBoxNombre.Text, "Por favor confirma", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
+                eliminarXML(excursionista_seleccionado.Nombre, excursionista_seleccionado.Apellidos, Convert.ToString(excursionista_seleccionado.Edad), Convert.ToString(excursionista_seleccionado.Telefono),
+                    Convert.ToString(excursionista_seleccionado.RutaFoto));
                 string nombre = txtBoxNombre.Text;
                 string apellidos = txtBoxApellido.Text;
                 int edad = Convert.ToInt32(txtBoxEdad.Text);
@@ -211,13 +250,15 @@ namespace Trabajo_ipo
                 Excursionista ex = new Excursionista(nombre, apellidos, edad, telefono, rutaFoto);
                 int pos = lstBoxExcursionistas.SelectedIndex;
                 lstBoxExcursionistas.Items.RemoveAt(pos);
-                listadoExcursionistas.Remove(excursionista_seleccionado);
-                listadoExcursionistas.Add(ex);
+                Gestor.Excursionistas.Remove(excursionista_seleccionado);
+                Gestor.Excursionistas.Add(ex);
                 lstBoxExcursionistas.Items.Add(nombre);
                 lstBoxExcursionistas.SelectedIndex = -1;
                 btnEliminarUsuario.IsEnabled = false;
                 btnModificarDatos.IsEnabled = false;
                 limpiarTxtBox();
+                MessageBox.Show("Datos modificados correctamente", "Completado", MessageBoxButton.OK, MessageBoxImage.Information);
+                anadirXML(nombre, apellidos, edad, telefono, rutaFoto);
             }
         }
 
@@ -232,6 +273,27 @@ namespace Trabajo_ipo
         {
             imgUsuario.Source = new BitmapImage(new Uri("Imagenes/persona_estandar.png", UriKind.Relative));
             txtBoxRutaImagen.Text = "Imagenes/persona_estandar.png";
+        }
+
+        private void MenuRutas_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsWindowOpen<VentanaRutas>())
+            {
+                this.Hide();
+                VentanaRutas ventanaRutas = (VentanaRutas)Application.Current.Windows.OfType<VentanaRutas>().FirstOrDefault();
+                ventanaRutas.Show();
+            }
+            else
+            {
+                ru = new VentanaRutas(Gestor);
+                ru.Show();
+                this.Hide();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CargarArchivoXML();
         }
     }
 }
