@@ -100,7 +100,6 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-
                 <MenuItem x:Name="menuSalir" Header="Salir"
                           Template="{StaticResource Menu_Template}" Click="menuSalir_Click">
 
