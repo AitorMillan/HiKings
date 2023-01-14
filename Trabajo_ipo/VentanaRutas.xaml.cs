@@ -22,6 +22,7 @@ namespace Trabajo_ipo
         public VentanaRutas()
         {
             InitializeComponent();
+
         }
     }
 }
