@@ -29,6 +29,7 @@ namespace Trabajo_ipo
         public VentanaRutas(GestorDatos gestor)
         {
             InitializeComponent();
+
             listadoRutas = CargarArchivoXML();
             Gestor = gestor;
             cargarExcursionistas();

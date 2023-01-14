@@ -5,8 +5,190 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="VentanaGuias" Height="859" Width="1526" Background="#FFD4E8EE">
+        Title="VentanaGuias" Height="859" Width="1526" WindowState="Maximized" Background="#FFD4E8EE">
     <Grid>
-        
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="104*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="105*"/>
+
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+
+
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="258*"/>
+            <ColumnDefinition Width="78*"/>
+            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="158*"/>
+            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="76*"/>
+            <ColumnDefinition Width="78*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="202*"/>
+            <ColumnDefinition Width="164*"/>
+            <ColumnDefinition Width="102*"/>
+            <ColumnDefinition Width="98*"/>
+        </Grid.ColumnDefinitions>
+        <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
+        <StackPanel Background="#2E333A" 
+                    Width="258"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center" Grid.Column="1" Grid.RowSpan="22">
+            <Menu Background="Transparent"
+                  Height="auto"
+                  Width="auto">
+
+                <Menu.ItemsPanel>
+
+                    <ItemsPanelTemplate>
+
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+
+                    </ItemsPanelTemplate>
+
+                </Menu.ItemsPanel>
+
+                <Grid Height="41"
+              Width="258">
+                    <TextBlock Text="HiKings"
+                          
+                       Foreground="#FFFFFF"
+                       FontFamily="Fuentes/#Orbitron Medium"
+                       FontSize="15"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" 
+                       Width="auto" IsEnabled="False"/>
+
+                </Grid>
+
+
+                <MenuItem x:Name="MenuPerfil" Header="Mi Perfil"
+                          Template="{StaticResource Menu_Template}" Click="MenuPerfil_Click">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_home.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Rutas"
+                          Template="{StaticResource Menu_Template}" Padding="20,0,20,0">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_rutas.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Guías"
+                          Template="{StaticResource Menu_Template}">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_brujula.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="menuExcursionistas" Header="Excursionistas"
+                          Template="{StaticResource Menu_Template}" Background="#FF8F3232">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_excursionista.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+
+                <MenuItem Header="Ayuda"
+                          Template="{StaticResource Menu_Template}">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_ayuda.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="menuAcerca" Header="Acerca de"
+                          Template="{StaticResource Menu_Template}" Click="menuAcerca_Click">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_about.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+
+                <MenuItem x:Name="menuSalir" Header="Salir"
+                          Template="{StaticResource Menu_Template}" Click="menuSalir_Click">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_exit.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+
+                </MenuItem>
+
+            </Menu>
+
+
+        </StackPanel>
+        <Image Source="/Imagenes/logo.png"
+                       Stretch="None"  Grid.ColumnSpan="2" Grid.Row="12" Grid.RowSpan="10"/>
+        <Rectangle Stroke="Black" Grid.Column="3" Fill="#2E333A" RadiusX="50" RadiusY="50" Margin="0,8,0,103" Grid.RowSpan="21" Grid.ColumnSpan="12" Grid.Row="1" />
+        <ListBox x:Name="lstBoxGuias"  SelectionChanged="lstBoxGuias_SelectionChanged" Grid.Column="4"  Grid.Row="3" Margin="0,2,0,0" Grid.ColumnSpan="3" Grid.RowSpan="10" FontFamily="Roboto Light"/>
+        <Label x:Name="lblGuias" Content="Guías" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="68" Grid.Column="5" Grid.Row="2" Foreground="White" FontSize="20" FontFamily="Roboto Light"/>
+        <Label x:Name="lblNombre" Content="Nombre" HorizontalContentAlignment="Center" Foreground="White" Grid.Column="8" Grid.Row="3" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" Grid.Column="10" Grid.Row="3" FontFamily="Roboto Light" FontSize="20" Grid.ColumnSpan="2" Margin="21,0,0,0"/>
+        <Label x:Name="lblApellido" Content="Apellidos" HorizontalAlignment="Left" Foreground="White" HorizontalContentAlignment="Center" Width="134" Grid.Column="8" Grid.Row="5" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtBoxApellido" TextWrapping="Wrap" Grid.Column="10" Margin="21,0,0,0" Grid.Row="5" Grid.ColumnSpan="2" FontFamily="Roboto Light"/>
+        <Label x:Name="lblEmail" Content="Email" HorizontalContentAlignment="Center" Foreground="White" Grid.Column="8" Grid.Row="7" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtBoxEmail" Grid.Column="10"  Grid.Row="7" TextWrapping="Wrap" Margin="21,0,0,0" Text="" Grid.ColumnSpan="2" FontFamily="Roboto Light"/>
+        <Label x:Name="lblTelefono" Content="Teléfono" Foreground="White" HorizontalContentAlignment="Center" Grid.Column="8" Grid.Row="9" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtBoxTelefono" Grid.Column="10" Grid.Row="9" TextWrapping="Wrap" Margin="21,0,0,0" FontSize="20" Grid.ColumnSpan="2" FontFamily="Roboto Light"/>
+        <Label x:Name="lblImage" Content="Imágen del usuario" Foreground="White" HorizontalAlignment="Center" Grid.Column="1" Width="0" Grid.RowSpan="2"/>
+        <Image x:Name="imgUsuario" Source="/Imagenes/persona_estandar.png" Grid.Column="13" HorizontalAlignment="Left" Height="159" Grid.Row="3" VerticalAlignment="Top" Width="160" Margin="0,4,0,0" Grid.RowSpan="5"/>
+        <TextBox x:Name="txtBoxRutaImagen" TextWrapping="Wrap" Text="Ruta de la imagen" Grid.Column="13" Margin="19,27,25,10" Grid.Row="7" Grid.RowSpan="4" Visibility="Hidden"/>
+        <Button x:Name="btnAñadirIdioma" Content="Añadir idioma" Grid.Column="13" Margin="7,0,7,0" Grid.Row="14" FontSize="14" Grid.RowSpan="2" FontFamily="Roboto Light" Click="btnAñadirIdioma_Click"/>
+        <Button x:Name="btnAñadirGuia" Grid.Column="5" Content="Añadir guía" Grid.Row="13" Click="btnAñadirGuia_Click" FontSize="14" Grid.RowSpan="3" FontFamily="Roboto Light" Margin="0,25,0,0"/>
+        <Button x:Name="btnModificarDatos" Grid.Column="5" Content="Modificar datos" Grid.Row="17" IsEnabled="False" Click="btnModificarDatos_Click" FontSize="14" FontFamily="Roboto Light"/>
+        <Button x:Name="btnEliminarGuia" Content="Eliminar guía" Click="btnEliminarGuia_Click" IsEnabled="False" Grid.Column="5" Grid.Row="19" FontSize="14" FontFamily="Roboto Light"/>
+        <Button x:Name="btnEliminarIdioma" Grid.Column="13" Content="Eliminar idioma" Margin="7,6,7,2" Grid.Row="16" FontFamily="Roboto Light" FontSize="14" Grid.RowSpan="2" IsEnabled="False" Click="btnEliminarIdioma_Click"/>
+        <ListBox x:Name="lstBoxIdiomas" Grid.Column="13" Grid.Row="7" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="5" Margin="0,38,0,0" SelectionChanged="lstBoxIdiomas_SelectionChanged" FontFamily="Roboto Light"/>
+        <Button x:Name="btnBuscarImagen" Grid.Column="14" Content="Añadir imagen" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" FontFamily="Roboto Light" FontSize="11" Width="82" Click="btnBuscarImagen_Click"/>
+        <TextBox x:Name="txtBoxIdioma" Grid.Column="13" Grid.Row="12" TextWrapping="Wrap" Grid.RowSpan="2" Margin="0,9,0,9"/>
+        <Button x:Name="btnEliminarFoto" Grid.Column="14" Content="Eliminar imagen" HorizontalAlignment="Center" Height="20" Grid.Row="4" VerticalAlignment="Center" Width="82" FontFamily="Roboto Light" FontSize="11"  Click="btnEliminarFoto_Click"/>
+        <Label x:Name="lblRutasGuiadas" Grid.Column="8" Content="Rutas guiadas" Grid.Row="16" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.ColumnSpan="2"  Grid.RowSpan="2"/>
+        <ListBox Grid.Column="10" Grid.ColumnSpan="3" Grid.Row="14" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="21,0,58,0" Grid.RowSpan="5" FontFamily="Roboto Light"/>
+        <Label x:Name="lblValoracion" Grid.Column="8" Content="Valoración" FontFamily="Roboto Light" FontSize="20" Foreground="White" Grid.ColumnSpan="2" HorizontalAlignment="Center"  Grid.RowSpan="2" Grid.Row="11"/>
+        <TextBox x:Name="txtBoxValoracion" Grid.Column="10" Grid.ColumnSpan="2" Margin="21,0,0,0" TextWrapping="Wrap" Grid.RowSpan="2" Grid.Row="11" FontSize="20" FontFamily="Roboto Light"/>
+
     </Grid>
+
+
+
 </Window>

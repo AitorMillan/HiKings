@@ -59,6 +59,9 @@
       <DependentUpon>Acerca_De.xaml</DependentUpon>
     </Compile>
     <Compile Include="Excursionista.cs" />
+
+    <Compile Include="Guia.cs" />
+
     <Compile Include="GestorDatos.cs" />
     <Compile Include="Guia.cs" />
     <Compile Include="Pdi.cs" />
@@ -66,6 +69,7 @@
     <Compile Include="VentanaContratar.xaml.cs">
       <DependentUpon>VentanaContratar.xaml</DependentUpon>
     </Compile>
+
     <Compile Include="VentanaDatos.xaml.cs">
       <DependentUpon>VentanaDatos.xaml</DependentUpon>
     </Compile>
@@ -217,6 +221,7 @@
   <ItemGroup>
     <Resource Include="guias.xml" />
   </ItemGroup>
+
   <ItemGroup>
     <Resource Include="Imagenes\foto_iñaki.png" />
     <Resource Include="Imagenes\foto_Shakira.png" />

@@ -19,10 +19,13 @@ namespace Trabajo_ipo
     /// </summary>
     public partial class VentanaDatos : Window
     {
-        bool ventana_excursionistas = false;
         Window1 ex;
+
+        VentanaGuias gui;
+
         VentanaRutas ru;
         GestorDatos gestor;
+
 
         public VentanaDatos()
         {
@@ -72,6 +75,20 @@ namespace Trabajo_ipo
             }
         }
 
+
+        private void menuGuia_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsWindowOpen<VentanaGuias>())
+            {
+                this.Hide();
+                Window ventanaGuias = (Window)Application.Current.Windows.OfType<VentanaGuias>().FirstOrDefault();
+                ventanaGuias.Show();
+            }
+            else
+            {
+                gui = new VentanaGuias();
+                gui.Show();
+
         private void menuRutas_Click(object sender, RoutedEventArgs e)
         {
             if (IsWindowOpen<VentanaRutas>())
@@ -84,6 +101,7 @@ namespace Trabajo_ipo
             {
                 ru = new VentanaRutas(gestor);
                 ru.Show();
+
                 this.Hide();
             }
         }

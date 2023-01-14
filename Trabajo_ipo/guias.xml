@@ -1,17 +1,19 @@
 ﻿<Guias>
 	<Guia Nombre="Pedro" Apellidos="Guti Fernando" Telefono="11231231"
 		  Email="pedro.20@gmail.com" RutaFoto="/Imagenes/persona_estandar.png"
-		  Idiomas="Español" Valoracion="3.5"/>
+
+		  Idiomas="Español" Valoracion="3,5"/>
 	<Guia Nombre="Mencía" Apellidos="García Vaquero" Telefono="98972314"
 	      Email="Mencia_gv@gmail.com" RutaFoto="/Imagenes/persona_estandar.png"
-	      Idiomas="Español, Inglés" Valoracion="4.2"/>
+	      Idiomas="Español,Inglés" Valoracion="4,2"/>
 	<Guia Nombre="Magaceda" Apellidos="Moreno Calva" Telefono="987456321"
 	      Email="Maga02@gmail.com" RutaFoto="/Imagenes/persona_estandar.png"
-	      Idiomas="Español, Portugués, Inglés" Valoracion="4.0"/>
+	      Idiomas="Español,Portugués, Inglés" Valoracion="4,0"/>
 	<Guia Nombre="Rocío" Apellidos="Sánchez Fernando" Telefono="741258963"
 	      Email="rociiii@gmail.com" RutaFoto="/Imagenes/foto_Shakira.png"
-	      Idiomas="Español, Brasileño" Valoracion="2.5"/>
+	      Idiomas="Español,Brasileño" Valoracion="2,5"/>
 	<Guia Nombre="Iñaki" Apellidos="Williams Fernando" Telefono="753951264"
 	      Email="IñaWil@gmail.com" RutaFoto="/Imagenes/foto_iñaki.png"
-	      Idiomas="Español, Griego" Valoracion="3.3"/>
+	      Idiomas="Español,Griego" Valoracion="3,3"/>
+
 </Guias>
