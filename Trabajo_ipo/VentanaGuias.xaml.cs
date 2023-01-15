@@ -174,7 +174,7 @@ namespace Trabajo_ipo
 
                     }
                 }
-                catch (Exception ex)
+                catch (System.FormatException)
                 {
                     MessageBox.Show("Por favor introduzca una valoración válida", "Error al añadir el usuario", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
@@ -200,7 +200,7 @@ namespace Trabajo_ipo
                         limpiarTxtBox();
 
                     }
-                    catch (Exception ex)
+                    catch (System.FormatException)
                     {
                         MessageBox.Show("Por favor introduzca un número de teléfono válido", "Error al añadir el usuario", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
@@ -210,27 +210,40 @@ namespace Trabajo_ipo
 
         private void btnModificarDatos_Click(object sender, RoutedEventArgs e)
         {
+                try
+                {
+            if (Convert.ToDouble(txtBoxValoracion.Text) <= 0 || Convert.ToDouble(txtBoxValoracion.Text) > 5)
+            {
+                MessageBox.Show("Por favor introduzca una valoración válida", "Error al añadir el usuario", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+
+            }
             MessageBoxResult messageBoxResult = MessageBox.Show("¿Estás seguro de que desea editar los datos de esta persona?: " + txtBoxNombre.Text, "Por favor confirma", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                string nombre = txtBoxNombre.Text;
-                string apellidos = txtBoxApellido.Text;
-                string email = txtBoxEmail.Text;
-                long telefono = Convert.ToInt64(txtBoxTelefono.Text);
-                double valoracion = Convert.ToDouble(txtBoxValoracion.Text);
-                Uri rutaFoto = new Uri(txtBoxRutaImagen.Text, UriKind.RelativeOrAbsolute);
-                List<string> idiomas = lstBoxIdiomas.Items.Cast<String>().ToList();
-                Guia guia= new Guia(nombre, apellidos, telefono, email, rutaFoto, idiomas, valoracion);
-                int pos = lstBoxGuias.SelectedIndex;
-                lstBoxGuias.Items.RemoveAt(pos);
-                listadoGuias.Remove(guia_seleccionado);
-                listadoGuias.Add(guia);
-                lstBoxGuias.Items.Add(nombre);
-                lstBoxGuias.SelectedIndex = -1;
-                btnEliminarGuia.IsEnabled = false;
-                btnModificarDatos.IsEnabled = false;
-                limpiarTxtBox();
+                    string nombre = txtBoxNombre.Text;
+                    string apellidos = txtBoxApellido.Text;
+                    string email = txtBoxEmail.Text;
+                    long telefono = Convert.ToInt64(txtBoxTelefono.Text);
+                    double valoracion = Convert.ToDouble(txtBoxValoracion.Text);
+                    Uri rutaFoto = new Uri(txtBoxRutaImagen.Text, UriKind.RelativeOrAbsolute);
+                    List<string> idiomas = lstBoxIdiomas.Items.Cast<String>().ToList();
+                    Guia guia = new Guia(nombre, apellidos, telefono, email, rutaFoto, idiomas, valoracion);
+                    int pos = lstBoxGuias.SelectedIndex;
+                    lstBoxGuias.Items.RemoveAt(pos);
+                    listadoGuias.Remove(guia_seleccionado);
+                    listadoGuias.Add(guia);
+                    lstBoxGuias.Items.Add(nombre);
+                    lstBoxGuias.SelectedIndex = -1;
+                    btnEliminarGuia.IsEnabled = false;
+                    btnModificarDatos.IsEnabled = false;
+                    limpiarTxtBox();
+                }
             }
+                catch (System.FormatException)
+                {
+                    MessageBox.Show("Por favor no introduzca valores alfabéticos en los siguientes campos:\n-Teléfono\n-Valoración", "Error al añadir el usuario", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
         }
 
         public static bool IsWindowOpen<T>(string name = "") where T : Window

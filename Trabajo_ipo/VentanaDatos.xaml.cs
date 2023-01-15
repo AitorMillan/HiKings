@@ -75,20 +75,6 @@ namespace Trabajo_ipo
             }
         }
 
-
-        private void menuGuia_Click(object sender, RoutedEventArgs e)
-        {
-            if (IsWindowOpen<VentanaGuias>())
-            {
-                this.Hide();
-                Window ventanaGuias = (Window)Application.Current.Windows.OfType<VentanaGuias>().FirstOrDefault();
-                ventanaGuias.Show();
-            }
-            else
-            {
-                gui = new VentanaGuias();
-                gui.Show();
-
         private void menuRutas_Click(object sender, RoutedEventArgs e)
         {
             if (IsWindowOpen<VentanaRutas>())
@@ -104,6 +90,22 @@ namespace Trabajo_ipo
 
                 this.Hide();
             }
+        }
+
+        private void menuGuias_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsWindowOpen<VentanaGuias>())
+            {
+                this.Hide();
+                Window ventanaGuias = (Window)Application.Current.Windows.OfType<VentanaGuias>().FirstOrDefault();
+                ventanaGuias.Show();
+            }
+            else
+            {
+                gui = new VentanaGuias();
+                gui.Show();
+            }
+
         }
     }
 }

@@ -125,7 +125,7 @@
 
 
                 <MenuItem x:Name="menuGuias" Header="Guías"
-                          Template="{StaticResource Menu_Template}">
+                          Template="{StaticResource Menu_Template}" Click="menuGuias_Click">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_brujula.png"
