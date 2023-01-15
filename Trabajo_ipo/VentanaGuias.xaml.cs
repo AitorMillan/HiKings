@@ -21,14 +21,21 @@ namespace Trabajo_ipo
     /// </summary>
     public partial class VentanaGuias : Window
     {
-        List<Guia> listadoGuias;
         private Guia guia_seleccionado;
-        VentanaDatos datos;
-        public VentanaGuias()
+        VentanaDatos datos; 
+        Window1 ex;
+        VentanaRutas ru;
+        GestorDatos Gestor;
+        public VentanaGuias(GestorDatos gestor)
         {
             InitializeComponent();
-            listadoGuias = CargarArchivoXML();
+            Gestor = gestor;
+            if (!IsWindowOpen<VentanaRutas>())
+            {
+            Gestor.Guias = CargarArchivoXML();
+            }
             añadirGuias();
+            
         }
 
         private void MenuPerfil_Click(object sender, RoutedEventArgs e)
@@ -60,7 +67,7 @@ namespace Trabajo_ipo
 
         private void añadirGuias()
         {
-            foreach (Guia guia in listadoGuias)
+            foreach (Guia guia in Gestor.Guias)
             {
                 lstBoxGuias.Items.Add(guia.Nombre);
             }
@@ -94,7 +101,7 @@ namespace Trabajo_ipo
             string nombre = lstBoxGuias.SelectedItem.ToString();
             int posicion = lstBoxGuias.SelectedIndex + 1;
             int posGuia = 0;
-            foreach (Guia guia in listadoGuias)
+            foreach (Guia guia in Gestor.Guias)
             {
                 posGuia++;
                 if (guia.Nombre == nombre && posGuia == posicion)
@@ -107,10 +114,14 @@ namespace Trabajo_ipo
                     txtBoxRutaImagen.Text = Convert.ToString(guia.RutaFoto);
                     txtBoxValoracion.Text = Convert.ToString(guia.Valoracion);
                     lstBoxIdiomas.Items.Clear();
+                    lstBoxRutas.Items.Clear();
                     foreach (string idioma in guia.Idiomas) { 
                         lstBoxIdiomas.Items.Add(idioma);
                     }
-                    //Falta por añadir las rutas relacionadas al guia
+                    foreach (string nombre_ruta in guia.Rutas)
+                    {
+                        lstBoxRutas.Items.Add(nombre_ruta);
+                    }
                     btnEliminarGuia.IsEnabled = true;
                     btnModificarDatos.IsEnabled = true;
                     guia_seleccionado = guia;
@@ -141,6 +152,7 @@ namespace Trabajo_ipo
             imgUsuario.Source = new BitmapImage(new Uri("/Imagenes/persona_estandar.png", UriKind.Relative));
             txtBoxRutaImagen.Text = "/Imagenes/persona_estandar.png";
             lstBoxIdiomas.Items.Clear();
+            lstBoxRutas.Items.Clear();
         }
         private void btnEliminarGuia_Click(object sender, RoutedEventArgs e)
         {
@@ -150,7 +162,7 @@ namespace Trabajo_ipo
                 string nombre = txtBoxNombre.Text;
                 int pos = lstBoxGuias.SelectedIndex;
                 lstBoxGuias.Items.RemoveAt(pos);
-                listadoGuias.Remove(guia_seleccionado);
+                Gestor.Guias.Remove(guia_seleccionado);
                 btnEliminarGuia.IsEnabled = false;
                 btnModificarDatos.IsEnabled = false;
                 limpiarTxtBox();
@@ -192,7 +204,7 @@ namespace Trabajo_ipo
                         List<string> idiomas = lstBoxIdiomas.Items.Cast<String>().ToList();
                         Uri rutaFoto = new Uri(txtBoxRutaImagen.Text, UriKind.RelativeOrAbsolute);
                         Guia guia = new Guia(nombre, apellidos, telefono, email, rutaFoto, idiomas, valoracion);
-                        listadoGuias.Add(guia);
+                        Gestor.Guias.Add(guia);
                         lstBoxGuias.Items.Add(nombre);
                         lstBoxGuias.SelectedIndex = -1;
                         btnEliminarGuia.IsEnabled = false;
@@ -231,8 +243,8 @@ namespace Trabajo_ipo
                     Guia guia = new Guia(nombre, apellidos, telefono, email, rutaFoto, idiomas, valoracion);
                     int pos = lstBoxGuias.SelectedIndex;
                     lstBoxGuias.Items.RemoveAt(pos);
-                    listadoGuias.Remove(guia_seleccionado);
-                    listadoGuias.Add(guia);
+                    Gestor.Guias.Remove(guia_seleccionado);
+                    Gestor.Guias.Add(guia);
                     lstBoxGuias.Items.Add(nombre);
                     lstBoxGuias.SelectedIndex = -1;
                     btnEliminarGuia.IsEnabled = false;
@@ -285,6 +297,38 @@ namespace Trabajo_ipo
         private void btnEliminarIdioma_Click(object sender, RoutedEventArgs e)
         {
             lstBoxIdiomas.Items.Remove(lstBoxIdiomas.SelectedItem);
+        }
+
+        private void MenuRutas_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsWindowOpen<VentanaRutas>())
+            {
+                this.Hide();
+                VentanaRutas ventanaRutas = (VentanaRutas)Application.Current.Windows.OfType<VentanaRutas>().FirstOrDefault();
+                ventanaRutas.Show();
+            }
+            else
+            {
+                ru = new VentanaRutas(Gestor);
+                ru.Show();
+                this.Hide();
+            }
+        }
+
+        private void menuExcursionistas_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsWindowOpen<Window1>())
+            {
+                this.Hide();
+                Window1 ventanaExcursionistas = (Window1)Application.Current.Windows.OfType<Window1>().FirstOrDefault();
+                ventanaExcursionistas.Show();
+            }
+            else
+            {
+                ex = new Window1(Gestor);
+                ex.Show();
+                this.Hide();
+            }
         }
     }
 }

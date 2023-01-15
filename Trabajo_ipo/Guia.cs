@@ -22,6 +22,7 @@ namespace Trabajo_ipo
 
         public List<string> Idiomas { get; set; }
         public double Valoracion { get; set; }
+        public List<string> Rutas { get; set; }
 
         //Añadir rutas
 
@@ -35,6 +36,7 @@ namespace Trabajo_ipo
             Foto = new BitmapImage(RutaFoto);
             Idiomas = idiomas;
             Valoracion = valoracion;
+            Rutas = new List<string>();
         }
 
     }

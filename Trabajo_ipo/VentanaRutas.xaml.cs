@@ -22,6 +22,7 @@ namespace Trabajo_ipo
     {
         VentanaDatos datos;
         Window1 ex;
+        VentanaGuias gui;
         Rutas ruta_seleccionada;
         Excursionista ex_seleccionado;
         List<Rutas> listadoRutas;
@@ -30,13 +31,21 @@ namespace Trabajo_ipo
         {
             InitializeComponent();
 
-            listadoRutas = CargarArchivoXML();
             Gestor = gestor;
+            cargarGuias();
+            listadoRutas = CargarArchivoXML();
             cargarExcursionistas();
             anadirRutas();
         }
 
 
+        public void cargarGuias()
+        {
+            if (!IsWindowOpen<VentanaGuias>())
+            {
+                Gestor.Guias = leerGuias();
+            }
+        }
         private void cargarExcursionistas()
         {
             if (!IsWindowOpen<Window1>())
@@ -79,7 +88,9 @@ namespace Trabajo_ipo
                 if (finalizada)
                 {
                     string incidencias = node.Attributes["Incidencias"].Value;
-                    ruta = new Rutas(nombre, origen, destino, dificultad, duracion, fecha, num_excursionistas, finalizada, incidencias);
+                    Guia guia = Gestor.Guias[0];
+                    guia.Rutas.Add(nombre);
+                    ruta = new Rutas(nombre, origen, destino, dificultad, duracion, fecha, num_excursionistas, finalizada, incidencias, guia);
                 }
                 else
                 {
@@ -325,6 +336,28 @@ namespace Trabajo_ipo
             return listado;
         }
 
+        private List<Guia> leerGuias()
+        {
+            List<Guia> listado = new List<Guia>();
+            XmlDocument doc = new XmlDocument();
+            var fichero = Application.GetResourceStream(new Uri("guias.xml", UriKind.Relative));
+            doc.Load(fichero.Stream);
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                string nombre = node.Attributes["Nombre"].Value;
+                string apellidos = node.Attributes["Apellidos"].Value;
+                long telefono = Convert.ToInt64(node.Attributes["Telefono"].Value);
+                string email = node.Attributes["Email"].Value;
+                Uri rutaFoto = new Uri(node.Attributes["RutaFoto"].Value, UriKind.Relative);
+                string idiomas = node.Attributes["Idiomas"].Value;
+                List<string> listaIdiomas = idiomas.Split(',').ToList();
+                double valoracion = Convert.ToDouble(node.Attributes["Valoracion"].Value);
+                Guia guia = new Guia(nombre, apellidos, telefono, email, rutaFoto, listaIdiomas, valoracion);
+                listado.Add(guia);
+            }
+            return listado;
+        }
+
         private void btnVerDatosExcursionista_Click(object sender, RoutedEventArgs e)
         {
             VentanaDatosPersona datos_p = new VentanaDatosPersona(ex_seleccionado.Nombre,ex_seleccionado.Apellidos,
@@ -351,6 +384,22 @@ namespace Trabajo_ipo
                     btnVerDatosExcursionista.IsEnabled = true;
                     break;
                 }
+            }
+        }
+
+        private void MenuGuias_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsWindowOpen<VentanaGuias>())
+            {
+                this.Hide();
+                VentanaGuias VentanaGuias = (VentanaGuias)Application.Current.Windows.OfType<VentanaGuias>().FirstOrDefault();
+                VentanaGuias.Show();
+            }
+            else
+            {
+                gui = new VentanaGuias(Gestor);
+                gui.Show();
+                this.Hide();
             }
         }
     }

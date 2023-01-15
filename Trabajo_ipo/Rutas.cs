@@ -20,6 +20,8 @@ namespace Trabajo_ipo
 
         public List<Excursionista> Excursionistas_apuntados { get; set; }
 
+        public Guia Guia { get; set; }
+
         //Añadir PDIs
 
         public Rutas(string nombre, string origen, string destino, string dificultad, int duracion, string fecha, int num_excursionistas, bool finalizada)
@@ -35,7 +37,7 @@ namespace Trabajo_ipo
             Excursionistas_apuntados = new List<Excursionista>();
         }
 
-        public Rutas(string nombre, string origen, string destino, string dificultad, int duracion, string fecha, int num_excursionistas, bool finalizada, string incidencias)
+        public Rutas(string nombre, string origen, string destino, string dificultad, int duracion, string fecha, int num_excursionistas, bool finalizada, string incidencias, Guia guia)
         {
             Nombre = nombre;
             Origen = origen;
@@ -47,6 +49,7 @@ namespace Trabajo_ipo
             Finalizada = finalizada;
             Incidencias = incidencias;
             Excursionistas_apuntados = new List<Excursionista>();
+            Guia = guia;
         }
     }
 }

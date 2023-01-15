@@ -102,7 +102,7 @@ namespace Trabajo_ipo
             }
             else
             {
-                gui = new VentanaGuias();
+                gui = new VentanaGuias(gestor);
                 gui.Show();
             }
 

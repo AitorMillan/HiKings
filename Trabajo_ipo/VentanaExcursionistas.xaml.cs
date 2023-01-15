@@ -25,6 +25,7 @@ namespace Trabajo_ipo
         private Excursionista excursionista_seleccionado;
         VentanaDatos datos;
         VentanaRutas ru;
+        VentanaGuias gui;
         GestorDatos Gestor;
         public Window1(GestorDatos gestor)
         {
@@ -294,6 +295,22 @@ namespace Trabajo_ipo
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CargarArchivoXML();
+        }
+
+        private void MenuGuias_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsWindowOpen<VentanaGuias>())
+            {
+                this.Hide();
+                VentanaGuias VentanaGuias = (VentanaGuias)Application.Current.Windows.OfType<VentanaGuias>().FirstOrDefault();
+                VentanaGuias.Show();
+            }
+            else
+            {
+                gui = new VentanaGuias(Gestor);
+                gui.Show();
+                this.Hide();
+            }
         }
     }
 }
