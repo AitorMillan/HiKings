@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="VentanaDatosPersona" Height="450" Width="270" Background="#FFD4E8EC">
+        Title="VentanaDatosPersona" Height="450" Width="270" Background="#FFD4E8EC" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image x:Name="imgPersona" HorizontalAlignment="Left" Height="100" Margin="75,40,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBox x:Name="txtBoxNombre" HorizontalAlignment="Center" Margin="0,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

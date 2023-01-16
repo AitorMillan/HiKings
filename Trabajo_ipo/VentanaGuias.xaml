@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo_ipo"
         mc:Ignorable="d"
-        Title="VentanaGuias" Height="859" Width="1526" WindowState="Maximized" Background="#FFD4E8EE">
+        Title="VentanaGuias" Height="859" Width="1526" WindowState="Maximized" Background="#FFD4E8EE" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
 

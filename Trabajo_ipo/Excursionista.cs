@@ -21,6 +21,8 @@ namespace Trabajo_ipo
 
         public BitmapImage Foto { get; set; }
 
+        public List<Rutas> Rutas;
+
     public Excursionista(string nombre, string apellidos, int edad, long telefono, Uri rutaFoto)
         {
             Nombre = nombre;
@@ -29,6 +31,7 @@ namespace Trabajo_ipo
             Telefono = telefono;
             RutaFoto = rutaFoto;
             Foto = new BitmapImage(RutaFoto);
+            Rutas = new List<Rutas>();
         }
      public Excursionista(string nombre, string apellidos,int edad, long telefono)
         {
@@ -37,6 +40,7 @@ namespace Trabajo_ipo
             Edad = edad;
             Telefono = telefono;
             Foto = new BitmapImage(new Uri("/Imagenes/persona_estandar.png", UriKind.Relative));
+            Rutas = new List<Rutas>();
         }
 
     public override bool Equals(System.Object obj)

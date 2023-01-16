@@ -117,7 +117,7 @@
             <ListBox x:Name="lstBoxRutas" Height="242" Width="210" SelectionChanged="lstBoxRutas_SelectionChanged"/>
             <Label x:Name="lblApuntados" Content="Excursionistas apuntados:" Foreground="White" HorizontalContentAlignment="Center"/>
             <ListBox x:Name="lstBoxApuntados" Height="242" Width="207" SelectionChanged="lstBoxApuntados_SelectionChanged"/>
-            <Button x:Name="btnVerDatosExcursionista" Content="Ver Info" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnVerDatosExcursionista_Click" IsEnabled="False"/>
+            <Button x:Name="btnVerDatosExcursionista" Content="Ver Info excursionista" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnVerDatosExcursionista_Click" IsEnabled="False"/>
             <Label x:Name="lblNombre" Content="Nombre de la ruta" Foreground="White" Height="31" Width="117"/>
             <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" Width="178" Height="22"/>
             <Label x:Name="lblOrigen" Content="Origen" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="31" Width="124"/>
@@ -141,6 +141,10 @@
             <Button x:Name="btnModificarRuta" Content="Modificar ruta" IsEnabled="False" Click="btnModificarRuta_Click"/>
             <Button x:Name="btnContratarRuta" Content="Contratar Ruta" HorizontalAlignment="Center" VerticalAlignment="Center" Width="145" IsEnabled="False" Click="btnContratarRuta_Click"/>
             <Button x:Name="btnIncidencias" Content="Ver incidencias" IsEnabled="False" Click="btnIncidencias_Click"/>
+            <Button x:Name="btnPdis" Content="Ver PDIs" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="145" IsEnabled="False"/>
+            <Label x:Name="lblGuia" Content="Guía de la ruta" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+            <TextBox x:Name="txtBoxGuia" TextWrapping="Wrap" Width="120"/>
+            <Button x:Name="btnInfoGuia" Content="Ver info guía" HorizontalAlignment="Center" VerticalAlignment="Top" Height="21" Width="145" Click="btnInfoGuia_Click"/>
         </WrapPanel>
 
     </Grid>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace Trabajo_ipo
 {
@@ -29,10 +30,102 @@ namespace Trabajo_ipo
 
         public VentanaDatos()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            // Preparamos todos los datos de prueba
             gestor = new GestorDatos();
+            prepararDatosPrueba();
             
         }
+
+        private void prepararDatosPrueba()
+        {
+            gestor.Excursionistas = leerExcursionistas();
+            gestor.Guias = leerGuias();
+            gestor.Rutas = leerRutas();
+        }
+        private List<Rutas> leerRutas()
+        {
+            List<Rutas> listado = new List<Rutas>();
+            XmlDocument doc = new XmlDocument();
+            var fichero = Application.GetResourceStream(new Uri("rutas.xml", UriKind.Relative));
+            doc.Load(fichero.Stream);
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                Rutas ruta;
+                string nombre = node.Attributes["Nombre"].Value;
+                string origen = node.Attributes["Origen"].Value;
+                string destino = node.Attributes["Destino"].Value;
+                string dificultad = node.Attributes["Dificultad"].Value;
+                int duracion = Convert.ToInt32(node.Attributes["Duracion"].Value);
+                string fecha = node.Attributes["Fecha"].Value;
+                int num_excursionistas = Convert.ToInt32(node.Attributes["Num_excursionistas"].Value);
+                bool finalizada = Convert.ToBoolean(node.Attributes["Finalizada"].Value);
+                if (finalizada)
+                {
+                    string incidencias = node.Attributes["Incidencias"].Value;
+                    Guia guia = gestor.Guias[0];
+                    guia.Rutas.Add(nombre);
+                    ruta = new Rutas(nombre, origen, destino, dificultad, duracion, fecha, num_excursionistas, finalizada, incidencias, guia);
+                    foreach (Excursionista ex in gestor.Excursionistas)
+                    {
+                        if (ruta.Excursionistas_apuntados.Count == 4)
+                        {
+                            break;
+                        }
+                        ruta.Excursionistas_apuntados.Add(ex);
+                        ex.Rutas.Add(ruta);
+                    }
+
+                }
+                else
+                {
+                    ruta = new Rutas(nombre, origen, destino, dificultad, duracion, fecha, num_excursionistas, finalizada);
+                }
+                listado.Add(ruta);
+            }
+            return listado;
+        }
+        private List<Excursionista> leerExcursionistas()
+        {
+            List<Excursionista> listado = new List<Excursionista>();
+            XmlDocument doc = new XmlDocument();
+            var fichero = Application.GetResourceStream(new Uri("excursionistas.xml", UriKind.Relative));
+            doc.Load(fichero.Stream);
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                string nombre = node.Attributes["Nombre"].Value;
+                string apellidos = node.Attributes["Apellidos"].Value;
+                int edad = Convert.ToInt32(node.Attributes["Edad"].Value);
+                long telefono = Convert.ToInt64(node.Attributes["Telefono"].Value);
+                Uri rutaFoto = new Uri(node.Attributes["RutaFoto"].Value, UriKind.RelativeOrAbsolute);
+                Excursionista excursionista = new Excursionista(nombre, apellidos, edad, telefono, rutaFoto);
+                listado.Add(excursionista);
+            }
+            return listado;
+        }
+
+        private List<Guia> leerGuias()
+        {
+            List<Guia> listado = new List<Guia>();
+            XmlDocument doc = new XmlDocument();
+            var fichero = Application.GetResourceStream(new Uri("guias.xml", UriKind.Relative));
+            doc.Load(fichero.Stream);
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                string nombre = node.Attributes["Nombre"].Value;
+                string apellidos = node.Attributes["Apellidos"].Value;
+                long telefono = Convert.ToInt64(node.Attributes["Telefono"].Value);
+                string email = node.Attributes["Email"].Value;
+                Uri rutaFoto = new Uri(node.Attributes["RutaFoto"].Value, UriKind.Relative);
+                string idiomas = node.Attributes["Idiomas"].Value;
+                List<string> listaIdiomas = idiomas.Split(',').ToList();
+                double valoracion = Convert.ToDouble(node.Attributes["Valoracion"].Value);
+                Guia guia = new Guia(nombre, apellidos, telefono, email, rutaFoto, listaIdiomas, valoracion);
+                listado.Add(guia);
+            }
+            return listado;
+        }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

@@ -19,14 +19,19 @@ namespace Trabajo_ipo
     /// </summary>
     public partial class VentanaContratar : Window
     {
-        List<Excursionista> excs_apuntados;
         List<Excursionista> excs;
         List<Excursionista> no_apuntados = new List<Excursionista>();
         List<Excursionista> apuntados = new List<Excursionista>();
-        public VentanaContratar(List<Excursionista> exs, List<Excursionista> exs_apuntados)
+        Rutas Ruta;
+        bool siguiente_pulsado = false;
+        Guia guia_actual;
+        List<Guia> Guias = new List<Guia>();
+        public VentanaContratar(List<Excursionista> exs, Rutas ruta, List<Guia> guias)
         {
             excs = exs;
-            excs_apuntados = exs_apuntados;
+            Ruta = ruta;
+            Guias = guias;
+            guia_actual = ruta.Guia;
             InitializeComponent();
             anadirExcursionistas();
         }
@@ -36,7 +41,7 @@ namespace Trabajo_ipo
             foreach (Excursionista ex in excs)
             {   
 
-                if(excs_apuntados.Contains(ex)){
+                if(Ruta.Excursionistas_apuntados.Contains(ex)){
                     lstBoxApuntados.Items.Add(ex.Nombre);
                     apuntados.Add(ex);
                 }
@@ -46,12 +51,7 @@ namespace Trabajo_ipo
                     no_apuntados.Add(ex);
                 }
             }
-            if (lstBoxApuntados.Items.Count >= 4)
-            {
-                lblEstado.Content = "Se puede reservar la ruta";
-                lblEstado.Foreground = new SolidColorBrush(Colors.Green);
-                btnContratar.IsEnabled = true;
-            }
+            compruebaContratar();
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
@@ -79,15 +79,21 @@ namespace Trabajo_ipo
 
         private void compruebaContratar()
         {
-            if (lstBoxApuntados.Items.Count >= 4 && btnContratar.IsEnabled == false)
+            if (lstBoxApuntados.Items.Count >= 4 && lstBoxApuntados.Items.Count <= 20)
             {
                 lblEstado.Content = "Se puede reservar la ruta";
                 lblEstado.Foreground = new SolidColorBrush(Colors.Green);
                 btnContratar.IsEnabled = true;
             }
-            else if (lstBoxApuntados.Items.Count < 4 && btnContratar.IsEnabled == true)
+            else if (lstBoxApuntados.Items.Count < 4)
             {
                 lblEstado.Content = "Se necesitan al menos 4 excursionistas para contratar la ruta";
+                lblEstado.Foreground = new SolidColorBrush(Colors.Red);
+                btnContratar.IsEnabled = false;
+            }
+            else
+            {
+                lblEstado.Content = "No se pueden añadir más de 20 excursionistas a la ruta";
                 lblEstado.Foreground = new SolidColorBrush(Colors.Red);
                 btnContratar.IsEnabled = false;
             }
@@ -110,14 +116,51 @@ namespace Trabajo_ipo
 
         }
 
+        private void anadirGuias()
+        {
+            foreach(Guia g in Guias)
+            {
+                lstBoxGuias.Items.Add(g.Nombre);
+            }
+        }
         private void btnContratar_Click(object sender, RoutedEventArgs e)
         {
-            excs_apuntados.Clear();
-            foreach(Excursionista ex in apuntados)
+            if (!siguiente_pulsado)
             {
-                excs_apuntados.Add(ex);
+                btnContratar.Content = "Contratar";
+                lstBoxApuntados.Visibility = Visibility.Hidden;
+                lstBoxExcursionistas.Visibility = Visibility.Hidden;
+                lstBoxGuias.Visibility = Visibility.Visible;
+                btnAnadir.Visibility = Visibility.Hidden;
+                btnEliminar.Visibility = Visibility.Hidden;
+                lblEstado.Content = "Para finalizar seleccione el guía que guiará la ruta";
+                lblApuntados.Visibility = Visibility.Hidden;
+                lblExcursionistas.Visibility= Visibility.Hidden;
+                anadirGuias();
+                btnContratar.IsEnabled = false;
+                siguiente_pulsado = true;
             }
-            this.Close();
+            else
+            {
+                Ruta.Excursionistas_apuntados.Clear();
+                Ruta.Guia = Guias[lstBoxGuias.SelectedIndex];
+                Guias[lstBoxGuias.SelectedIndex].Rutas.Add(Ruta.Nombre);
+                foreach (Excursionista ex in apuntados)
+                {
+                    Ruta.Excursionistas_apuntados.Add(ex);
+                    ex.Rutas.Add(Ruta);
+                }
+                if(guia_actual != null)
+                {
+                    guia_actual.Rutas.Remove(Ruta.Nombre);
+                }
+                this.Close();
+            }
+        }
+
+        private void lstBoxGuias_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnContratar.IsEnabled = true;
         }
     }
 }

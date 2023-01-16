@@ -25,37 +25,18 @@ namespace Trabajo_ipo
         VentanaGuias gui;
         Rutas ruta_seleccionada;
         Excursionista ex_seleccionado;
-        List<Rutas> listadoRutas;
         GestorDatos Gestor;
         public VentanaRutas(GestorDatos gestor)
         {
             InitializeComponent();
 
             Gestor = gestor;
-            cargarGuias();
-            listadoRutas = CargarArchivoXML();
-            cargarExcursionistas();
             anadirRutas();
         }
 
-
-        public void cargarGuias()
-        {
-            if (!IsWindowOpen<VentanaGuias>())
-            {
-                Gestor.Guias = leerGuias();
-            }
-        }
-        private void cargarExcursionistas()
-        {
-            if (!IsWindowOpen<Window1>())
-            {
-                Gestor.Excursionistas = leerExcursionistas();
-            }
-        }
         private void anadirRutas()
         {
-            foreach (Rutas ruta in listadoRutas)
+            foreach (Rutas ruta in Gestor.Rutas)
             {
                 if (ruta.Finalizada == true)
                 {
@@ -67,38 +48,6 @@ namespace Trabajo_ipo
                     lstBoxRutas.Items.Add(ruta.Nombre);
                 }
             }
-        }
-        private List<Rutas> CargarArchivoXML()
-        {
-            List<Rutas> listado = new List<Rutas>();
-            XmlDocument doc = new XmlDocument();
-            var fichero = Application.GetResourceStream(new Uri("rutas.xml", UriKind.Relative));
-            doc.Load(fichero.Stream);
-            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-            {
-                Rutas ruta;
-                string nombre = node.Attributes["Nombre"].Value;
-                string origen = node.Attributes["Origen"].Value;
-                string destino = node.Attributes["Destino"].Value;
-                string dificultad = node.Attributes["Dificultad"].Value;
-                int duracion = Convert.ToInt32(node.Attributes["Duracion"].Value);
-                string fecha = node.Attributes["Fecha"].Value;
-                int num_excursionistas = Convert.ToInt32(node.Attributes["Num_excursionistas"].Value);
-                bool finalizada = Convert.ToBoolean(node.Attributes["Finalizada"].Value);
-                if (finalizada)
-                {
-                    string incidencias = node.Attributes["Incidencias"].Value;
-                    Guia guia = Gestor.Guias[0];
-                    guia.Rutas.Add(nombre);
-                    ruta = new Rutas(nombre, origen, destino, dificultad, duracion, fecha, num_excursionistas, finalizada, incidencias, guia);
-                }
-                else
-                {
-                    ruta = new Rutas(nombre, origen, destino, dificultad, duracion, fecha, num_excursionistas, finalizada);
-                }
-                listado.Add(ruta);
-            }
-            return listado;
         }
         private void menuAcerca_Click(object sender, RoutedEventArgs e)
         {
@@ -159,7 +108,7 @@ namespace Trabajo_ipo
             nombre = nombre.Split('(')[0];
             int posicion = lstBoxRutas.SelectedIndex + 1;
             int posRuta = 0;
-            foreach (Rutas ruta in listadoRutas)
+            foreach (Rutas ruta in Gestor.Rutas)
             {
                 posRuta++;
                 if (ruta.Nombre == nombre && posRuta == posicion)
@@ -169,10 +118,21 @@ namespace Trabajo_ipo
                     txtBoxDestino.Text = ruta.Destino;
                     comboBoxDificultad.Text = ruta.Dificultad;
                     txtBoxDuracion.Text = Convert.ToString(ruta.Duracion);
+                    if (ruta.Guia != null)
+                    {
+                        txtBoxGuia.Text = ruta.Guia.Nombre;
+                        btnInfoGuia.IsEnabled = true;
+                    }
+                    else
+                    {
+                        txtBoxGuia.Text = "";
+                        btnInfoGuia.IsEnabled = false;
+                    }
                     dateFecha.Text = Convert.ToString(ruta.Fecha);
                     txtboxNumExcursionistas.Text = Convert.ToString(ruta.Excursionistas_apuntados.Count);
                     btnEliminarRuta.IsEnabled = true;
                     btnModificarRuta.IsEnabled = true;
+                    btnPdis.IsEnabled = true;
                     ruta_seleccionada = ruta;
                     if (ruta.Finalizada == true)
                     {
@@ -236,11 +196,9 @@ namespace Trabajo_ipo
                         string fecha = dateFecha.Text;
                         string dificultad = comboBoxDificultad.Text;
                         Rutas ruta = new Rutas(nombre, origen, destino, dificultad, duracion, fecha, 0, false);
-                        listadoRutas.Add(ruta);
+                        Gestor.Rutas.Add(ruta);
                         lstBoxRutas.Items.Add(nombre);
                         lstBoxRutas.SelectedIndex = -1;
-                        btnEliminarRuta.IsEnabled = false;
-                        btnModificarRuta.IsEnabled = false;
                         limpiarTxtBox();
                     }
 
@@ -253,9 +211,13 @@ namespace Trabajo_ipo
 
         private void limpiarTxtBox()
         {
+            btnEliminarRuta.IsEnabled = false;
+            btnModificarRuta.IsEnabled = false;
+            btnPdis.IsEnabled = false;
             txtBoxDestino.Text = "";
             txtBoxDuracion.Text = "";
             txtBoxNombre.Text = "";
+            txtBoxGuia.Text = "";
             txtboxNumExcursionistas.Text = "";
             txtBoxOrigen.Text = "";
             comboBoxDificultad.Text = "";
@@ -274,10 +236,7 @@ namespace Trabajo_ipo
                 string dificultad = comboBoxDificultad.Text;
                 int pos = lstBoxRutas.SelectedIndex;
                 lstBoxRutas.Items.RemoveAt(pos);
-                listadoRutas.Remove(ruta_seleccionada);
-                btnEliminarRuta.IsEnabled = false;
-                btnModificarRuta.IsEnabled = false;
-                //eliminarXML(nombre, apellidos, txtBoxEdad.Text, txtBoxTelefono.Text, txtBoxRutaImagen.Text);
+                Gestor.Rutas.Remove(ruta_seleccionada);
                 limpiarTxtBox();
             }
         }
@@ -287,8 +246,6 @@ namespace Trabajo_ipo
             MessageBoxResult messageBoxResult = MessageBox.Show("¿Estás seguro de que desea editar los datos de esta persona?: " + txtBoxNombre.Text, "Por favor confirma", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                //eliminarXML(excursionista_seleccionado.Nombre, excursionista_seleccionado.Apellidos, Convert.ToString(excursionista_seleccionado.Edad), Convert.ToString(excursionista_seleccionado.Telefono),
-                  //  Convert.ToString(excursionista_seleccionado.RutaFoto));
                 string nombre = txtBoxNombre.Text;
                 int num_excursionistas = Convert.ToInt32(txtboxNumExcursionistas.Text);
                 string origen = txtBoxOrigen.Text;
@@ -299,63 +256,19 @@ namespace Trabajo_ipo
                 Rutas ruta = new Rutas(nombre, origen, destino, dificultad, duracion, fecha, 0, false);
                 int pos = lstBoxRutas.SelectedIndex;
                 lstBoxRutas.Items.RemoveAt(pos);
-                listadoRutas.Remove(ruta_seleccionada);
-                listadoRutas.Add(ruta);
+                Gestor.Rutas.Remove(ruta_seleccionada);
+                Gestor.Rutas.Add(ruta);
                 lstBoxRutas.Items.Add(nombre);
                 lstBoxRutas.SelectedIndex = -1;
-                btnEliminarRuta.IsEnabled = false;
-                btnModificarRuta.IsEnabled = false;
                 limpiarTxtBox();
                 MessageBox.Show("Datos modificados correctamente", "Completado", MessageBoxButton.OK, MessageBoxImage.Information);
-                //anadirXML(nombre, apellidos, edad, telefono, rutaFoto);
             }
         }
 
         private void btnContratarRuta_Click(object sender, RoutedEventArgs e)
         {
-            VentanaContratar ventana = new VentanaContratar(Gestor.Excursionistas,ruta_seleccionada.Excursionistas_apuntados);
+            VentanaContratar ventana = new VentanaContratar(Gestor.Excursionistas,ruta_seleccionada,Gestor.Guias);
             ventana.Show();
-        }
-
-        private List<Excursionista> leerExcursionistas()
-        {
-            List<Excursionista> listado = new List<Excursionista>();
-            XmlDocument doc = new XmlDocument();
-            var fichero = Application.GetResourceStream(new Uri("excursionistas.xml", UriKind.Relative));
-            doc.Load(fichero.Stream);
-            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-            {
-                string nombre = node.Attributes["Nombre"].Value;
-                string apellidos = node.Attributes["Apellidos"].Value;
-                int edad = Convert.ToInt32(node.Attributes["Edad"].Value);
-                long telefono = Convert.ToInt64(node.Attributes["Telefono"].Value);
-                Uri rutaFoto = new Uri(node.Attributes["RutaFoto"].Value, UriKind.RelativeOrAbsolute);
-                Excursionista excursionista = new Excursionista(nombre, apellidos, edad, telefono, rutaFoto);
-                listado.Add(excursionista);
-            }
-            return listado;
-        }
-
-        private List<Guia> leerGuias()
-        {
-            List<Guia> listado = new List<Guia>();
-            XmlDocument doc = new XmlDocument();
-            var fichero = Application.GetResourceStream(new Uri("guias.xml", UriKind.Relative));
-            doc.Load(fichero.Stream);
-            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-            {
-                string nombre = node.Attributes["Nombre"].Value;
-                string apellidos = node.Attributes["Apellidos"].Value;
-                long telefono = Convert.ToInt64(node.Attributes["Telefono"].Value);
-                string email = node.Attributes["Email"].Value;
-                Uri rutaFoto = new Uri(node.Attributes["RutaFoto"].Value, UriKind.Relative);
-                string idiomas = node.Attributes["Idiomas"].Value;
-                List<string> listaIdiomas = idiomas.Split(',').ToList();
-                double valoracion = Convert.ToDouble(node.Attributes["Valoracion"].Value);
-                Guia guia = new Guia(nombre, apellidos, telefono, email, rutaFoto, listaIdiomas, valoracion);
-                listado.Add(guia);
-            }
-            return listado;
         }
 
         private void btnVerDatosExcursionista_Click(object sender, RoutedEventArgs e)
@@ -401,6 +314,14 @@ namespace Trabajo_ipo
                 gui.Show();
                 this.Hide();
             }
+        }
+
+        private void btnInfoGuia_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaDatosPersona datos_p = new VentanaDatosPersona(ruta_seleccionada.Guia.Nombre, ruta_seleccionada.Guia.Apellidos,
+                                                        Convert.ToString(ruta_seleccionada.Guia.Telefono),
+                                                        ruta_seleccionada.Guia.RutaFoto);
+            datos_p.Show();
         }
     }
 }

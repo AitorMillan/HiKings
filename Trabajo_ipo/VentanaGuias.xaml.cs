@@ -30,10 +30,6 @@ namespace Trabajo_ipo
         {
             InitializeComponent();
             Gestor = gestor;
-            if (!IsWindowOpen<VentanaRutas>())
-            {
-            Gestor.Guias = CargarArchivoXML();
-            }
             añadirGuias();
             
         }
@@ -71,28 +67,6 @@ namespace Trabajo_ipo
             {
                 lstBoxGuias.Items.Add(guia.Nombre);
             }
-        }
-
-        private List<Guia> CargarArchivoXML()
-        {
-            List<Guia> listado = new List<Guia>();
-            XmlDocument doc = new XmlDocument();
-            var fichero = Application.GetResourceStream(new Uri("guias.xml", UriKind.Relative));
-            doc.Load(fichero.Stream);
-            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-            {
-                string nombre = node.Attributes["Nombre"].Value;
-                string apellidos = node.Attributes["Apellidos"].Value;
-                long telefono = Convert.ToInt64(node.Attributes["Telefono"].Value);
-                string email = node.Attributes["Email"].Value;
-                Uri rutaFoto = new Uri(node.Attributes["RutaFoto"].Value, UriKind.Relative);
-                string idiomas = node.Attributes["Idiomas"].Value;
-                List<string> listaIdiomas = idiomas.Split(',').ToList();
-                double valoracion = Convert.ToDouble(node.Attributes["Valoracion"].Value);
-                Guia guia = new Guia(nombre, apellidos, telefono, email, rutaFoto, listaIdiomas, valoracion);
-                listado.Add(guia);
-            }
-            return listado;
         }
 
         private void lstBoxGuias_SelectionChanged(object sender, SelectionChangedEventArgs e)
