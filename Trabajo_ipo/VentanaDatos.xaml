@@ -8,11 +8,13 @@
         Title="VentanaDatos" Height="859" Width="1526" WindowState="Maximized" Background="#FFD4E8EC" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="31*"/>
-            <RowDefinition Height="132*"/>
-            <RowDefinition Height="63*"/>
-            <RowDefinition Height="357*"/>
-            <RowDefinition Height="260*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="135*"/>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="277*"/>
+            <RowDefinition Height="54.
+*"/>
+            <RowDefinition Height="265*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="253*"/>
@@ -26,7 +28,7 @@
 
 
 
-        <WrapPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="222" Width="618">
+        <WrapPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" Height="222" Width="618" Margin="0,71,0,0" Grid.RowSpan="2">
             <StackPanel HorizontalAlignment="Center" Height="189" VerticalAlignment="Center" Width="270" Orientation="Vertical" Margin="0,25,0,0">
                 <Image x:Name="fotoUsuario" Height="162" Width="Auto" Source="/Imagenes/usuario.PNG"/>
                 <Label x:Name="lblUsuario" Content="Foto del usuario" Height="26" Width="Auto" FontFamily="Verdana" FontWeight="Bold" RenderTransformOrigin="0.244,1.155" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -71,13 +73,13 @@
                 </WrapPanel>
             </StackPanel>
         </WrapPanel>
-        <Label x:Name="lblTitulo" Grid.Column="1" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" FontSize="40" FontFamily="Fuentes/#Roboto Light" Height="52" Width="318" Foreground="Black" Background="#FFD4E8EE" BorderThickness="0,0,0,1" BorderBrush="Black" />
+        <Label x:Name="lblTitulo" Grid.Column="1" Content="Datos del usuario" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" FontSize="40" FontFamily="Fuentes/#Roboto Light" Height="52" Width="318" Foreground="Black" Background="#FFD4E8EE" BorderThickness="0,0,0,1" BorderBrush="Black" Margin="0,134,0,0" Grid.RowSpan="2" />
 
         <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
         <StackPanel Background="#2E333A" 
                     Width="258"
                     Orientation="Vertical"
-                    HorizontalAlignment="Center" Grid.RowSpan="5">
+                    HorizontalAlignment="Center" Grid.RowSpan="6">
             <Menu Background="Transparent"
                   Height="auto"
                   Width="auto">
@@ -176,7 +178,7 @@
 
         </StackPanel>
         <Image Source="/Imagenes/logo.png"
-                       Stretch="None" Grid.Row="4"/>
+                       Stretch="None" Grid.Row="4" Grid.RowSpan="2"/>
 
 
 

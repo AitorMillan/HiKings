@@ -7,16 +7,52 @@
         mc:Ignorable="d"
         Title="VentanaRutas" Height="859" Width="1526" Background="#FFD4E8EE" WindowState="Maximized" WindowStyle="None">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="57*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="129*"/>
-            <ColumnDefinition Width="634*"/>
+            <ColumnDefinition Width="257*"/>
+            <ColumnDefinition Width="36*"/>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="177*"/>
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="173*"/>
+            <ColumnDefinition Width="32*"/>
+            <ColumnDefinition Width="202*"/>
+            <ColumnDefinition Width="418*"/>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="27*"/>
         </Grid.ColumnDefinitions>
 
         <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
-        <StackPanel Background="#2E333A" 
-                    Width="258"
-                    Orientation="Vertical"
-                    HorizontalAlignment="Center">
+        <StackPanel Background="#2E333A"
+                    Orientation="Vertical" Grid.RowSpan="25">
             <Menu Background="Transparent"
                   Height="auto"
                   Width="auto">
@@ -112,40 +148,76 @@
 
             </Menu>
         </StackPanel>
-        <Rectangle Grid.Column="1" HorizontalAlignment="Left" Height="802" Margin="35,23,0,0" Stroke="Black" VerticalAlignment="Top" Width="1204" Fill="#FF2E333A" RadiusX="30" RadiusY="30"/>
-        <WrapPanel Grid.Column="1" HorizontalAlignment="Left" Height="765" Margin="62,43,0,0" VerticalAlignment="Top" Width="1151" Orientation="Vertical">
-            <ListBox x:Name="lstBoxRutas" Height="242" Width="210" SelectionChanged="lstBoxRutas_SelectionChanged"/>
-            <Label x:Name="lblApuntados" Content="Excursionistas apuntados:" Foreground="White" HorizontalContentAlignment="Center"/>
-            <ListBox x:Name="lstBoxApuntados" Height="242" Width="207" SelectionChanged="lstBoxApuntados_SelectionChanged"/>
-            <Button x:Name="btnVerDatosExcursionista" Content="Ver Info excursionista" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnVerDatosExcursionista_Click" IsEnabled="False"/>
-            <Label x:Name="lblNombre" Content="Nombre de la ruta" Foreground="White" Height="31" Width="117"/>
-            <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" Width="178" Height="22"/>
-            <Label x:Name="lblOrigen" Content="Origen" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="31" Width="124"/>
-            <TextBox x:Name="txtBoxOrigen" TextWrapping="Wrap" Width="120"/>
-            <Label x:Name="lblDestino" Content="Destino" Foreground="White"/>
-            <TextBox x:Name="txtBoxDestino" TextWrapping="Wrap" Width="120"/>
-            <Label x:Name="lblDificultad" Content="Dificultad" Foreground="White"/>
-            <ComboBox x:Name="comboBoxDificultad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Text="Dificultad">
-                <ComboBoxItem Content="Fácil"/>
-                <ComboBoxItem Content="Intermedio"/>
-                <ComboBoxItem Content="Difícil"/>
-            </ComboBox>
-            <Label x:Name="lblDuracion" Content="Duración (minutos)" Height="26" Foreground="White"/>
-            <TextBox x:Name="txtBoxDuracion" Width="120"/>
-            <Label x:Name="lblFecha" Content="Fecha de la ruta" Foreground="White"/>
-            <DatePicker x:Name="dateFecha" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label x:Name="lblNumExcursionistas" Content="Excursionistas apuntados" Foreground="White"/>
-            <TextBox x:Name="txtboxNumExcursionistas" TextWrapping="Wrap" Width="120" IsEnabled="False"/>
-            <Button x:Name="btnAnadirRuta" Content="Añadir ruta" Click="btnAnadirRuta_Click"/>
-            <Button x:Name="btnEliminarRuta" Content="Eliminar ruta" IsEnabled="False" Click="btnEliminarRuta_Click"/>
-            <Button x:Name="btnModificarRuta" Content="Modificar ruta" IsEnabled="False" Click="btnModificarRuta_Click"/>
-            <Button x:Name="btnContratarRuta" Content="Contratar Ruta" HorizontalAlignment="Center" VerticalAlignment="Center" Width="145" IsEnabled="False" Click="btnContratarRuta_Click"/>
-            <Button x:Name="btnIncidencias" Content="Ver incidencias" IsEnabled="False" Click="btnIncidencias_Click"/>
-            <Button x:Name="btnPdis" Content="Ver PDIs" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="145" IsEnabled="False"/>
-            <Label x:Name="lblGuia" Content="Guía de la ruta" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
-            <TextBox x:Name="txtBoxGuia" TextWrapping="Wrap" Width="120"/>
-            <Button x:Name="btnInfoGuia" Content="Ver info guía" HorizontalAlignment="Center" VerticalAlignment="Top" Height="21" Width="145" Click="btnInfoGuia_Click"/>
-        </WrapPanel>
+        <Rectangle Grid.Column="1" Stroke="Black" Fill="#FF2E333A" RadiusX="30" RadiusY="30" Grid.RowSpan="22" Grid.ColumnSpan="12" Margin="36,0,27,1" Grid.Row="1"/>
+        <ListBox x:Name="lstBoxRutas" SelectionChanged="lstBoxRutas_SelectionChanged" FontFamily="Roboto Light" Grid.Column="3" Grid.Row="3" Grid.RowSpan="10" Grid.ColumnSpan="3"/>
+        <Label x:Name="lblApuntados" Content="Excursionistas apuntados:" Foreground="White" HorizontalContentAlignment="Center" FontFamily="Roboto Light" FontSize="20" Grid.Column="12" Margin="215,18,-188,13" Grid.Row="8"/>
+        <ListBox x:Name="lstBoxApuntados" SelectionChanged="lstBoxApuntados_SelectionChanged" FontFamily="Roboto Light" FontSize="20" Grid.Column="12" Margin="500,10,-473,7" Grid.Row="4" Grid.RowSpan="2"/>
+        <Button x:Name="btnVerDatosExcursionista" Content="Ver Info excursionista" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnVerDatosExcursionista_Click" IsEnabled="False" FontFamily="Roboto Light" FontSize="20" Grid.Column="12" Margin="96,5,0,0" Grid.Row="13" Height="28" Width="192" Grid.RowSpan="2"/>
+        <Label x:Name="lblNombre" Content="Nombre" Foreground="White" FontSize="20" FontFamily="Roboto Light" Grid.Column="7" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="15" Grid.Column="9" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblOrigen" Content="Origen" Foreground="White" FontSize="20" FontFamily="Roboto Light" Grid.Column="7" Grid.Row="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtBoxOrigen" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="15" Grid.Column="9" Grid.Row="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblDestino" Content="Destino" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="7" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtBoxDestino" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="15" Grid.Column="9" Grid.Row="7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblDificultad" Content="Dificultad" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.02"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <ComboBox x:Name="comboBoxDificultad" Text="Dificultad" FontFamily="Roboto Light" FontSize="15" Grid.Column="9"  Grid.Row="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <ComboBoxItem Content="Fácil"/>
+            <ComboBoxItem Content="Intermedio"/>
+            <ComboBoxItem Content="Difícil"/>
+        </ComboBox>
+        <Label x:Name="lblDuracion" Content="Duración (min)" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtBoxDuracion" FontFamily="Roboto Light" FontSize="15" Grid.Column="9" Grid.Row="11" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Label x:Name="lblFecha" Content="Fecha de la ruta" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="13" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <DatePicker x:Name="dateFecha" FontFamily="Roboto Light" FontSize="18" Grid.Column="9" Grid.Row="13" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblNumExcursionistas" Content="Nº Excursionistas" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtboxNumExcursionistas" TextWrapping="Wrap" IsEnabled="False" FontFamily="Roboto Light" FontSize="15" Grid.Column="9" Grid.Row="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnAnadirRuta" Content="Añadir ruta" Click="btnAnadirRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="14"/>
+        <Button x:Name="btnEliminarRuta" Content="Eliminar ruta" IsEnabled="False" Click="btnEliminarRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="18"/>
+        <Button x:Name="btnModificarRuta" Content="Modificar ruta" IsEnabled="False" Click="btnModificarRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="16"/>
+        <Button x:Name="btnContratarRuta" Content="Contratar Ruta" IsEnabled="False" Click="btnContratarRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="20" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="btnIncidencias" Content="Ver incidencias" IsEnabled="False" Click="btnIncidencias_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="12" Margin="360,12,-333,47" Grid.Row="23"/>
+        <Button x:Name="btnPdis" Content="Ver PDIs" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="145" IsEnabled="False" FontFamily="Roboto Light" FontSize="20" Grid.Column="9" Margin="101,23,0,0" Grid.Row="18" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Label x:Name="lblGuia" Content="Guía de la ruta" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="10" Grid.Row="3" Height="34" Width="139" Grid.RowSpan="2" Margin="0,33,0,0"/>
+        <TextBox x:Name="txtBoxGuia" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="20" Grid.Column="10" Margin="123,32,140,10" Grid.Row="11" Grid.RowSpan="2"/>
+        <Button x:Name="btnInfoGuia" Content="Ver info guía" HorizontalAlignment="Left" VerticalAlignment="Top" Height="21" Width="144" Click="btnInfoGuia_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="10" Margin="209,12,0,0" Grid.Row="10" Grid.RowSpan="2"/>
+        <Image Source="/Imagenes/logo.png" Grid.Row="15" Grid.RowSpan="10"/>
+        <Label x:Name="lblRutas" Grid.Column="4" Content="Rutas" HorizontalAlignment="Center" Height="34" Grid.Row="2" VerticalAlignment="Center" Width="83" FontFamily="Roboto Light" FontSize="20" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Window>
