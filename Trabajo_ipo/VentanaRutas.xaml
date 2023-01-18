@@ -35,7 +35,7 @@
             <RowDefinition Height="57*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="257*"/>
+            <ColumnDefinition Width="258*"/>
             <ColumnDefinition Width="36*"/>
             <ColumnDefinition Width="17*"/>
             <ColumnDefinition Width="71*"/>
@@ -52,7 +52,7 @@
 
         <!--Créditos del menú lateral: https://www.youtube.com/watch?v=E5NB9crfQZs-->
         <StackPanel Background="#2E333A"
-                    Orientation="Vertical" Grid.RowSpan="25">
+                    Orientation="Vertical" Grid.RowSpan="25" HorizontalAlignment="Left" Width="258">
             <Menu Background="Transparent"
                   Height="auto"
                   Width="auto">
