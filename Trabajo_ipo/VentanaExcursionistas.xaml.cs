@@ -190,6 +190,8 @@ namespace Trabajo_ipo
             MessageBoxResult messageBoxResult = MessageBox.Show("¿Estás seguro de que desea editar los datos de esta persona?: " + txtBoxNombre.Text, "Por favor confirma", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
+                try
+                {
                 string nombre = txtBoxNombre.Text;
                 string apellidos = txtBoxApellido.Text;
                 int edad = Convert.ToInt32(txtBoxEdad.Text);
@@ -206,6 +208,11 @@ namespace Trabajo_ipo
                 btnModificarDatos.IsEnabled = false;
                 limpiarTxtBox();
                 MessageBox.Show("Datos modificados correctamente", "Completado", MessageBoxButton.OK, MessageBoxImage.Information);
+                } 
+                catch (System.FormatException)
+                {
+                    MessageBox.Show("Uno de los siguientes valores posee caracteres erróneos\n-Edad\n-Teléfono", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 

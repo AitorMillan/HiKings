@@ -38,6 +38,21 @@ namespace Trabajo_ipo
             Pdis = new List<Pdi>();
         }
 
+        public Rutas(string nombre, string origen, string destino, string dificultad, int duracion, string fecha, int num_excursionistas, bool finalizada, Guia guia, List<Pdi> pdis, List<Excursionista> exs)
+        {
+            Nombre = nombre;
+            Origen = origen;
+            Destino = destino;
+            Dificultad = dificultad;
+            Duracion = duracion;
+            Fecha = fecha;
+            Num_excursionistas = num_excursionistas;
+            Finalizada = finalizada;
+            Guia = guia;
+            Excursionistas_apuntados = exs.ToList();
+            Pdis = pdis.ToList();
+        }
+
         public Rutas(string nombre, string origen, string destino, string dificultad, int duracion, string fecha, int num_excursionistas, bool finalizada, string incidencias, Guia guia)
         {
             Nombre = nombre;

@@ -172,7 +172,7 @@
         <TextBox x:Name="txtBoxTelefono" Grid.Column="10" Grid.Row="9" TextWrapping="Wrap" Margin="21,0,0,0" FontSize="20" Grid.ColumnSpan="2" FontFamily="Roboto Light"/>
         <Label x:Name="lblImage" Content="Imágen del usuario" Foreground="White" HorizontalAlignment="Center" Grid.Column="1" Width="0" Grid.RowSpan="2"/>
         <Image x:Name="imgUsuario" Source="/Imagenes/persona_estandar.png" Grid.Column="13" HorizontalAlignment="Left" Height="159" Grid.Row="3" VerticalAlignment="Top" Width="160"  Grid.RowSpan="5"/>
-        <TextBox x:Name="txtBoxRutaImagen" TextWrapping="Wrap" Text="Ruta de la imagen" Grid.Column="13" Margin="19,27,25,10" Grid.Row="7" Grid.RowSpan="4" Visibility="Hidden"/>
+        <TextBox x:Name="txtBoxRutaImagen" TextWrapping="Wrap" Grid.Column="13" Margin="19,27,25,10" Grid.Row="7" Grid.RowSpan="4" Visibility="Hidden" Text="/Imagenes/persona_estandar.png"/>
         <Button x:Name="btnAñadirIdioma" Content="Añadir idioma" Grid.Column="13" Margin="7,0,7,0" Grid.Row="14" FontSize="14" Grid.RowSpan="2" FontFamily="Roboto Light" Click="btnAñadirIdioma_Click"/>
         <Button x:Name="btnAñadirGuia" Grid.Column="5" Content="Añadir guía" Grid.Row="13" Click="btnAñadirGuia_Click" FontSize="14" Grid.RowSpan="3" FontFamily="Roboto Light" Margin="0,25,0,0"/>
         <Button x:Name="btnModificarDatos" Grid.Column="5" Content="Modificar datos" Grid.Row="17" IsEnabled="False" Click="btnModificarDatos_Click" FontSize="14" FontFamily="Roboto Light"/>

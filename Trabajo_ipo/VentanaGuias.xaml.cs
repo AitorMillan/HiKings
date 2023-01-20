@@ -122,7 +122,6 @@ namespace Trabajo_ipo
             txtBoxEmail.Text = "";
             txtBoxTelefono.Text = "";
             txtBoxValoracion.Text = "";
-            //Falta añadir lo de limpiar las rutas
             imgUsuario.Source = new BitmapImage(new Uri("/Imagenes/persona_estandar.png", UriKind.Relative));
             txtBoxRutaImagen.Text = "/Imagenes/persona_estandar.png";
             lstBoxIdiomas.Items.Clear();
@@ -301,6 +300,7 @@ namespace Trabajo_ipo
             {
                 ex = new Window1(Gestor);
                 ex.Show();
+
                 this.Hide();
             }
         }
