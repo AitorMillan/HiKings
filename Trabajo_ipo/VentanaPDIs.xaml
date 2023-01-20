@@ -9,10 +9,10 @@
     <Grid Background="#FFD4E8EE">
         <Image x:Name="imgPdi" Height="115" Margin="321,64,321,0" VerticalAlignment="Top"/>
         <ListBox x:Name="lstBoxPdis" Margin="37,217,605,48" SelectionChanged="lstBoxPdis_SelectionChanged"/>
-        <Button x:Name="BotonImagenAnterior" HorizontalAlignment="Left" Margin="163,98,0,0" VerticalAlignment="Top" Width="60" Click="BotonImagenAnterior_Click">
+        <Button x:Name="BotonImagenAnterior" ToolTip="Volver atrás" HorizontalAlignment="Left" Margin="163,98,0,0" VerticalAlignment="Top" Width="60" Click="BotonImagenAnterior_Click">
             <Image Source="/Imagenes/flecha_izquierda.png" Height="41" Width="55"/>
         </Button>
-        <Button  x:Name="btnImagenSiguiente" HorizontalAlignment="Left" Margin="538,97,0,0" VerticalAlignment="Top" Width="60" Click="btnImagenSiguiente_Click" Height="46">
+        <Button  x:Name="btnImagenSiguiente" ToolTip="Pasar de imagen" HorizontalAlignment="Left" Margin="538,97,0,0" VerticalAlignment="Top" Width="60" Click="btnImagenSiguiente_Click" Height="46">
             <Image Source="/Imagenes/flecha_derecha.png" Height="41" Width="55"/>
         </Button>
         <TextBox x:Name="txtBoxNombre" HorizontalAlignment="Left" Margin="304,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

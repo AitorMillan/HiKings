@@ -158,9 +158,9 @@
         <ListBox x:Name="lstBoxRutas" SelectionChanged="lstBoxRutas_SelectionChanged" FontFamily="Roboto Light" Grid.Column="3" Grid.Row="3" Grid.RowSpan="11" Grid.ColumnSpan="3"/>
         <Label x:Name="lblApuntados" Content="Excursionistas apuntados" Foreground="White" HorizontalContentAlignment="Center" FontFamily="Roboto Light" FontSize="17" Grid.Column="12" Grid.Row="2" Grid.ColumnSpan="3" VerticalContentAlignment="Center"/>
         <ListBox x:Name="lstBoxApuntados" SelectionChanged="lstBoxApuntados_SelectionChanged" FontFamily="Roboto Light" FontSize="18" Grid.Column="11" Grid.Row="3" Grid.RowSpan="7" Grid.ColumnSpan="5"/>
-        <Button x:Name="btnVerDatosExcursionista" Content="Ver Info excursionista" Click="btnVerDatosExcursionista_Click" IsEnabled="False" FontFamily="Roboto Light" FontSize="20" Grid.Column="12" Grid.Row="11" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <Button x:Name="btnVerDatosExcursionista" ToolTip="Pulsa para ver datos" Content="Ver Info excursionista" Click="btnVerDatosExcursionista_Click" IsEnabled="False" FontFamily="Roboto Light" FontSize="20" Grid.Column="12" Grid.Row="11" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
         <Label x:Name="lblNombre" Content="Nombre" Foreground="White" FontSize="20" FontFamily="Roboto Light" Grid.Column="7" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="14" Grid.Column="9" Grid.Row="3" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtBoxNombre" ToolTip="Nombre" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="14" Grid.Column="9" Grid.Row="3" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
         <Label x:Name="lblOrigen" Content="Origen" Foreground="White" FontSize="18" FontFamily="Roboto Light" Grid.Column="7" Grid.Row="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -171,10 +171,10 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBox x:Name="txtBoxOrigen" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="15" Grid.Column="9" Grid.Row="5" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtBoxOrigen" ToolTip="Origen" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="15" Grid.Column="9" Grid.Row="5" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
         <Label x:Name="lblDestino" Content="Destino" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="7" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtBoxDestino" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="15" Grid.Column="9" Grid.Row="7" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-        <Label x:Name="lblDificultad" Content="Dificultad" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="txtBoxDestino" ToolTip="Destino" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="15" Grid.Column="9" Grid.Row="7" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblDificultad" ToolTip="Dificultad" Content="Dificultad" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -210,13 +210,13 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <DatePicker x:Name="dateFecha" FontFamily="Roboto Light" FontSize="18" Grid.Column="9" Grid.Row="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <DatePicker x:Name="dateFecha" ToolTip="Selecciona una fecha" FontFamily="Roboto Light" FontSize="18" Grid.Column="9" Grid.Row="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="lblNumExcursionistas" Content="Nº Excursionistas" Foreground="White" FontFamily="Roboto Light" FontSize="18" Grid.Column="7" Grid.Row="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="txtboxNumExcursionistas" TextWrapping="Wrap" IsEnabled="False" FontFamily="Roboto Light" FontSize="15" Grid.Column="9" Grid.Row="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnAnadirRuta" Content="Añadir ruta" Click="btnAnadirRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="15"/>
-        <Button x:Name="btnEliminarRuta" Content="Eliminar ruta" IsEnabled="False" Click="btnEliminarRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="19"/>
-        <Button x:Name="btnModificarRuta" Content="Modificar ruta" IsEnabled="False" Click="btnModificarRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="17"/>
-        <Button x:Name="btnContratarRuta" Content="Contratar Ruta" IsEnabled="False" Click="btnContratarRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="21" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="txtboxNumExcursionistas" ToolTip="Número de excursionistas" TextWrapping="Wrap" IsEnabled="False" FontFamily="Roboto Light" FontSize="15" Grid.Column="9" Grid.Row="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnAnadirRuta" ToolTip="Pulsa para añadir" Content="Añadir ruta" Click="btnAnadirRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="15"/>
+        <Button x:Name="btnEliminarRuta" ToolTip="Pulas para eliminar" Content="Eliminar ruta" IsEnabled="False" Click="btnEliminarRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="19"/>
+        <Button x:Name="btnModificarRuta" ToolTip="Pulsa para modificar" Content="Modificar ruta" IsEnabled="False" Click="btnModificarRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="17"/>
+        <Button x:Name="btnContratarRuta" ToolTip="Pulsa para contratar" Content="Contratar Ruta" IsEnabled="False" Click="btnContratarRuta_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="4" Grid.Row="21" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1"/>
@@ -227,10 +227,10 @@
             </Button.RenderTransform>
         </Button>
         <Button x:Name="btnIncidencias" Content="Ver incidencias" IsEnabled="False" Click="btnIncidencias_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="17" Margin="360,12,-333,46" Grid.Row="24"/>
-        <Button x:Name="btnPdis" Content="Ver PDIs" IsEnabled="False" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="21" Click="btnPdis_Click" Grid.RowSpan="2"/>
+        <Button x:Name="btnPdis" ToolTip="Pulsa para ver PDI" Content="Ver PDIs" IsEnabled="False" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="21" Click="btnPdis_Click" Grid.RowSpan="2"/>
         <Label x:Name="lblGuia" Content="Guía de la ruta" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="12" Grid.Row="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
         <TextBox x:Name="txtBoxGuia" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="18" Grid.Column="12" Grid.Row="15" Grid.ColumnSpan="3"/>
-        <Button x:Name="btnInfoGuia" Content="Ver info guía" Click="btnInfoGuia_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="13" Grid.Row="17"/>
+        <Button x:Name="btnInfoGuia" ToolTip="Pulsa para ver info" Content="Ver info guía" Click="btnInfoGuia_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="13" Grid.Row="17"/>
         <Image Source="/Imagenes/logo.png" Grid.Row="16" Grid.RowSpan="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
         <Label x:Name="lblRutas" Grid.Column="4" Content="Rutas" HorizontalAlignment="Center" Height="34" Grid.Row="2" VerticalAlignment="Center" Width="83" FontFamily="Roboto Light" FontSize="20" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
