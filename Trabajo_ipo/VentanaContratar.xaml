@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="VentanaContratar" Height="450" Width="800" Background="#FFD4E8EE" WindowStartupLocation="CenterScreen">
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="86*"/>
             <RowDefinition Height="35*"/>

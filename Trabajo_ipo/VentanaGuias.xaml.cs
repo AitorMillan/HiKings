@@ -122,7 +122,6 @@ namespace Trabajo_ipo
             txtBoxEmail.Text = "";
             txtBoxTelefono.Text = "";
             txtBoxValoracion.Text = "";
-            //Falta añadir lo de limpiar las rutas
             imgUsuario.Source = new BitmapImage(new Uri("/Imagenes/persona_estandar.png", UriKind.Relative));
             txtBoxRutaImagen.Text = "/Imagenes/persona_estandar.png";
             lstBoxIdiomas.Items.Clear();
@@ -196,17 +195,17 @@ namespace Trabajo_ipo
 
         private void btnModificarDatos_Click(object sender, RoutedEventArgs e)
         {
-                try
+            try
+            {
+                if (Convert.ToDouble(txtBoxValoracion.Text) <= 0 || Convert.ToDouble(txtBoxValoracion.Text) > 5)
                 {
-            if (Convert.ToDouble(txtBoxValoracion.Text) <= 0 || Convert.ToDouble(txtBoxValoracion.Text) > 5)
-            {
-                MessageBox.Show("Por favor introduzca una valoración válida", "Error al añadir el usuario", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                    MessageBox.Show("Por favor introduzca una valoración válida", "Error al añadir el usuario", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
 
-            }
-            MessageBoxResult messageBoxResult = MessageBox.Show("¿Estás seguro de que desea editar los datos de esta persona?: " + txtBoxNombre.Text, "Por favor confirma", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (messageBoxResult == MessageBoxResult.Yes)
-            {
+                }
+                MessageBoxResult messageBoxResult = MessageBox.Show("¿Estás seguro de que desea editar los datos de esta persona?: " + txtBoxNombre.Text, "Por favor confirma", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
                     string nombre = txtBoxNombre.Text;
                     string apellidos = txtBoxApellido.Text;
                     string email = txtBoxEmail.Text;
@@ -226,10 +225,10 @@ namespace Trabajo_ipo
                     limpiarTxtBox();
                 }
             }
-                catch (System.FormatException)
-                {
-                    MessageBox.Show("Por favor no introduzca valores alfabéticos en los siguientes campos:\n-Teléfono\n-Valoración", "Error al añadir el usuario", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("Por favor no introduzca valores alfabéticos en los siguientes campos:\n-Teléfono\n-Valoración", "Error al añadir el usuario", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public static bool IsWindowOpen<T>(string name = "") where T : Window
@@ -301,6 +300,7 @@ namespace Trabajo_ipo
             {
                 ex = new Window1(Gestor);
                 ex.Show();
+
                 this.Hide();
             }
         }

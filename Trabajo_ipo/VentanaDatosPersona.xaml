@@ -23,10 +23,10 @@
             <ColumnDefinition Width="127*"/>
             <ColumnDefinition Width="69*"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="imgPersona" Grid.Column="1" Margin="0,35,0,0" Grid.RowSpan="2"/>
-        <TextBox x:Name="txtBoxNombre" Margin="0,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" FontFamily="Roboto Light"/>
-        <TextBox x:Name="txtBoxApellidos" Margin="0,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.Row="5"/>
-        <TextBox x:Name="txtBoxTelefono" Margin="0,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.Row="7" FontFamily="Roboto Light"/>
+        <Image x:Name="imgPersona" ToolTip="Foto de la persona" Grid.Column="1" Margin="0,35,0,0" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtBoxNombre" ToolTip="Nombre" Margin="0,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" FontFamily="Roboto Light"/>
+        <TextBox x:Name="txtBoxApellidos" ToolTip="Apellidos" Margin="0,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.Row="5"/>
+        <TextBox x:Name="txtBoxTelefono" ToolTip="Teléfono" Margin="0,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.Row="7" FontFamily="Roboto Light"/>
         <Label x:Name="lblNombre" Content="Nombre:" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" Height="23" HorizontalContentAlignment="Center" FontFamily="Roboto Light" Margin="0,42,0,0" Grid.RowSpan="2"/>
         <Label x:Name="lblApellido" Content="Apellidos:" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4" Height="24" Margin="0,23,0,0" Grid.RowSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Roboto Light"/>
         <Label x:Name="lblTelefono" Content="Teléfono:" VerticalAlignment="Top" Grid.Column="1" Grid.Row="6" FontFamily="Roboto Light" Height="23" Margin="0,16,0,0" Grid.RowSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>

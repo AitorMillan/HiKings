@@ -44,7 +44,6 @@ namespace Trabajo_ipo
                 }
                 else
                 {
-
                     lstBoxRutas.Items.Add(ruta.Nombre);
                 }
             }
@@ -204,7 +203,7 @@ namespace Trabajo_ipo
 
                 } catch (System.FormatException)
                 {
-                    MessageBox.Show("Por favor no introduzca decimales u otros carácteres en la duración de la ruta", "Error al añadir el usuario", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Por favor no introduzca decimales u otros carácteres en la duración de la ruta", "Error al añadir la ruta", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -246,6 +245,8 @@ namespace Trabajo_ipo
             MessageBoxResult messageBoxResult = MessageBox.Show("¿Estás seguro de que desea editar los datos de esta persona?: " + txtBoxNombre.Text, "Por favor confirma", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
+                try
+                {
                 string nombre = txtBoxNombre.Text;
                 int num_excursionistas = Convert.ToInt32(txtboxNumExcursionistas.Text);
                 string origen = txtBoxOrigen.Text;
@@ -253,7 +254,7 @@ namespace Trabajo_ipo
                 int duracion = Convert.ToInt32(txtBoxDuracion.Text);
                 string fecha = dateFecha.Text;
                 string dificultad = comboBoxDificultad.Text;
-                Rutas ruta = new Rutas(nombre, origen, destino, dificultad, duracion, fecha, 0, false);
+                Rutas ruta = new Rutas(nombre,origen,destino,dificultad,duracion,fecha,num_excursionistas,false,ruta_seleccionada.Guia,ruta_seleccionada.Pdis,ruta_seleccionada.Excursionistas_apuntados);
                 int pos = lstBoxRutas.SelectedIndex;
                 lstBoxRutas.Items.RemoveAt(pos);
                 Gestor.Rutas.Remove(ruta_seleccionada);
@@ -261,7 +262,11 @@ namespace Trabajo_ipo
                 lstBoxRutas.Items.Add(nombre);
                 lstBoxRutas.SelectedIndex = -1;
                 limpiarTxtBox();
-                MessageBox.Show("Datos modificados correctamente", "Completado", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (System.FormatException)
+                {
+                    MessageBox.Show("Por favor no introduzca decimales u otros carácteres en la duración de la ruta", "Completado", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
