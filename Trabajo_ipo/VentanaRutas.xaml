@@ -226,7 +226,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="btnIncidencias" Content="Ver incidencias" IsEnabled="False" Click="btnIncidencias_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="17" Margin="360,12,-333,46" Grid.Row="24"/>
+        <Button x:Name="btnIncidencias" Content="Ver incidencias" IsEnabled="False" Click="btnIncidencias_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="19"/>
         <Button x:Name="btnPdis" ToolTip="Pulsa para ver PDI" Content="Ver PDIs" IsEnabled="False" FontFamily="Roboto Light" FontSize="20" Grid.Column="7" Grid.Row="21" Click="btnPdis_Click" Grid.RowSpan="2"/>
         <Label x:Name="lblGuia" Content="Guía de la ruta" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="12" Grid.Row="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
         <TextBox x:Name="txtBoxGuia" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="18" Grid.Column="12" Grid.Row="15" Grid.ColumnSpan="3"/>
