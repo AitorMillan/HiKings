@@ -173,7 +173,7 @@
         <TextBox x:Name="txtBoxTelefono" ToolTip="Número de teléfono" Grid.Column="10" Grid.Row="9" TextWrapping="Wrap" Margin="21,0,0,0" FontSize="20" Grid.ColumnSpan="2"/>
         <Label x:Name="lblImage" Content="Imágen del usuario" Foreground="White" HorizontalAlignment="Center" Grid.Column="1" Width="0" Grid.RowSpan="2"/>
         <Image x:Name="imgUsuario" Source="/Imagenes/persona_estandar.png" Grid.Column="13" HorizontalAlignment="Left" Height="150" Grid.Row="3" VerticalAlignment="Top" Width="160" Grid.RowSpan="5"/>
-        <TextBox x:Name="txtBoxRutaImagen" TextWrapping="Wrap" Text="Ruta de la imagen" Grid.Column="13" Margin="0,32,0,0" Grid.Row="7" Grid.RowSpan="8"/>
+        <TextBox x:Name="txtBoxRutaImagen" TextWrapping="Wrap" Text="Ruta de la imagen" Grid.Column="13" Margin="0,32,0,0" Grid.Row="7" Grid.RowSpan="8" Visibility="Hidden"/>
         <Button x:Name="btnBuscarImagen" Content="Añadir imagen" Click="btnBuscarImagen_Click" Grid.Column="14" Grid.Row="3" FontSize="11" FontFamily="Roboto Light" Height="20" Width="82" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button x:Name="btnAñadirExcursionista" ToolTip="Pulsa para añadir" Grid.Column="5" Content="Añadir Excursionista" Grid.Row="14" Click="btnAñadirExcursionista_Click" FontSize="14" FontFamily="Roboto Light" Grid.RowSpan="2"/>
         <Button x:Name="btnModificarDatos" ToolTip="Pulsa para modificar" Grid.Column="5" Content="Modificar datos" Grid.Row="17" IsEnabled="False" Click="btnModificarDatos_Click" FontSize="14" FontFamily="Roboto Light"/>
