@@ -92,6 +92,8 @@ namespace Trabajo_ipo
                     Guia guia = gestor.Guias[0];
                     guia.Rutas.Add(nombre);
                     ruta = new Rutas(nombre, origen, destino, dificultad, duracion, fecha, num_excursionistas, finalizada, incidencias, guia);
+                    ruta.Pdis.Add(pdis[0]);
+                    ruta.Pdis.Add(pdis[1]);
                     foreach (Excursionista ex in gestor.Excursionistas)
                     {
                         if (ruta.Excursionistas_apuntados.Count == 4)
@@ -99,8 +101,6 @@ namespace Trabajo_ipo
                             break;
                         }
                         ruta.Excursionistas_apuntados.Add(ex);
-                        ruta.Pdis.Add(pdis[0]);
-                        ruta.Pdis.Add(pdis[1]);
                         ex.Rutas.Add(ruta);
                     }
 

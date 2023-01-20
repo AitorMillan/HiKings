@@ -43,7 +43,47 @@ namespace Trabajo_ipo
             {
                 return;
             }
-            
+            pdi_seleccionado = pdis.Find(x => x.Nombre == lstBoxPdis.SelectedItem.ToString());
+            txtBoxNombre.Text = pdi_seleccionado.Nombre;
+            txtBoxDescripcion.Text = pdi_seleccionado.Descripcion;
+            txtBoxTipo.Text = pdi_seleccionado.Tipologia;
+            imgPdi.Source = new BitmapImage(pdi_seleccionado.RutasFotos[0]);
+            Pdi pdi = pdi_seleccionado;
+
+        }
+
+        private void btnImagenSiguiente_Click(object sender, RoutedEventArgs e)
+        {
+            if(lstBoxPdis.SelectedItem == null)
+            {
+                return;
+            }
+            if(pdi_seleccionado.posicionFoto == pdi_seleccionado.RutasFotos.Count -1 )
+            {
+                pdi_seleccionado.posicionFoto = 0;
+            }
+            else
+            {
+                pdi_seleccionado.posicionFoto ++;
+            }
+            imgPdi.Source = new BitmapImage(pdi_seleccionado.RutasFotos[pdi_seleccionado.posicionFoto]);
+        }
+
+        private void BotonImagenAnterior_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstBoxPdis.SelectedItem == null)
+            {
+                return;
+            }
+            if (pdi_seleccionado.posicionFoto == 0)
+            {
+                pdi_seleccionado.posicionFoto = pdi_seleccionado.RutasFotos.Count-1;
+            }
+            else
+            {
+                pdi_seleccionado.posicionFoto--;
+            }
+            imgPdi.Source = new BitmapImage(pdi_seleccionado.RutasFotos[pdi_seleccionado.posicionFoto]);
         }
     }
 }

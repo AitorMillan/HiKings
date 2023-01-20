@@ -14,7 +14,6 @@ namespace Trabajo_ipo
         public string Tipologia { get; set; }
         public List<Uri> RutasFotos { get; set; } 
         public int posicionFoto { get; set; }
-        public List<Rutas> Rutas_realcionadas { get; set; }
 
         public Pdi(string nombre, string descripcion, string tipologia, List<Uri> rutasFotos)
         {

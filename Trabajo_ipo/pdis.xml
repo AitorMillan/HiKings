@@ -2,22 +2,22 @@
 	<Pdi Nombre="Convento de San Antón" Descripcion="Es uno de los iconos jacobeos al que rodea un halo especial." 
 		 Tipologia="Edificación de interés histórico" RutasFotos="/Imagenes/sanAnton1.jpg,/Imagenes/sanAnton2.jpg,/Imagenes/sanAnton3.jpg" />
 	<Pdi Nombre="Monte do Gozo" Descripcion="Desde aquí, el peregrino divisa por primera vez Santiago de Compostela y las torres de la Catedral, convirtiéndose en un lugar mágico."
-		 Tipologia="Mirador" RutasFotos="/Imagenes/doGozo1,/Imagenes/doGozo2,/Imagenes/doGozo3"/>
+		 Tipologia="Mirador" RutasFotos="/Imagenes/doGozo1.jpg,/Imagenes/doGozo2.jpg,/Imagenes/doGozo3.jpg"/>
 
 	<Pdi Nombre="Cueva de Medrano" Descripcion="Lugar donde se afirma que Miguel de Cervantes comenzó su obra literaria 'El Ingenioso Hidalgo Don Quijote de La Mancha'."
-		 Tipologia="Edificación de interés histórico" RutasFotos="/Imagenes/medrano1,/Imagenes/medrano2,/Imagenes/medrano3"/>
+		 Tipologia="Edificación de interés histórico" RutasFotos="/Imagenes/medrano1.jpg,/Imagenes/medrano2.jpg,/Imagenes/medrano3.jpg"/>
 
 	<Pdi Nombre="Jamilla" Descripcion="Es uno de los lugares que la Orden Militar de Santiago repobló en el Campo de Montiel durante la Edad Media."
-		 Tipologia="Edificación de interés histórico" RutasFotos="/Imagenes/jamilla1,/Imagenes/jamilla2"/>
+		 Tipologia="Edificación de interés histórico" RutasFotos="/Imagenes/jamilla1.jpg,/Imagenes/jamilla2.jpg"/>
 
 	<Pdi Nombre="Isla del Pan" Descripcion ="Circuito que recorre varias islas en la orilla más oriental de Las Tablas."
-		 Tipologia="Área de avistamiento de animales" RutasFotos="/Imagenes/pan1,/Imagenes/pan2"/>
+		 Tipologia="Área de avistamiento de animales" RutasFotos="/Imagenes/pan1.jpg,/Imagenes/pan2.jpg"/>
 
 	<Pdi Nombre="Posada de los Portales" Descripcion="Antigua posada para alojamiento de viajeros y tratantes, se asienta en la Plaza de España, con su puerta principal mirando hacia la Parroquia de la Asunción de Nuestra Señora."
-		 Tipologia="Monumento artistico" RutasFotos="/Imagenes/posada1,/Imagenes/posada2,/Imagenes/posada3"/>
+		 Tipologia="Monumento artistico" RutasFotos="/Imagenes/posada1.jpg,/Imagenes/posada2.jpg,/Imagenes/posada3.jpg"/>
 	<Pdi Nombre="Cuevas de Tomelloso" Descripcion="En torno a 1820 se empezaron a construir bajo las casas de Tomelloso más de 2500 cuevas, utilizadas para hacer y almacenar vino."
-		 Tipologia="Edificación de interés histórico" RutasFotos="/Imagenes/cueva1,/Imagenes/cueva2"/>
+		 Tipologia="Edificación de interés histórico" RutasFotos="/Imagenes/cueva1.jpg,/Imagenes/cueva2.jpg"/>
 
 	<Pdi Nombre="Cerro de las cabezas" Descripcion=" Se trata de una ciudad amurallada, de la que se conservan íntegramente los cimientos de las casas y los zócalos de la muralla exterior, hechos con grandes bloques de piedra que encajan perfectamente unos con otros."
-		 Tipologia="Yacimiento arqueológico" RutasFotos="/Imagenes/cerro1,/Imagenes/cerro2,/Imagenes/cerro3"/>
+		 Tipologia="Yacimiento arqueológico" RutasFotos="/Imagenes/cerro1.jpg,/Imagenes/cerro2.jpg,/Imagenes/cerro3.jpg"/>
 </Pdis>

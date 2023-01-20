@@ -7,17 +7,17 @@
         mc:Ignorable="d"
         Title="VentanaPDIs" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#FFD4E8EE">
-        <Image x:Name="imgPdi" Height="140" Margin="309,45,357,0" VerticalAlignment="Top"/>
+        <Image x:Name="imgPdi" Height="115" Margin="321,64,321,0" VerticalAlignment="Top"/>
         <ListBox x:Name="lstBoxPdis" Margin="37,217,605,48" SelectionChanged="lstBoxPdis_SelectionChanged"/>
-        <Button x:Name="BotonImagenAnterior" HorizontalAlignment="Left" Margin="163,98,0,0" VerticalAlignment="Top" Width="60">
+        <Button x:Name="BotonImagenAnterior" HorizontalAlignment="Left" Margin="163,98,0,0" VerticalAlignment="Top" Width="60" Click="BotonImagenAnterior_Click">
             <Image Source="/Imagenes/flecha_izquierda.png" Height="41" Width="55"/>
         </Button>
-        <Button  x:Name="btnImagenSiguiente" HorizontalAlignment="Left" Margin="538,97,0,291" Width="60">
-            <Image Source="/Imagenes/flecha_derecha.png"/>
+        <Button  x:Name="btnImagenSiguiente" HorizontalAlignment="Left" Margin="538,97,0,0" VerticalAlignment="Top" Width="60" Click="btnImagenSiguiente_Click" Height="46">
+            <Image Source="/Imagenes/flecha_derecha.png" Height="41" Width="55"/>
         </Button>
         <TextBox x:Name="txtBoxNombre" HorizontalAlignment="Left" Margin="304,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtBoxTipo" HorizontalAlignment="Left" Margin="478,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtBoxDescripcion" HorizontalAlignment="Left" Margin="304,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Height="47"/>
+        <TextBox x:Name="txtBoxTipo" HorizontalAlignment="Left" Margin="478,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
+        <TextBox x:Name="txtBoxDescripcion" HorizontalAlignment="Left" Margin="304,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Height="87"/>
         <Label x:Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="304,217,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblTipo" Content="Tipología" HorizontalAlignment="Left" Margin="479,217,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblDescripcion" HorizontalAlignment="Left" Margin="304,289,0,0" VerticalAlignment="Top" Content="Descripción"/>
