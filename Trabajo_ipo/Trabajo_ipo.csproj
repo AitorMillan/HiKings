@@ -63,6 +63,9 @@
     <Compile Include="Guia.cs" />
     <Compile Include="Pdi.cs" />
     <Compile Include="Rutas.cs" />
+    <Compile Include="VentanaAyuda.xaml.cs">
+      <DependentUpon>VentanaAyuda.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaContratar.xaml.cs">
       <DependentUpon>VentanaContratar.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,10 @@
     <Page Include="Templates.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VentanaAyuda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VentanaContratar.xaml">
       <SubType>Designer</SubType>

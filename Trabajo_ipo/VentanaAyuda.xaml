@@ -1,0 +1,103 @@
+﻿<Window x:Class="Trabajo_ipo.VentanaAyuda"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Trabajo_ipo"
+        mc:Ignorable="d"
+        Title="VentanaAyuda" Height="450" Width="800" Background="#FFD4E8EE">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="290*"/>
+            <RowDefinition Height="65*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="483*"/>
+            <ColumnDefinition Width="27*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Background="#2E333A" 
+                    Width="258"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center" Grid.RowSpan="3">
+            <Menu Background="Transparent"
+                  Height="auto"
+                  Width="auto">
+
+                <Menu.ItemsPanel>
+
+                    <ItemsPanelTemplate>
+
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+
+                    </ItemsPanelTemplate>
+
+                </Menu.ItemsPanel>
+
+                <Grid Height="41"
+              Width="258">
+                    <TextBlock Text="HiKings"
+                          
+                       Foreground="#FFFFFF"
+                       FontFamily="Fuentes/#Orbitron Medium"
+                       FontSize="15"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" 
+                       Width="auto" IsEnabled="False"/>
+
+                </Grid>
+
+
+                <MenuItem x:Name="MenuPerfil" Header="Mi Perfil"
+                          Template="{StaticResource Menu_Template}">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_home.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="MenuRutas" Header="Rutas"
+                          Template="{StaticResource Menu_Template}" Padding="20,0,20,0">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_rutas.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="MenuGuias" Header="Guías"
+                          Template="{StaticResource Menu_Template}">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_brujula.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="menuExcursionistas" Header="Excursionistas"
+                          Template="{StaticResource Menu_Template}" Background="#FF8F3232">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_excursionista.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="menuSalir" Header="Salir"
+                          Template="{StaticResource Menu_Template}">
+
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/img_exit.png"
+                               Stretch="None"/>
+                    </MenuItem.Icon>
+
+                </MenuItem>
+
+            </Menu>
+
+        </StackPanel>
+    </Grid>
+</Window>
