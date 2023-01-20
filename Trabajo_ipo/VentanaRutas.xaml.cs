@@ -220,6 +220,7 @@ namespace Trabajo_ipo
             txtboxNumExcursionistas.Text = "";
             txtBoxOrigen.Text = "";
             comboBoxDificultad.Text = "";
+            lstBoxApuntados.Items.Clear();
         }
 
         private void btnEliminarRuta_Click(object sender, RoutedEventArgs e)
@@ -274,6 +275,8 @@ namespace Trabajo_ipo
         {
             VentanaContratar ventana = new VentanaContratar(Gestor.Excursionistas,ruta_seleccionada,Gestor.Guias);
             ventana.Show();
+            lstBoxRutas.SelectedIndex = -1;
+            limpiarTxtBox();
         }
 
         private void btnVerDatosExcursionista_Click(object sender, RoutedEventArgs e)
@@ -334,6 +337,5 @@ namespace Trabajo_ipo
             VentanaPDIs pdis = new VentanaPDIs(ruta_seleccionada.Pdis);
             pdis.Show();
         }
-
     }
 }

@@ -164,20 +164,20 @@
         <Label x:Name="lblExcursionistas" Content="Excursionistas" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Width="134" Grid.Column="5" Grid.Row="2" Foreground="White" FontSize="20" FontFamily="Roboto Light"/>
         <Label x:Name="lblNombre" Content="Nombre" HorizontalContentAlignment="Center" Foreground="White" Grid.Column="8" Grid.Row="3" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
 
-        <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" Grid.Column="10" Grid.Row="3" FontFamily="Roboto Light" FontSize="20" Grid.ColumnSpan="2" Margin="21,0,0,0"/>
+        <TextBox x:Name="txtBoxNombre" ToolTip="Nombre excursionista" TextWrapping="Wrap" Grid.Column="10" Grid.Row="3" FontFamily="Roboto Light" FontSize="20" Grid.ColumnSpan="2" Margin="21,0,0,0"/>
         <Label x:Name="lblApellido" Content="Apellidos" Foreground="White" HorizontalContentAlignment="Center" Grid.Column="8" Grid.Row="5" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtBoxApellido" TextWrapping="Wrap" Grid.Column="10" Margin="21,0,0,0" Grid.Row="5" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtBoxApellido" ToolTip="Apellidos" TextWrapping="Wrap" Grid.Column="10" Margin="21,0,0,0" Grid.Row="5" Grid.ColumnSpan="2"/>
         <Label x:Name="lblEdad" Content="Edad" HorizontalContentAlignment="Center" Foreground="White" Grid.Column="8" Grid.Row="7" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtBoxEdad" Grid.Column="10"  Grid.Row="7" TextWrapping="Wrap" Margin="21,0,0,0" FontSize="20" Text="" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtBoxEdad" ToolTip="Edad excursionista" Grid.Column="10"  Grid.Row="7" TextWrapping="Wrap" Margin="21,0,0,0" FontSize="20" Text="" Grid.ColumnSpan="2"/>
         <Label x:Name="lblTelefono" Content="Teléfono" Foreground="White" HorizontalContentAlignment="Center" Grid.Column="8" Grid.Row="9" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtBoxTelefono" Grid.Column="10" Grid.Row="9" TextWrapping="Wrap" Margin="21,0,0,0" FontSize="20" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtBoxTelefono" ToolTip="Número de teléfono" Grid.Column="10" Grid.Row="9" TextWrapping="Wrap" Margin="21,0,0,0" FontSize="20" Grid.ColumnSpan="2"/>
         <Label x:Name="lblImage" Content="Imágen del usuario" Foreground="White" HorizontalAlignment="Center" Grid.Column="1" Width="0" Grid.RowSpan="2"/>
         <Image x:Name="imgUsuario" Source="/Imagenes/persona_estandar.png" Grid.Column="13" HorizontalAlignment="Left" Height="150" Grid.Row="3" VerticalAlignment="Top" Width="160" Grid.RowSpan="5"/>
         <TextBox x:Name="txtBoxRutaImagen" TextWrapping="Wrap" Text="Ruta de la imagen" Grid.Column="13" Margin="0,32,0,0" Grid.Row="7" Grid.RowSpan="8"/>
         <Button x:Name="btnBuscarImagen" Content="Añadir imagen" Click="btnBuscarImagen_Click" Grid.Column="14" Grid.Row="3" FontSize="11" FontFamily="Roboto Light" Height="20" Width="82" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button x:Name="btnAñadirExcursionista" Grid.Column="5" Content="Añadir Excursionista" Grid.Row="14" Click="btnAñadirExcursionista_Click" FontSize="14" FontFamily="Roboto Light" Grid.RowSpan="2"/>
-        <Button x:Name="btnModificarDatos" Grid.Column="5" Content="Modificar datos" Grid.Row="17" IsEnabled="False" Click="btnModificarDatos_Click" FontSize="14" FontFamily="Roboto Light"/>
-        <Button x:Name="btnEliminarUsuario" Content="Eliminar excursionista" Click="btnEliminarUsuario_Click" IsEnabled="False" Grid.Column="5" Grid.Row="19" FontSize="14" FontFamily="Roboto Light"/>
+        <Button x:Name="btnAñadirExcursionista" ToolTip="Pulsa para añadir" Grid.Column="5" Content="Añadir Excursionista" Grid.Row="14" Click="btnAñadirExcursionista_Click" FontSize="14" FontFamily="Roboto Light" Grid.RowSpan="2"/>
+        <Button x:Name="btnModificarDatos" ToolTip="Pulsa para modificar" Grid.Column="5" Content="Modificar datos" Grid.Row="17" IsEnabled="False" Click="btnModificarDatos_Click" FontSize="14" FontFamily="Roboto Light"/>
+        <Button x:Name="btnEliminarUsuario" ToolTip="Pulsa para eliminar" Content="Eliminar excursionista" Click="btnEliminarUsuario_Click" IsEnabled="False" Grid.Column="5" Grid.Row="19" FontSize="14" FontFamily="Roboto Light"/>
         <Button x:Name="btnEliminarFoto" Grid.Column="14" Content="Eliminar imagen" Height="20" Grid.Row="4" VerticalAlignment="Center" FontFamily="Roboto Light" FontSize="11" Click="btnEliminarFoto_Click" Width="82" HorizontalAlignment="Center"/>
         <Label x:Name="lblRutas" Grid.Column="8" Content="Rutas contratadas por el excursionista" Grid.Row="11" Foreground="White" FontSize="20" Grid.RowSpan="3" Grid.ColumnSpan="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,58,0"/>
         <ListBox x:Name="lstBoxRutas" Grid.Column="8" Grid.Row="15" Grid.ColumnSpan="5" Margin="0,0,58,0" Grid.RowSpan="4"/>

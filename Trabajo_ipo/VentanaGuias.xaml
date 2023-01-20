@@ -163,29 +163,29 @@
         <ListBox x:Name="lstBoxGuias"  SelectionChanged="lstBoxGuias_SelectionChanged" Grid.Column="4"  Grid.Row="3" Margin="0,2,0,0" Grid.ColumnSpan="3" Grid.RowSpan="10" FontFamily="Roboto Light"/>
         <Label x:Name="lblGuias" Content="Guías" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="68" Grid.Column="5" Grid.Row="2" Foreground="White" FontSize="20" FontFamily="Roboto Light"/>
         <Label x:Name="lblNombre" Content="Nombre" HorizontalContentAlignment="Center" Foreground="White" Grid.Column="8" Grid.Row="3" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" Grid.Column="10" Grid.Row="3" FontFamily="Roboto Light" FontSize="20" Grid.ColumnSpan="2" Margin="21,0,0,0"/>
+        <TextBox x:Name="txtBoxNombre" ToolTip="Nombre guía" TextWrapping="Wrap" Grid.Column="10" Grid.Row="3" FontFamily="Roboto Light" FontSize="20" Grid.ColumnSpan="2" Margin="21,0,0,0"/>
         <Label x:Name="lblApellido" Content="Apellidos" HorizontalAlignment="Left" Foreground="White" HorizontalContentAlignment="Center" Width="134" Grid.Column="8" Grid.Row="5" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtBoxApellido" TextWrapping="Wrap" Grid.Column="10" Margin="21,0,0,0" Grid.Row="5" Grid.ColumnSpan="2" FontFamily="Roboto Light"/>
+        <TextBox x:Name="txtBoxApellido" ToolTip="Apellidos guía" TextWrapping="Wrap" Grid.Column="10" Margin="21,0,0,0" Grid.Row="5" Grid.ColumnSpan="2" FontFamily="Roboto Light"/>
         <Label x:Name="lblEmail" Content="Email" HorizontalContentAlignment="Center" Foreground="White" Grid.Column="8" Grid.Row="7" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtBoxEmail" Grid.Column="10"  Grid.Row="7" TextWrapping="Wrap" Margin="21,0,0,0" Text="" Grid.ColumnSpan="2" FontFamily="Roboto Light"/>
+        <TextBox x:Name="txtBoxEmail" ToolTip="Correo electrónico" Grid.Column="10"  Grid.Row="7" TextWrapping="Wrap" Margin="21,0,0,0" Text="" Grid.ColumnSpan="2" FontFamily="Roboto Light"/>
         <Label x:Name="lblTelefono" Content="Teléfono" Foreground="White" HorizontalContentAlignment="Center" Grid.Column="8" Grid.Row="9" FontSize="20" FontFamily="Roboto Light" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtBoxTelefono" Grid.Column="10" Grid.Row="9" TextWrapping="Wrap" Margin="21,0,0,0" FontSize="20" Grid.ColumnSpan="2" FontFamily="Roboto Light"/>
+        <TextBox x:Name="txtBoxTelefono" ToolTip="Número de teléfono" Grid.Column="10" Grid.Row="9" TextWrapping="Wrap" Margin="21,0,0,0" FontSize="20" Grid.ColumnSpan="2" FontFamily="Roboto Light"/>
         <Label x:Name="lblImage" Content="Imágen del usuario" Foreground="White" HorizontalAlignment="Center" Grid.Column="1" Width="0" Grid.RowSpan="2"/>
         <Image x:Name="imgUsuario" Source="/Imagenes/persona_estandar.png" Grid.Column="13" HorizontalAlignment="Left" Height="159" Grid.Row="3" VerticalAlignment="Top" Width="160"  Grid.RowSpan="5"/>
         <TextBox x:Name="txtBoxRutaImagen" TextWrapping="Wrap" Grid.Column="13" Margin="19,27,25,10" Grid.Row="7" Grid.RowSpan="4" Visibility="Hidden" Text="/Imagenes/persona_estandar.png"/>
-        <Button x:Name="btnAñadirIdioma" Content="Añadir idioma" Grid.Column="13" Margin="7,0,7,0" Grid.Row="14" FontSize="14" Grid.RowSpan="2" FontFamily="Roboto Light" Click="btnAñadirIdioma_Click"/>
-        <Button x:Name="btnAñadirGuia" Grid.Column="5" Content="Añadir guía" Grid.Row="13" Click="btnAñadirGuia_Click" FontSize="14" Grid.RowSpan="3" FontFamily="Roboto Light" Margin="0,25,0,0"/>
-        <Button x:Name="btnModificarDatos" Grid.Column="5" Content="Modificar datos" Grid.Row="17" IsEnabled="False" Click="btnModificarDatos_Click" FontSize="14" FontFamily="Roboto Light"/>
-        <Button x:Name="btnEliminarGuia" Content="Eliminar guía" Click="btnEliminarGuia_Click" IsEnabled="False" Grid.Column="5" Grid.Row="19" FontSize="14" FontFamily="Roboto Light"/>
-        <Button x:Name="btnEliminarIdioma" Grid.Column="13" Content="Eliminar idioma" Margin="7,6,7,2" Grid.Row="16" FontFamily="Roboto Light" FontSize="14" Grid.RowSpan="2" IsEnabled="False" Click="btnEliminarIdioma_Click"/>
-        <ListBox x:Name="lstBoxIdiomas" Grid.Column="13" Grid.Row="7" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="5" Margin="0,38,0,0" SelectionChanged="lstBoxIdiomas_SelectionChanged" FontFamily="Roboto Light"/>
+        <Button x:Name="btnAñadirIdioma" ToolTip="Pulsa para añadir idioma" Content="Añadir idioma" Grid.Column="13" Margin="7,0,7,0" Grid.Row="14" FontSize="14" Grid.RowSpan="2" FontFamily="Roboto Light" Click="btnAñadirIdioma_Click"/>
+        <Button x:Name="btnAñadirGuia" ToolTip="Pulsa para añadir" Grid.Column="5" Content="Añadir guía" Grid.Row="13" Click="btnAñadirGuia_Click" FontSize="14" Grid.RowSpan="3" FontFamily="Roboto Light" Margin="0,25,0,0"/>
+        <Button x:Name="btnModificarDatos" ToolTip="Pulsa para modificar" Grid.Column="5" Content="Modificar datos" Grid.Row="17" IsEnabled="False" Click="btnModificarDatos_Click" FontSize="14" FontFamily="Roboto Light"/>
+        <Button x:Name="btnEliminarGuia" ToolTip="Pulsa para eliminar" Content="Eliminar guía" Click="btnEliminarGuia_Click" IsEnabled="False" Grid.Column="5" Grid.Row="19" FontSize="14" FontFamily="Roboto Light"/>
+        <Button x:Name="btnEliminarIdioma" ToolTip="Pulsa para eliminar" Grid.Column="13" Content="Eliminar idioma" Margin="7,6,7,2" Grid.Row="16" FontFamily="Roboto Light" FontSize="14" Grid.RowSpan="2" IsEnabled="False" Click="btnEliminarIdioma_Click"/>
+        <ListBox x:Name="lstBoxIdiomas" ToolTip="Idiomas" Grid.Column="13" Grid.Row="7" Grid.RowSpan="5" Margin="0,38,0,0" SelectionChanged="lstBoxIdiomas_SelectionChanged" FontFamily="Roboto Light"/>
         <Button x:Name="btnBuscarImagen" Grid.Column="14" Content="Añadir imagen" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" FontFamily="Roboto Light" FontSize="11" Width="82" Click="btnBuscarImagen_Click" Height="20"/>
-        <TextBox x:Name="txtBoxIdioma" Grid.Column="13" Grid.Row="12" TextWrapping="Wrap" Grid.RowSpan="2" Margin="0,9,0,9"/>
+        <TextBox x:Name="txtBoxIdioma" ToolTip="Escribe un idioma" Grid.Column="13" Grid.Row="12" TextWrapping="Wrap" Grid.RowSpan="2" Margin="0,9,0,9"/>
         <Button x:Name="btnEliminarFoto" Grid.Column="14" Content="Eliminar imagen" HorizontalAlignment="Center" Height="20" Grid.Row="4" VerticalAlignment="Center" Width="82" FontFamily="Roboto Light" FontSize="11"  Click="btnEliminarFoto_Click"/>
         <Label x:Name="lblRutasGuiadas" Grid.Column="8" Content="Rutas guiadas" Grid.Row="16" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.ColumnSpan="2"  Grid.RowSpan="2"/>
         <ListBox x:Name="lstBoxRutas" Grid.Column="10" Grid.ColumnSpan="3" Grid.Row="14" Margin="21,0,58,0" Grid.RowSpan="5" FontFamily="Roboto Light"/>
         <Label x:Name="lblValoracion" Grid.Column="8" Content="Valoración" FontFamily="Roboto Light" FontSize="20" Foreground="White" Grid.ColumnSpan="2" HorizontalAlignment="Center"  Grid.RowSpan="2" Grid.Row="11"/>
-        <TextBox x:Name="txtBoxValoracion" Grid.Column="10" Grid.ColumnSpan="2" Margin="21,0,0,0" TextWrapping="Wrap" Grid.RowSpan="2" Grid.Row="11" FontSize="20" FontFamily="Roboto Light"/>
+        <TextBox x:Name="txtBoxValoracion" ToolTip="Valoración" Grid.Column="10" Grid.ColumnSpan="2" Margin="21,0,0,0" TextWrapping="Wrap" Grid.RowSpan="2" Grid.Row="11" FontSize="20" FontFamily="Roboto Light"/>
 
     </Grid>
 

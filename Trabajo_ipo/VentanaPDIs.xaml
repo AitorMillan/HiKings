@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="VentanaPDIs" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#FFD4E8EE">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="64*"/>
             <RowDefinition Height="37*"/>
