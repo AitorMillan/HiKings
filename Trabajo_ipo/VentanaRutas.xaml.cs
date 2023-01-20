@@ -329,5 +329,6 @@ namespace Trabajo_ipo
             VentanaPDIs pdis = new VentanaPDIs(ruta_seleccionada.Pdis);
             pdis.Show();
         }
+
     }
 }

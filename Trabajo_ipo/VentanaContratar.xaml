@@ -7,20 +7,43 @@
         mc:Ignorable="d"
         Title="VentanaContratar" Height="450" Width="800" Background="#FFD4E8EE" WindowStartupLocation="CenterScreen">
     <Grid>
-        <ListBox x:Name="lstBoxExcursionistas" Margin="89,109,534,166"/>
-        <Label x:Name="lblExcursionistas" Content="Excursionistas disponibles:" HorizontalAlignment="Left" Margin="103,69,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="277,365,0,0" VerticalAlignment="Top" Height="35" Width="51" Click="btnSalir_Click"/>
-        <Button x:Name="btnContratar" Content="Continuar" HorizontalAlignment="Left" Margin="429,365,0,0" VerticalAlignment="Top" Height="37" IsEnabled="False" Click="btnContratar_Click"/>
-        <ListBox x:Name="lstBoxApuntados" Margin="515,108,136,166"/>
-        <Label x:Name="lblApuntados" Content="Excursionistas apuntados:" HorizontalAlignment="Left" Margin="517,69,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAnadir" HorizontalAlignment="Center" Margin="0,124,0,0" VerticalAlignment="Top" Height="46" Width="60" Click="btnAnadir_Click">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="86*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="51*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="110*"/>
+            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="110*"/>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="119*"/>
+            <ColumnDefinition Width="115*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lstBoxExcursionistas" Grid.RowSpan="5" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,35,0,48"/>
+        <Label x:Name="lblExcursionistas" Content="Excursionistas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Roboto Light" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,86,0,0" Grid.RowSpan="2" FontSize="10"/>
+        <Button x:Name="btnSalir" Content="Salir" Click="btnSalir_Click" Grid.Row="8" Grid.Column="3" FontFamily="Roboto Light"/>
+        <Button x:Name="btnContratar" Content="Continuar" IsEnabled="False" Click="btnContratar_Click" Grid.Column="5" Grid.Row="8" FontFamily="Roboto Light"/>
+        <ListBox x:Name="lstBoxApuntados" Grid.Column="6" Grid.RowSpan="5" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,35,0,48"/>
+        <Label x:Name="lblApuntados" Content="Excursionistas apuntados" Grid.Column="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Roboto Light" Grid.ColumnSpan="2" Margin="0,86,0,0" Grid.RowSpan="2" FontSize="10"/>
+        <Button x:Name="btnAnadir" Click="btnAnadir_Click" Grid.Column="4" Grid.Row="2">
             <Image Source="Imagenes/flecha_derecha.png"/>
         </Button>
-        <Button x:Name="btnEliminar" HorizontalAlignment="Center" Margin="0,209,0,0" VerticalAlignment="Top" Click="btnEliminar_Click">
+        <Button x:Name="btnEliminar" Click="btnEliminar_Click" Grid.Column="4" Grid.Row="4">
             <Image Source="Imagenes/flecha_izquierda.png" Height="45" Width="62"/>
         </Button>
-        <Label x:Name="lblEstado" Content="Se necesitan al menos 4 excursionistas para contratar la ruta" HorizontalAlignment="Center" Margin="0,319,0,0" VerticalAlignment="Top" Foreground="#FFD72222"/>
-        <ListBox x:Name="lstBoxGuias"  Margin="304,107,318,167" Visibility="Hidden" SelectionChanged="lstBoxGuias_SelectionChanged"/>
+        <Label x:Name="lblEstado" Content="Se necesitan al menos 4 excursionistas para contratar la ruta" Foreground="#FFD72222" Grid.Row="6" Grid.Column="2" FontFamily="Roboto Light" Grid.ColumnSpan="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontSize="10"/>
+        <ListBox x:Name="lstBoxGuias"  Margin="20,35,20,48" Visibility="Hidden" SelectionChanged="lstBoxGuias_SelectionChanged" Grid.RowSpan="5" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3"/>
 
     </Grid>
 </Window>
