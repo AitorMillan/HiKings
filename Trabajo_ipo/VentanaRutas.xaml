@@ -212,7 +212,7 @@
             </Button.RenderTransform>
         </Button>
         <Button x:Name="btnIncidencias" Content="Ver incidencias" IsEnabled="False" Click="btnIncidencias_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="12" Margin="360,12,-333,47" Grid.Row="23"/>
-        <Button x:Name="btnPdis" Content="Ver PDIs" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="145" IsEnabled="False" FontFamily="Roboto Light" FontSize="20" Grid.Column="9" Margin="101,23,0,0" Grid.Row="18" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Button x:Name="btnPdis" Content="Ver PDIs" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="145" IsEnabled="False" FontFamily="Roboto Light" FontSize="20" Grid.Column="9" Margin="101,23,0,0" Grid.Row="18" Grid.ColumnSpan="2" Grid.RowSpan="2" Click="btnPdis_Click"/>
         <Label x:Name="lblGuia" Content="Guía de la ruta" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontFamily="Roboto Light" FontSize="20" Grid.Column="10" Grid.Row="3" Height="34" Width="139" Grid.RowSpan="2" Margin="0,33,0,0"/>
         <TextBox x:Name="txtBoxGuia" TextWrapping="Wrap" FontFamily="Roboto Light" FontSize="20" Grid.Column="10" Margin="123,32,140,10" Grid.Row="11" Grid.RowSpan="2"/>
         <Button x:Name="btnInfoGuia" Content="Ver info guía" HorizontalAlignment="Left" VerticalAlignment="Top" Height="21" Width="144" Click="btnInfoGuia_Click" FontFamily="Roboto Light" FontSize="20" Grid.Column="10" Margin="209,12,0,0" Grid.Row="10" Grid.RowSpan="2"/>

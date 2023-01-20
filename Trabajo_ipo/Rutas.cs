@@ -22,7 +22,7 @@ namespace Trabajo_ipo
 
         public Guia Guia { get; set; }
 
-        //Añadir PDIs
+        public List<Pdi> Pdis { get; set; }
 
         public Rutas(string nombre, string origen, string destino, string dificultad, int duracion, string fecha, int num_excursionistas, bool finalizada)
         {
@@ -35,6 +35,7 @@ namespace Trabajo_ipo
             Num_excursionistas = num_excursionistas;
             Finalizada = finalizada;
             Excursionistas_apuntados = new List<Excursionista>();
+            Pdis = new List<Pdi>();
         }
 
         public Rutas(string nombre, string origen, string destino, string dificultad, int duracion, string fecha, int num_excursionistas, bool finalizada, string incidencias, Guia guia)
@@ -50,6 +51,7 @@ namespace Trabajo_ipo
             Incidencias = incidencias;
             Excursionistas_apuntados = new List<Excursionista>();
             Guia = guia;
+            Pdis = new List<Pdi>();
         }
     }
 }

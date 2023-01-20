@@ -323,5 +323,11 @@ namespace Trabajo_ipo
                                                         ruta_seleccionada.Guia.RutaFoto);
             datos_p.Show();
         }
+
+        private void btnPdis_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaPDIs pdis = new VentanaPDIs(ruta_seleccionada.Pdis);
+            pdis.Show();
+        }
     }
 }

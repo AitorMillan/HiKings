@@ -78,6 +78,9 @@
     <Compile Include="VentanaIncidencias.xaml.cs">
       <DependentUpon>VentanaIncidencias.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VentanaPDIs.xaml.cs">
+      <DependentUpon>VentanaPDIs.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaRutas.xaml.cs">
       <DependentUpon>VentanaRutas.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VentanaIncidencias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaPDIs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

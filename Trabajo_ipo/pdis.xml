@@ -11,11 +11,11 @@
 		 Tipologia="Edificación de interés histórico" RutasFotos="/Imagenes/jamilla1,/Imagenes/jamilla2"/>
 
 	<Pdi Nombre="Isla del Pan" Descripcion ="Circuito que recorre varias islas en la orilla más oriental de Las Tablas."
-		 Tipologia="Area de avistamiento de animales" RutasFotos="/Imagenes/pan1,/Imagenes/pan2"/>
+		 Tipologia="Área de avistamiento de animales" RutasFotos="/Imagenes/pan1,/Imagenes/pan2"/>
 
 	<Pdi Nombre="Posada de los Portales" Descripcion="Antigua posada para alojamiento de viajeros y tratantes, se asienta en la Plaza de España, con su puerta principal mirando hacia la Parroquia de la Asunción de Nuestra Señora."
 		 Tipologia="Monumento artistico" RutasFotos="/Imagenes/posada1,/Imagenes/posada2,/Imagenes/posada3"/>
-	<Pdi Nombre="Cuevas de Tomelloso" Descripción="En torno a 1820 se empezaron a construir bajo las casas de Tomelloso más de 2500 cuevas, utilizadas para hacer y almacenar vino."
+	<Pdi Nombre="Cuevas de Tomelloso" Descripcion="En torno a 1820 se empezaron a construir bajo las casas de Tomelloso más de 2500 cuevas, utilizadas para hacer y almacenar vino."
 		 Tipologia="Edificación de interés histórico" RutasFotos="/Imagenes/cueva1,/Imagenes/cueva2"/>
 
 	<Pdi Nombre="Cerro de las cabezas" Descripcion=" Se trata de una ciudad amurallada, de la que se conservan íntegramente los cimientos de las casas y los zócalos de la muralla exterior, hechos con grandes bloques de piedra que encajan perfectamente unos con otros."

@@ -71,33 +71,32 @@ namespace Trabajo_ipo
 
         private void lstBoxExcursionistas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (lstBoxExcursionistas.SelectedItem is null)
+            if (lstBoxExcursionistas.SelectedItem != null)
             {
-                return;
-            }
-            string nombre = lstBoxExcursionistas.SelectedItem.ToString();
-            int posicion = lstBoxExcursionistas.SelectedIndex + 1;
-            int posExcursionista = 0;
-            foreach (Excursionista excursionista in Gestor.Excursionistas)
-            {
-                posExcursionista++;
-                if (excursionista.Nombre == nombre && posExcursionista == posicion)
+                string nombre = lstBoxExcursionistas.SelectedItem.ToString();
+                int posicion = lstBoxExcursionistas.SelectedIndex + 1;
+                int posExcursionista = 0;
+                foreach (Excursionista excursionista in Gestor.Excursionistas)
                 {
-                    txtBoxNombre.Text = nombre;
-                    txtBoxApellido.Text = excursionista.Apellidos;
-                    txtBoxEdad.Text = Convert.ToString(excursionista.Edad);
-                    txtBoxTelefono.Text = Convert.ToString(excursionista.Telefono);
-                    imgUsuario.Source = excursionista.Foto;
-                    txtBoxRutaImagen.Text =Convert.ToString(excursionista.RutaFoto);
-                    btnEliminarUsuario.IsEnabled = true;
-                    btnModificarDatos.IsEnabled = true;
-                    excursionista_seleccionado = excursionista;
-                    lstBoxRutas.Items.Clear();
-                    foreach (Rutas ruta in excursionista.Rutas)
+                    posExcursionista++;
+                    if (excursionista.Nombre == nombre && posExcursionista == posicion)
                     {
-                        lstBoxRutas.Items.Add(ruta.Nombre);
+                        txtBoxNombre.Text = nombre;
+                        txtBoxApellido.Text = excursionista.Apellidos;
+                        txtBoxEdad.Text = Convert.ToString(excursionista.Edad);
+                        txtBoxTelefono.Text = Convert.ToString(excursionista.Telefono);
+                        imgUsuario.Source = excursionista.Foto;
+                        txtBoxRutaImagen.Text = Convert.ToString(excursionista.RutaFoto);
+                        btnEliminarUsuario.IsEnabled = true;
+                        btnModificarDatos.IsEnabled = true;
+                        excursionista_seleccionado = excursionista;
+                        lstBoxRutas.Items.Clear();
+                        foreach (Rutas ruta in excursionista.Rutas)
+                        {
+                            lstBoxRutas.Items.Add(ruta.Nombre);
+                        }
+                        break;
                     }
-                    break;
                 }
             }
         }

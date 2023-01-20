@@ -43,8 +43,34 @@ namespace Trabajo_ipo
             gestor.Guias = leerGuias();
             gestor.Rutas = leerRutas();
         }
+
+        private List<Pdi> leerPdis()
+        {
+            List<Pdi> listado = new List<Pdi>();
+            XmlDocument doc = new XmlDocument();
+            var fichero = Application.GetResourceStream(new Uri("pdis.xml", UriKind.Relative));
+            doc.Load(fichero.Stream);
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                string nombre = node.Attributes["Nombre"].Value;
+                string descripcion = node.Attributes["Descripcion"].Value;
+                string tipologia = node.Attributes["Tipologia"].Value;
+                List<String> ruta_fotos = node.Attributes["RutasFotos"].Value.Split(',').ToList();
+                List<Uri> rutas_fotos = new List<Uri>();
+                foreach (string ruta in ruta_fotos)
+                {
+                    rutas_fotos.Add(new Uri(ruta, UriKind.RelativeOrAbsolute));
+                }
+                Pdi pdi = new Pdi(nombre,descripcion, tipologia, rutas_fotos);
+                listado.Add(pdi);
+
+            }
+            return listado;
+        }
         private List<Rutas> leerRutas()
         {
+            List<Pdi> pdis = leerPdis();
+            int pdi_añadir = 2;
             List<Rutas> listado = new List<Rutas>();
             XmlDocument doc = new XmlDocument();
             var fichero = Application.GetResourceStream(new Uri("rutas.xml", UriKind.Relative));
@@ -73,6 +99,8 @@ namespace Trabajo_ipo
                             break;
                         }
                         ruta.Excursionistas_apuntados.Add(ex);
+                        ruta.Pdis.Add(pdis[0]);
+                        ruta.Pdis.Add(pdis[1]);
                         ex.Rutas.Add(ruta);
                     }
 
@@ -80,6 +108,13 @@ namespace Trabajo_ipo
                 else
                 {
                     ruta = new Rutas(nombre, origen, destino, dificultad, duracion, fecha, num_excursionistas, finalizada);
+                    ruta.Pdis.Add(pdis[pdi_añadir]);
+                    pdi_añadir += 1;
+                    if (pdi_añadir == 6)
+                    {
+                        ruta.Pdis.Add(pdis[pdi_añadir]);
+                        pdi_añadir += 1;
+                    }
                 }
                 listado.Add(ruta);
             }
