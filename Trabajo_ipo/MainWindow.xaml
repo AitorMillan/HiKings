@@ -27,7 +27,7 @@
             <RowDefinition Height="158*"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" x:Name="Menu" Margin="0,0,0,1" Grid.ColumnSpan="5">
-            <MenuItem Header="Ayuda" Height="25"></MenuItem>
+            <MenuItem x:Name="menuAyuda" Header="Ayuda" Height="25" Click="menuAyuda_Click"></MenuItem>
             <MenuItem x:Name="menuAcerca" Header="Acerca de" Height="25" Click="menuAcerca_Click"></MenuItem>
             <MenuItem Header="Salir" Height="25" Click="MenuItem_Click"></MenuItem>
         </Menu>

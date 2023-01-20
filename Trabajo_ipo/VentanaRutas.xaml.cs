@@ -337,5 +337,11 @@ namespace Trabajo_ipo
             VentanaPDIs pdis = new VentanaPDIs(ruta_seleccionada.Pdis);
             pdis.Show();
         }
+
+        private void menuAyuda_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaAyuda ayuda = new VentanaAyuda();
+            ayuda.Show();
+        }
     }
 }

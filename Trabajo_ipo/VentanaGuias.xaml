@@ -124,8 +124,8 @@
                 </MenuItem>
 
 
-                <MenuItem Header="Ayuda"
-                          Template="{StaticResource Menu_Template}">
+                <MenuItem x:Name="menuAyuda" Header="Ayuda"
+                          Template="{StaticResource Menu_Template}" Click="menuAyuda_Click">
 
                     <MenuItem.Icon>
                         <Image Source="Imagenes/img_ayuda.png"

@@ -260,5 +260,11 @@ namespace Trabajo_ipo
                 this.Hide();
             }
         }
+
+        private void menuAyuda_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaAyuda ayuda = new VentanaAyuda();
+            ayuda.Show();
+        }
     }
 }
