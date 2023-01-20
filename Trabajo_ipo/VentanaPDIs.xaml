@@ -7,20 +7,47 @@
         mc:Ignorable="d"
         Title="VentanaPDIs" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#FFD4E8EE">
-        <Image x:Name="imgPdi" Height="115" Margin="321,64,321,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lstBoxPdis" Margin="37,217,605,48" SelectionChanged="lstBoxPdis_SelectionChanged"/>
-        <Button x:Name="BotonImagenAnterior" ToolTip="Volver atrás" HorizontalAlignment="Left" Margin="163,98,0,0" VerticalAlignment="Top" Width="60" Click="BotonImagenAnterior_Click">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="44*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="96*"/>
+            <RowDefinition Height="21*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="171*"/>
+            <ColumnDefinition Width="58*"/>
+            <ColumnDefinition Width="74*"/>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="66*"/>
+            <ColumnDefinition Width="74*"/>
+            <ColumnDefinition Width="58*"/>
+            <ColumnDefinition Width="149*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="imgPdi" Grid.Column="4" Grid.RowSpan="3" Grid.ColumnSpan="3" Grid.Row="1"/>
+        <ListBox x:Name="lstBoxPdis" SelectionChanged="lstBoxPdis_SelectionChanged" Grid.Row="5" Grid.RowSpan="5" Grid.Column="1"/>
+        <Button x:Name="BotonImagenAnterior" Click="BotonImagenAnterior_Click" Grid.Row="2" Grid.Column="2">
             <Image Source="/Imagenes/flecha_izquierda.png" Height="41" Width="55"/>
         </Button>
-        <Button  x:Name="btnImagenSiguiente" ToolTip="Pasar de imagen" HorizontalAlignment="Left" Margin="538,97,0,0" VerticalAlignment="Top" Width="60" Click="btnImagenSiguiente_Click" Height="46">
+        <Button  x:Name="btnImagenSiguiente" Click="btnImagenSiguiente_Click" Grid.Column="8" Grid.Row="2">
             <Image Source="/Imagenes/flecha_derecha.png" Height="41" Width="55"/>
         </Button>
-        <TextBox x:Name="txtBoxNombre" HorizontalAlignment="Left" Margin="304,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtBoxTipo" HorizontalAlignment="Left" Margin="478,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
-        <TextBox x:Name="txtBoxDescripcion" HorizontalAlignment="Left" Margin="304,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Height="87"/>
-        <Label x:Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="304,217,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblTipo" Content="Tipología" HorizontalAlignment="Left" Margin="479,217,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblDescripcion" HorizontalAlignment="Left" Margin="304,289,0,0" VerticalAlignment="Top" Content="Descripción"/>
+        <TextBox x:Name="txtBoxNombre" TextWrapping="Wrap" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtBoxTipo"  TextWrapping="Wrap" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="6"/>
+        <TextBox x:Name="txtBoxDescripcion" TextWrapping="Wrap" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="6" Margin="0,32,2,0" Grid.RowSpan="2"/>
+        <Label x:Name="lblNombre" Content="Nombre" Grid.Column="3" Grid.Row="5" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblTipo" Content="Tipología" Grid.Column="6" Grid.Row="5" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblDescripcion"  Content="Descripción" Grid.Column="3" Grid.Row="8" FontFamily="Roboto Light" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblPdi" Content="Puntos de interés" Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Roboto Light" Grid.Column="1"/>
 
     </Grid>
 </Window>
